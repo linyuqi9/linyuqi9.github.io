@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>V&amp;N CTF2021 misc 简要复现 | 雨霖铃</title>
+    <meta name="author" content="R4iny13lueB311" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="当时懒得折腾。主要是口腔溃疡加上下雨，基金暴跌，心情不是很好。加上各种压力感觉有点力不从心了，也少了以前学习的那份冲劲。颓废。冰冰好像藏着秘密损坏的压缩包一枚，修复解压得FFT.png看图片名应该就是要傅里叶变换取得盲水印了吧，不过一开始没注意就扔进自动机里爆了，出来了个假flag，交上去wa了就没管了。理解并抄下FFT脚本1234567891011121314import cv2 as cv #opencv库，对图像处理必备import numpy as np #numpy库，同样import" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="雨霖铃" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">雨霖铃</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/front-end">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/back-end">
+                <span class="nav-text">后端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/atom.xml">
+                <span class="nav-text">订阅</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://ayanagi.fun"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%B0%E5%86%B0%E5%A5%BD%E5%83%8F%E8%97%8F%E7%9D%80%E7%A7%98%E5%AF%86"><span class="toc-number">1.</span> <span class="toc-text">冰冰好像藏着秘密</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Do-you-like-Rhythm-Doctor"><span class="toc-number">2.</span> <span class="toc-text">Do_you_like_Rhythm_Doctor</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#interesting-fishing"><span class="toc-number">3.</span> <span class="toc-text">interesting_fishing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HAPPYNEWYEAR"><span class="toc-number">4.</span> <span class="toc-text">HAPPYNEWYEAR</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            V&amp;N CTF2021 misc 简要复现
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://ayanagi.fun/2021/03/17/VNCTF2021/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-03-17T06:19:41.000Z" itemprop="datePublished">2021-03-17</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>当时懒得折腾。主要是口腔溃疡加上下雨，基金暴跌，心情不是很好。加上各种压力感觉有点力不从心了，也少了以前学习的那份冲劲。<br>颓废。</p>
+<h1 id="冰冰好像藏着秘密"><a href="#冰冰好像藏着秘密" class="headerlink" title="冰冰好像藏着秘密"></a>冰冰好像藏着秘密</h1><p>损坏的压缩包一枚，修复解压得<code>FFT.png</code>看图片名应该就是要傅里叶变换取得盲水印了吧，不过一开始没注意就扔进自动机里爆了，出来了个假flag，交上去wa了就没管了。<br>理解并抄下FFT脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2 <span class="keyword">as</span> cv <span class="comment">#opencv库，对图像处理必备</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment">#numpy库，同样</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment">#matplotlib库，作图必备</span></span><br><span class="line">img = cv.imread(<span class="string">&#x27;FFT.png&#x27;</span>, <span class="number">0</span>) <span class="comment">#右键查看图片的时候可以发现只有8位深，直接读为灰度图像</span></span><br><span class="line">f = np.fft.fft2(img) <span class="comment">#做频率变换</span></span><br><span class="line">fshift = np.fft.fftshift(f) <span class="comment">#转移像素做幅度谱</span></span><br><span class="line">s1 = np.log(np.<span class="built_in">abs</span>(fshift))<span class="comment">#取绝对值：将复数变化成实数取对数的⽬的为了将数据变化到0-255</span></span><br><span class="line">plt.subplot(<span class="number">121</span>)</span><br><span class="line">plt.imshow(img, <span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;original&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">122</span>)</span><br><span class="line">plt.imshow(s1,<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;center&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://ayanagi.fun/post-images/1616130338869.png"></p>
+<h1 id="Do-you-like-Rhythm-Doctor"><a href="#Do-you-like-Rhythm-Doctor" class="headerlink" title="Do_you_like_Rhythm_Doctor"></a>Do_you_like_Rhythm_Doctor</h1><p>使用节奏医生编辑器打开文件，节拍分为矩形波形，猜测01组合，一行一行进行，抄下节拍内容二进制转字符<br><code>flag&#123;W31come_V&amp;N_CTF&#125;</code></p>
+<h1 id="interesting-fishing"><a href="#interesting-fishing" class="headerlink" title="interesting_fishing"></a>interesting_fishing</h1><p>套娃蛮多的，主要学习到的知识是eml文件相关、RTF下的unicode编码。<br>把bin改为eml，用的是foxmail打开得到图片和压缩包。取得两个文件，图片扔oursecret得到第二部分flag，<br>压缩包解压，查看工程文件，发现假flag，生成文件后报错发现powershell命令执行，去找Browse.VC.db，文件夹选项里把隐藏文件显示打开，在<code>\giveyourflag\giveyourflag\x64\Debug</code>目录下可以看到<code>Browse.VC.db</code>文件，记事本打开，将里面的b64串解密，得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\u-65432?\u-65420?\u-65420?\u-65424?\u-65421?\u-65478?\u-65489?\u-65489?\u-65418?\u-65426?\u-65437?\u-65420?\u-65434?\u-65491?\u-65486?\u-65487?\u-65485?\u-65491?\u-65487?\u-65486?\u-65483?\u-65481?\u-65488?\u-65482?\u-65487?\u-65487?\u-65486?\u-65485?\u-65490?\u-65437?\u-65425?\u-65421?\u-65490?\u-65439?\u-65424?\u-65491?\u-65426?\u-65439?\u-65426?\u-65430?\u-65431?\u-65426?\u-65433?\u-65490?\u-65427?\u-65415?\u-65423?\u-65437?\u-65428?\u-65425?\u-65419?\u-65436?\u-65490?\u-65437?\u-65425?\u-65427?\u-65489?\u-65456?\u-65415?\u-65425?\u-65426?\u-65433?\u-65415?\u-65439?\u-65426?\u-65433?\u-65499?\u-65486?\u-65488?\u-65421?\u-65420?\u-65425?\u-65422?\u-65435?\u-65421?\u-65499?\u-65486?\u-65488?\u-65428?\u-65425?\u-65417?\u-65499?\u-65486?\u-65488?\u-65425?\u-65426?\u-65499?\u-65486?\u-65488?\u-65434?\u-65425?\u-65422?\u-65435?\u-65431?\u-65433?\u-65426?\u-65499?\u-65486?\u-65488?\u-65433?\u-65425?\u-65425?\u-65436?\u-65421?\u-65499?\u-65486?\u-65488?\u-65439?\u-65427?\u-65431?\u-65436?\u-65499?\u-65486?\u-65488?\u-65458?\u-65425?\u-65422?\u-65420?\u-65432?\u-65499?\u-65486?\u-65488?\u-65461?\u-65425?\u-65422?\u-65435?\u-65439?\u-65426?\u-65499?\u-65486?\u-65488?\u-65469?\u-65457?\u-65450?\u-65463?\u-65468?\u-65491?\u-65487?\u-65479?\u-65499?\u-65486?\u-65488?\u-65424?\u-65439?\u-65422?\u-65439?\u-65426?\u-65425?\u-65431?\u-65439?\u-65490?\u-65422?\u-65439?\u-65422?</span><br></pre></td></tr></table></figure>
+<p>这是RTF格式下的unicode编码，原理是RTF格式中使⽤\uN?表示⼀个unciode字符。\u后跟⼀个带符号的16位⼗进制整数值接⼀个占位符，⽤？表示。N⼤于32767的话，则表示为负数。解混淆示例如下：<br><code>L&quot;h&quot; == 0x0068 == -(-0x0068) == -(0xFFFF+1-0x68) == -65432=\u-65432?</code><br>按照规则转换数据得到一个rar的URL，下载打开右边提示4位数字，rar5压缩方式，使用hashcat或者Accent RAR Password Recovery都可以。<br>解压出一个docx，直接改后缀解压，敏感文件hideinfo.xml，winhex看到0宽，记事本复制出来解。<br><code>vnctf&#123;APT_1S_c0M1nG_fr0m_l@z@RuS&#125;</code></p>
+<h1 id="HAPPYNEWYEAR"><a href="#HAPPYNEWYEAR" class="headerlink" title="HAPPYNEWYEAR"></a>HAPPYNEWYEAR</h1><p>chinese code和谢赫语言密码的编码，使用在线编码全家桶<a target="_blank" rel="noopener" href="https://www.dcode.fr/zh-CN">https://www.dcode.fr/zh-CN</a><br>解压得到happynewyear.png，stegpy爆破一把梭，用的是L1师傅做的脚本<br><a target="_blank" rel="noopener" href="https://github.com/L1near/CTFpics-1/blob/master/webpsteg.py">https://github.com/L1near/CTFpics-1/blob/master/webpsteg.py</a><br><code>VNCTF&#123;HappyNewY3a5&#125;</code></p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "8db4b4a89548994388e9",
+        clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
+        repo: "ayanagi.github.io",
+        owner: "linyuqi9",
+        admin: ["linyuqi9"],
+        id: "0b796595ed25bc150670491a912f5439",
+        distractionFreeMode: true,
+        title: "V&N CTF2021 misc 简要复现",
+        body: "https://ayanagi.fun/2021/03/17/VNCTF2021/",
+        labels: ["CTF"]
+    }).render('comments');
+    </script>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+            
+            <a id="pagenext" href="/2021/03/14/ACTF2021/" class="article-next" title="ACTF2021Misc 复现&amp;wp"><i class="icon-arrow-right"></i></a>
+            
+            
+            <a id="pageprev" href="/2021/05/06/cstc2021/" class="article-prev" title="2021第六届全国网络空间安全大赛 misc wp"><i class="icon-arrow-left"></i></a>
+            
+        
+
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3f0e368eb1f22fb5a593be6193301ba9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle('normal', slideDone);
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp('normal', slideDone);
+            }, 3000);
+        }
+
+        function slideDone() {
+            if (nodes.navInner.css('display') !== 'none') {
+                nodes.navInner.css('display', '');
+            }
+        }
+
+        $(window).on('resize', function() {
+            if ($(this).width() > 960) {
+                nodes.navInner.css('display', '');
+            }
+        });
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>2021第六届全国网络空间安全大赛 misc wp | 雨霖铃</title>
+    <meta name="author" content="R4iny13lueB311" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="流量分析是一血，感觉还不错，有些题目有些比较抖机灵的部分吧。RGB附件code.txt，打开是图片的RGB值，稍微修改一下数据令其为R,G,B形式的格式，看了一下有28864行，分解一下，第一次试的是164*176，出来一个乱图，那么换一下xy，脚本如下1234567891011121314151617from PIL import Imagex = 176    y = 164    im = Image.new(&amp;quot;RGB&amp;quot;, (x, y))   file = open(&amp;" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="雨霖铃" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">雨霖铃</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/front-end">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/back-end">
+                <span class="nav-text">后端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/atom.xml">
+                <span class="nav-text">订阅</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://ayanagi.fun"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RGB"><span class="toc-number">1.</span> <span class="toc-text">RGB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zip"><span class="toc-number">2.</span> <span class="toc-text">zip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memory-1"><span class="toc-number">3.</span> <span class="toc-text">Memory_1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memory-2"><span class="toc-number">4.</span> <span class="toc-text">Memory_2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Slowloris"><span class="toc-number">5.</span> <span class="toc-text">Slowloris</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pack-pack-pack"><span class="toc-number">6.</span> <span class="toc-text">pack!pack!pack!</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            2021第六届全国网络空间安全大赛 misc wp
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://ayanagi.fun/2023/12/14/2021%E7%AC%AC%E5%85%AD%E5%B1%8A%E5%85%A8%E5%9B%BD%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-misc-wp/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>流量分析是一血，感觉还不错，有些题目有些比较抖机灵的部分吧。</p>
+<h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><p>附件<code>code.txt</code>，打开是图片的RGB值，稍微修改一下数据令其为<code>R,G,B</code>形式的格式，看了一下有28864行，分解一下，第一次试的是164*176，出来一个乱图，那么换一下xy，脚本如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">x = <span class="number">176</span>    </span><br><span class="line">y = <span class="number">164</span>    </span><br><span class="line"></span><br><span class="line">im = Image.new(<span class="string">&quot;RGB&quot;</span>, (x, y))   </span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&#x27;code.txt&#x27;</span>)    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, x):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, y):</span><br><span class="line">        line = file.readline()  </span><br><span class="line">        rgb = line.split(<span class="string">&quot;,&quot;</span>)  </span><br><span class="line">        im.putpixel((i, j), (<span class="built_in">int</span>(rgb[<span class="number">0</span>]), <span class="built_in">int</span>(rgb[<span class="number">1</span>]), <span class="built_in">int</span>(rgb[<span class="number">2</span>])))  </span><br><span class="line"></span><br><span class="line">im.show()</span><br></pre></td></tr></table></figure>
+
+<p>得到的flag保存为图片，扔进imagemagick里flop一下</p>
+<p><code>flag&#123;c1d836d1db9d42dd&#125;</code></p>
+<h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><p>爆破，一开始没做出来，先后采用了1-8位纯数字和1-8位大写字母和数字组合，没有尝试小写字母数字组合，后来再试得到密码<code>ff123</code>，解压得到txt文件和加密的文档，txt文件内容得知考点应该是0宽和培根，培根解得文档密码<code>xyj</code>，打开文档复制全部内容解密，发现并不是0宽，在文档里全选修改字体颜色为红色发现flag。<code>flag&#123;cbfacb9df0c7caf9a2b8a8ffbd72d1a0&#125;</code></p>
+<h2 id="Memory-1"><a href="#Memory-1" class="headerlink" title="Memory_1"></a>Memory_1</h2><p>附件<code>val.vmem</code>，在<code>volatility</code>里查看信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f val.vmem imageinfo</span><br></pre></td></tr></table></figure>
+
+<p>Win7SP1x64系统，先看一下pslist，发现一个cscript.exe比较可疑，猜测是文件名，拿去md5提交错误，那么查看cmdline，发现<code>Command line : cscript &quot;C:\Windows\TEMP\UEAOGWBdwyydm.vbs&quot;</code></p>
+<p>那么病毒文件应该就是<code>UEAOGWBdwyydm.vbs</code>了</p>
+<p><code>flag&#123;24060da3d327991115a96e7099da25c3&#125;</code></p>
+<h2 id="Memory-2"><a href="#Memory-2" class="headerlink" title="Memory_2"></a>Memory_2</h2><p>hashdump查看用户列表，有一个<code>test$</code>，带$的就是隐藏用户，作为flag的md5的前半段，另一个是来源进程，那么就需要知道什么进程使其添加账号。使用psscan查看隐藏起来的进程，多了比较可疑的<code>net1.exe</code>、</p>
+<p><code>KiiKCuSco.exe</code>，分别尝试，发现前者正确。</p>
+<p><code>flag&#123;45321c07f425d915c55424957353dd07&#125;</code></p>
+<h2 id="Slowloris"><a href="#Slowloris" class="headerlink" title="Slowloris"></a>Slowloris</h2><p>流量分析，wireshark打开，搜索http和POST字符串，寻找POST请求包追踪HTTP，导出对象为HTTP，没发现什么，搜索题目Slowloris得知为slowloris拒绝服务攻击，看到许多GET包头只有一个CLRF，证实了这一点,并且GET包的destination都是<code>195.8.178.227</code>。那么攻击方式就是slowloris了，这里运气比较不错，s取了小写，<code>slowloris/195.8.178.227</code>的md5值就是flag</p>
+<p><code>flag&#123;3fc9d4a929cb690728d2b76c76483abe&#125;</code></p>
+<h2 id="pack-pack-pack"><a href="#pack-pack-pack" class="headerlink" title="pack!pack!pack!"></a>pack!pack!pack!</h2><p>exe文件，双击打开提示缺少dll，到网上下了一个dll，打开没什么东西。扔进<code>exeinfope</code>发现有upx壳，在kali下脱壳报错，搜索错误信息，获得upxf工具修复文件后再次脱壳，成功，在kali下直接打开脱壳后的exe归档文件，结合题目的resource描述，进入.rsrc文件夹发现<code>string.txt</code>，拖出来得到flag的前半部分<code>flag&#123;0bed66d154ccbdd0</code>，其他文件夹再浏览一下发现一个比较可疑的<code>138.bmp</code>，扔进winhex发现最后面有base64串<code>N2E2MzQyYWJmOTdhNWNmY30=</code>，解得<code>7a6342abf97a5cfc&#125;</code>组合起来得到完整的flag</p>
+<p><code>flag&#123;0bed66d154ccbdd07a6342abf97a5cfc&#125;</code></p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "8db4b4a89548994388e9",
+        clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
+        repo: "ayanagi.github.io",
+        owner: "linyuqi9",
+        admin: ["linyuqi9"],
+        id: "ab21febf79ca2dbc714f616df7590d90",
+        distractionFreeMode: true,
+        title: "2021第六届全国网络空间安全大赛 misc wp",
+        body: "https://ayanagi.fun/2023/12/14/2021%E7%AC%AC%E5%85%AD%E5%B1%8A%E5%85%A8%E5%9B%BD%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-misc-wp/",
+        labels: []
+    }).render('comments');
+    </script>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+            
+            <a id="pagenext" href="/2023/12/14/ACTF2021Misc-%E5%A4%8D%E7%8E%B0-wp/" class="article-next" title="ACTF2021Misc 复现&amp;wp"><i class="icon-arrow-right"></i></a>
+            
+            
+            <a id="pageprev" href="/2023/12/14/2020%E7%BA%B5%E6%A8%AA%E6%9D%AF-Misc-wp-%E5%A4%8D%E7%8E%B0/" class="article-prev" title="2020纵横杯 Misc wp+复现"><i class="icon-arrow-left"></i></a>
+            
+        
+
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3f0e368eb1f22fb5a593be6193301ba9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle('normal', slideDone);
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp('normal', slideDone);
+            }, 3000);
+        }
+
+        function slideDone() {
+            if (nodes.navInner.css('display') !== 'none') {
+                nodes.navInner.css('display', '');
+            }
+        }
+
+        $(window).on('resize', function() {
+            if ($(this).width() > 960) {
+                nodes.navInner.css('display', '');
+            }
+        });
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

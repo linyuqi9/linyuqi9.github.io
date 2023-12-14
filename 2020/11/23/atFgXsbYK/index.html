@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>misc一些环境的配置问题 | 雨霖铃</title>
+    <meta name="author" content="R4iny13lueB311" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="等我misc再强一点就去学逆向，占坑。龟速更新中.配环境其实没啥好说的,遇到啥题目照着配就是了,或者复现的时候跟着补齐,以后还会有cmake方式配一些比较刁钻的工具,比如之前roar的无线电流量分析工具,等我学会就写上来.其实很多工具一些ctf群里也会提供.并没有那么多的必要特地去配.文件篇winhexhttps://www.52pojie.cn/thread-1252078-1-1.html010editorhttp://www.pc6.com/softview/SoftView_55129." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="雨霖铃" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">雨霖铃</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/front-end">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/back-end">
+                <span class="nav-text">后端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/atom.xml">
+                <span class="nav-text">订阅</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://ayanagi.fun"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%AF%87"><span class="toc-number">1.</span> <span class="toc-text">文件篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#winhex"><span class="toc-number">1.1.</span> <span class="toc-text">winhex</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010editor"><span class="toc-number">1.2.</span> <span class="toc-text">010editor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#oursecret"><span class="toc-number">1.3.</span> <span class="toc-text">oursecret</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AlternateStreamView"><span class="toc-number">1.4.</span> <span class="toc-text">AlternateStreamView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#silent-eye"><span class="toc-number">1.5.</span> <span class="toc-text">silent eye</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E7%AF%87"><span class="toc-number">2.</span> <span class="toc-text">图片篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#stegsolve"><span class="toc-number">2.1.</span> <span class="toc-text">stegsolve</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stegdetect"><span class="toc-number">2.2.</span> <span class="toc-text">stegdetect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#outguess"><span class="toc-number">2.3.</span> <span class="toc-text">outguess</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stegpy"><span class="toc-number">2.4.</span> <span class="toc-text">stegpy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zsteg"><span class="toc-number">2.5.</span> <span class="toc-text">zsteg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lsb"><span class="toc-number">2.6.</span> <span class="toc-text">lsb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F5%E9%9A%90%E5%86%99"><span class="toc-number">2.7.</span> <span class="toc-text">F5隐写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gaps%E6%8B%BC%E5%9B%BE"><span class="toc-number">2.8.</span> <span class="toc-text">gaps拼图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B2%E6%B0%B4%E5%8D%B0BlindWater-Mark"><span class="toc-number">3.</span> <span class="toc-text">盲水印BlindWater-Mark</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E5%8C%85%E7%AF%87"><span class="toc-number">4.</span> <span class="toc-text">压缩包篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#archpr"><span class="toc-number">4.1.</span> <span class="toc-text">archpr</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E7%BC%96%E7%A0%81%E7%AF%87"><span class="toc-number">5.</span> <span class="toc-text">字符串、编码篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jpk"><span class="toc-number">5.1.</span> <span class="toc-text">jpk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cyberchef"><span class="toc-number">5.2.</span> <span class="toc-text">cyberchef</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90%E7%AF%87"><span class="toc-number">6.</span> <span class="toc-text">流量分析篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#wireshark"><span class="toc-number">6.1.</span> <span class="toc-text">wireshark</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E7%AF%87"><span class="toc-number">7.</span> <span class="toc-text">音频篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#audacity"><span class="toc-number">7.1.</span> <span class="toc-text">audacity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deepsound"><span class="toc-number">7.2.</span> <span class="toc-text">deepsound</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kali%E7%AF%87"><span class="toc-number">8.</span> <span class="toc-text">kali篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86pip%E6%B0%B8%E4%B9%85%E6%9B%B4%E6%8D%A2%E6%88%90%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">8.1.</span> <span class="toc-text">将pip永久更换成国内源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-clone%E6%BA%90%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E7%AB%99"><span class="toc-number">8.2.</span> <span class="toc-text">git clone源使用国内镜像站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Volatility"><span class="toc-number">8.3.</span> <span class="toc-text">Volatility</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            misc一些环境的配置问题
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://ayanagi.fun/2020/11/23/atFgXsbYK/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2020-11-23T06:54:06.000Z" itemprop="datePublished">2020-11-23</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>等我misc再强一点就去学逆向，占坑。龟速更新中.<br>配环境其实没啥好说的,遇到啥题目照着配就是了,或者复现的时候跟着补齐,以后还会有cmake方式配一些比较刁钻的工具,比如之前roar的无线电流量分析工具,等我学会就写上来.<br>其实很多工具一些ctf群里也会提供.并没有那么多的必要特地去配.</p>
+<h1 id="文件篇"><a href="#文件篇" class="headerlink" title="文件篇"></a>文件篇</h1><h2 id="winhex"><a href="#winhex" class="headerlink" title="winhex"></a>winhex</h2><p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1252078-1-1.html">https://www.52pojie.cn/thread-1252078-1-1.html</a></p>
+<h2 id="010editor"><a href="#010editor" class="headerlink" title="010editor"></a>010editor</h2><p><a target="_blank" rel="noopener" href="http://www.pc6.com/softview/SoftView_55129.html">http://www.pc6.com/softview/SoftView_55129.html</a><br>记得点普通下载地址避免捆绑安装垃圾</p>
+<h2 id="oursecret"><a href="#oursecret" class="headerlink" title="oursecret"></a>oursecret</h2><p><a target="_blank" rel="noopener" href="http://www.uzzf.com/soft/68820.html">http://www.uzzf.com/soft/68820.html</a><br>记得点普通下载地址避免捆绑安装垃圾</p>
+<h2 id="AlternateStreamView"><a href="#AlternateStreamView" class="headerlink" title="AlternateStreamView"></a>AlternateStreamView</h2><p>ctfshow群文件自行下载</p>
+<h2 id="silent-eye"><a href="#silent-eye" class="headerlink" title="silent eye"></a>silent eye</h2><p><a target="_blank" rel="noopener" href="http://www.opdown.com/soft/88597.html">http://www.opdown.com/soft/88597.html</a><br>普通下载</p>
+<h1 id="图片篇"><a href="#图片篇" class="headerlink" title="图片篇"></a>图片篇</h1><h2 id="stegsolve"><a href="#stegsolve" class="headerlink" title="stegsolve"></a>stegsolve</h2><p><a target="_blank" rel="noopener" href="http://www.ddooo.com/softdown/122537.htm">http://www.ddooo.com/softdown/122537.htm</a><br>记得点普通下载地址避免捆绑安装垃圾</p>
+<h2 id="stegdetect"><a href="#stegdetect" class="headerlink" title="stegdetect"></a>stegdetect</h2><p>ctfshow群文件自行下载(超不负责任的)</p>
+<h2 id="outguess"><a href="#outguess" class="headerlink" title="outguess"></a>outguess</h2><p>kali下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com.cnpmjs.org/crorvick/outguess</span><br></pre></td></tr></table></figure>
+<p>然后在outguess文件夹下打开终端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h2 id="stegpy"><a href="#stegpy" class="headerlink" title="stegpy"></a>stegpy</h2><p>kali下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install stegpy</span><br></pre></td></tr></table></figure>
+<h2 id="zsteg"><a href="#zsteg" class="headerlink" title="zsteg"></a>zsteg</h2><p>安装zsteg需要使用gem命令，所以首先更换rubygems源。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gem sources --remove https://rubygems.org/</span><br><span class="line">gem sources --add https://gems.ruby-china.com/</span><br><span class="line">gem sources -l</span><br></pre></td></tr></table></figure>
+<p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zed-0xff/zsteg</span><br><span class="line">cd zsteg/</span><br><span class="line">gem install zsteg</span><br></pre></td></tr></table></figure>
+<h2 id="lsb"><a href="#lsb" class="headerlink" title="lsb"></a>lsb</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/livz/cloacked-pixel</span><br></pre></td></tr></table></figure>
+<h2 id="F5隐写"><a href="#F5隐写" class="headerlink" title="F5隐写"></a>F5隐写</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/matthewgao/F5-steganography</span><br></pre></td></tr></table></figure>
+<h2 id="gaps拼图"><a href="#gaps拼图" class="headerlink" title="gaps拼图"></a>gaps拼图</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/nemanja-m/gaps.git</span><br><span class="line">cd gaps</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">apt-get install python-tk</span><br><span class="line">pip install -e .</span><br></pre></td></tr></table></figure>
+<p>这里说一下，python-tk如果你有使用过cloacked-pixel脚本的话是已经装好了的，不过再输一次安装指令也无所谓。</p>
+<h1 id="盲水印BlindWater-Mark"><a href="#盲水印BlindWater-Mark" class="headerlink" title="盲水印BlindWater-Mark"></a>盲水印BlindWater-Mark</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com.cnpmjs.org/chishaxie/BlindWaterMark</span><br></pre></td></tr></table></figure>
+<h1 id="压缩包篇"><a href="#压缩包篇" class="headerlink" title="压缩包篇"></a>压缩包篇</h1><h2 id="archpr"><a href="#archpr" class="headerlink" title="archpr"></a>archpr</h2><p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-467392-1-1.html">https://www.52pojie.cn/thread-467392-1-1.html</a></p>
+<h1 id="字符串、编码篇"><a href="#字符串、编码篇" class="headerlink" title="字符串、编码篇"></a>字符串、编码篇</h1><h2 id="jpk"><a href="#jpk" class="headerlink" title="jpk"></a>jpk</h2><p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/forum.php?mod=viewthread&tid=555950">https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=555950</a></p>
+<h2 id="cyberchef"><a href="#cyberchef" class="headerlink" title="cyberchef"></a>cyberchef</h2><p>涵盖太多的神器。<br><a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></p>
+<h1 id="流量分析篇"><a href="#流量分析篇" class="headerlink" title="流量分析篇"></a>流量分析篇</h1><h2 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h2><p>应该是收费的,故下盗版<br><a target="_blank" rel="noopener" href="http://www.pc6.com/softview/SoftView_38486.html">http://www.pc6.com/softview/SoftView_38486.html</a><br>记得点普通下载地址避免捆绑安装垃圾</p>
+<h1 id="音频篇"><a href="#音频篇" class="headerlink" title="音频篇"></a>音频篇</h1><h2 id="audacity"><a href="#audacity" class="headerlink" title="audacity"></a>audacity</h2><p><a target="_blank" rel="noopener" href="https://www.audacityteam.org/">https://www.audacityteam.org/</a></p>
+<h2 id="deepsound"><a href="#deepsound" class="headerlink" title="deepsound"></a>deepsound</h2><p><a target="_blank" rel="noopener" href="https://maddownload.com/audio-video/audio-editors/deepsound/download/">https://maddownload.com/audio-video/audio-editors/deepsound/download/</a></p>
+<h1 id="kali篇"><a href="#kali篇" class="headerlink" title="kali篇"></a>kali篇</h1><p>主要介绍基础的kali大环境配置，比如python及各种包的安装。<br>首先是vmware.<br><a target="_blank" rel="noopener" href="https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html">https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html</a><br>照着流程走就行,下好kali的镜像之后创建虚拟机我使用的是Debian10.x 64bit.<br>amd用户记得开启虚拟化.<br>其次是kali的镜像<br><a target="_blank" rel="noopener" href="https://www.kali.org/downloads/">https://www.kali.org/downloads/</a><br>下载Kali Linux 64-bit (Installer) 即可,鉴于速度实在太慢,也懒得找国内的镜像,直接下载旁边的Torrent使用迅雷云盘上传+取回的方式满速下载.需要开通迅雷VIP,或者使用其他BT下载软件(我反正是没用过,反正环境这玩意一次性安装折腾一下也没什么大不了)</p>
+<h2 id="将pip永久更换成国内源"><a href="#将pip永久更换成国内源" class="headerlink" title="将pip永久更换成国内源"></a>将pip永久更换成国内源</h2><p>由于kali里使用代理比较麻烦，pip的原始来源是非常慢的，故采用国内源来获取python的包。<br>操作如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">mkdir .pip</span><br><span class="line">cd .pip</span><br><span class="line">vim pip.conf</span><br></pre></td></tr></table></figure>
+<p>终端界面会变得稍微有些不一样，然后复制如下内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url=http://pypi.douban.com/simple</span><br><span class="line">trusted-host = pypi.douban.com </span><br></pre></td></tr></table></figure>
+<p>使用ctrl+shift+v原地粘贴，之后按下大写锁定，输入<code>ZZ</code>，完成。</p>
+<h2 id="git-clone源使用国内镜像站"><a href="#git-clone源使用国内镜像站" class="headerlink" title="git clone源使用国内镜像站"></a>git clone源使用国内镜像站</h2><p>在clone某个项目的时候的github.com更换成github.com.cnpmjs.org<br>例如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/beurtschipper/Depix</span><br></pre></td></tr></table></figure>
+<p>我们改用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com.cnpmjs.org/beurtschipper/Depix</span><br></pre></td></tr></table></figure>
+<h2 id="Volatility"><a href="#Volatility" class="headerlink" title="Volatility"></a>Volatility</h2><p>windows下载<br><a target="_blank" rel="noopener" href="http://downloads.volatilityfoundation.org/releases/2.6/volatility_2.6_lin64_standalone.zip">http://downloads.volatilityfoundation.org/releases/2.6/volatility_2.6_lin64_standalone.zip</a><br>然后解压，之后的文件夹扔进kali，修改一下文件名为volatility更方便运行<br>以后要运行的时候在文件夹下打开终端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./volatility ~</span><br></pre></td></tr></table></figure>
+<p>~为各种参数</p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "8db4b4a89548994388e9",
+        clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
+        repo: "ayanagi.github.io",
+        owner: "linyuqi9",
+        admin: ["linyuqi9"],
+        id: "aa893cc882beac737b97a2ed8a2f0db0",
+        distractionFreeMode: true,
+        title: "misc一些环境的配置问题",
+        body: "https://ayanagi.fun/2020/11/23/atFgXsbYK/",
+        labels: ["CTF"]
+    }).render('comments');
+    </script>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+            
+            <a id="pagenext" href="/2020/11/23/discmanage/" class="article-next" title="硬盘管理"><i class="icon-arrow-right"></i></a>
+            
+            
+            <a id="pageprev" href="/2020/11/23/NCTF2020/" class="article-prev" title="NCTF2020-misc wp"><i class="icon-arrow-left"></i></a>
+            
+        
+
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3f0e368eb1f22fb5a593be6193301ba9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle('normal', slideDone);
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp('normal', slideDone);
+            }, 3000);
+        }
+
+        function slideDone() {
+            if (nodes.navInner.css('display') !== 'none') {
+                nodes.navInner.css('display', '');
+            }
+        }
+
+        $(window).on('resize', function() {
+            if ($(this).width() > 960) {
+                nodes.navInner.css('display', '');
+            }
+        });
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

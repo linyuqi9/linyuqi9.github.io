@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>Hackergame 2020-misc wp | 雨霖铃</title>
+    <meta name="author" content="R4iny13lueB311" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="入门一个月，第一次和全国范围的师傅们进行的比赛。一边摸索一边做题，在多方帮助下学到了一些东西。rank最后定格在了317&amp;#x2F;2410，个人感觉还是需要再努力一些。有一两道题感觉努力一下把环境配好还是能出的。配环境报错的时候真的蛮令人灰心的。鉴于token制度的存在，具体flag应该会不一样。签到F12，将max的值改为1.0，拖到最右边提交可得。1flag&amp;#123;hR6Ku81-HappyHacking2020-a9833bf0c9&amp;#125;猫咪问答++1.可以爆破，大眼一扫至少有" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="雨霖铃" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">雨霖铃</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/front-end">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/back-end">
+                <span class="nav-text">后端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/atom.xml">
+                <span class="nav-text">订阅</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://ayanagi.fun"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AD%BE%E5%88%B0"><span class="toc-number">1.</span> <span class="toc-text">签到</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8C%AB%E5%92%AA%E9%97%AE%E7%AD%94"><span class="toc-number">2.</span> <span class="toc-text">猫咪问答++</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2048"><span class="toc-number">3.</span> <span class="toc-text">2048</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E9%97%AA%E8%80%8C%E8%BF%87%E7%9A%84flag"><span class="toc-number">4.</span> <span class="toc-text">一闪而过的flag</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E8%AE%B0%E8%B4%A6%E5%B7%A5%E5%85%B7%E4%BA%BA"><span class="toc-number">5.</span> <span class="toc-text">从零开始的记账工具人</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B4%E5%85%83%E6%B2%A1%E6%9C%89%E8%80%83%E8%99%91%E3%80%82"><span class="toc-number">5.1.</span> <span class="toc-text">1.整元没有考虑。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8F%AA%E6%9C%89%E5%88%86%E3%80%81%E5%8F%AA%E6%9C%89%E8%A7%92%E7%9A%84%E6%B2%A1%E6%9C%89%E8%80%83%E8%99%91%E3%80%82"><span class="toc-number">5.2.</span> <span class="toc-text">2.只有分、只有角的没有考虑。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%9B%BF%E6%8D%A2%E5%8D%81%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%BF%85%E9%A1%BB%E5%BE%97%E4%BB%8E%E4%BA%8C%E5%8D%81%E4%B8%80%E5%BC%80%E5%A7%8B%E6%9B%BF%E6%8D%A2%EF%BC%8C%E5%B9%B6%E4%B8%94%E9%81%BF%E5%BC%80%E6%95%B4%E5%8D%81%EF%BC%8C%E6%9C%80%E5%90%8E%E6%89%8D%E5%8E%BB%E6%9B%BF%E6%8D%A2%E5%8D%81%E5%87%A0%EF%BC%8C%E5%90%A6%E5%88%99%E4%BC%9A%E5%87%BA%E7%8E%B0%E5%BE%88%E6%81%B6%E5%BF%83%E7%9A%84%E9%94%99%E8%AF%AF%E3%80%82"><span class="toc-number">5.3.</span> <span class="toc-text">3.替换十的时候，必须得从二十一开始替换，并且避开整十，最后才去替换十几，否则会出现很恶心的错误。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x-%E4%BB%A5%E5%8F%8A%E5%90%84%E7%A7%8D%E5%90%84%E6%A0%B7%E5%BE%88%E7%83%A6%E7%9A%84%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%B8%9C%E8%A5%BF%E3%80%82"><span class="toc-number">5.4.</span> <span class="toc-text">x.以及各种各样很烦的要注意的东西。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B6%85%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%96%E7%95%8C%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="toc-number">6.</span> <span class="toc-text">超简单的世界模拟器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%9D%B4%E8%9D%B6%E6%95%88%E5%BA%94"><span class="toc-number">6.1.</span> <span class="toc-text">蝴蝶效应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%9F%B3%E4%BA%8C%E9%B8%9F"><span class="toc-number">6.2.</span> <span class="toc-text">一石二鸟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E7%81%AB%E6%98%9F%E6%96%87%E7%94%9F%E6%B4%BB"><span class="toc-number">6.3.</span> <span class="toc-text">从零开始的火星文生活</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-number">6.3.1.</span> <span class="toc-text">过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5"><span class="toc-number">6.3.2.</span> <span class="toc-text">实践</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%A4%8D%E8%AF%BB%E7%9A%84%E5%A4%8D%E8%AF%BB%E6%9C%BA"><span class="toc-number">7.</span> <span class="toc-text">自复读的复读机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#233%E5%90%8C%E5%AD%A6%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B7%A5%E5%85%B7"><span class="toc-number">8.</span> <span class="toc-text">233同学的字符串工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%A7%E5%86%99%E5%B7%A5%E5%85%B7"><span class="toc-number">8.1.</span> <span class="toc-text">字符串大写工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7"><span class="toc-number">8.2.</span> <span class="toc-text">编码转换工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#233%E5%90%8C%E5%AD%A6%E7%9A%84docker"><span class="toc-number">9.</span> <span class="toc-text">233同学的docker</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%A5%E8%87%AA%E4%B8%80%E6%95%99%E7%9A%84%E5%9B%BE%E7%89%87"><span class="toc-number">10.</span> <span class="toc-text">来自一教的图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B6%85%E7%AE%80%E9%99%8B%E7%9A%84openGL%E5%B0%8F%E7%A8%8B%E5%BA%8F"><span class="toc-number">11.</span> <span class="toc-text">超简陋的openGL小程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8B%97%E7%8B%97%E9%93%B6%E8%A1%8C"><span class="toc-number">12.</span> <span class="toc-text">狗狗银行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BD%99%E7%9A%84%E9%A2%98%E6%84%9F%E8%A7%89%E6%9C%89%E4%BA%9B%E5%81%8F%E9%97%A8%E4%BA%86-%E5%85%B6%E5%AE%9E%E5%B0%B1%E6%98%AF%E6%87%92-%EF%BC%8C%E5%B0%B1%E4%B8%8D%E6%8C%AA%E5%88%B0%E8%BF%99%E8%BE%B9%E4%BA%86%E3%80%82"><span class="toc-number">13.</span> <span class="toc-text">其余的题感觉有些偏门了(其实就是懒)，就不挪到这边了。</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            Hackergame 2020-misc wp
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://ayanagi.fun/2020/11/22/Hackergame2020/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2020-11-22T11:50:21.000Z" itemprop="datePublished">2020-11-22</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>入门一个月，第一次和全国范围的师傅们进行的比赛。一边摸索一边做题，在多方帮助下学到了一些东西。rank最后定格在了317&#x2F;2410，个人感觉还是需要再努力一些。有一两道题感觉努力一下把环境配好还是能出的。配环境报错的时候真的蛮令人灰心的。<br>鉴于token制度的存在，具体flag应该会不一样。</p>
+<h1 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h1><p>F12，将max的值改为1.0，拖到最右边提交可得。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;hR6Ku81-HappyHacking2020-a9833bf0c9&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="猫咪问答"><a href="#猫咪问答" class="headerlink" title="猫咪问答++"></a>猫咪问答++</h1><p>1.可以爆破，大眼一扫至少有4个，就从4开始试，一直试到12就ook了。<br>2、3、4、5百度搜就能搜到相关信息。<br>答案分别是256、9、9、17098.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;b4a31f2a_G00G1e_1s_y0ur_fr13nd_e836337896&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2048"><a href="#2048" class="headerlink" title="2048"></a>2048</h1><p>当时也有在玩2048，然后果断进去先铁头娃玩个一通，拿到2048之后发现并没有给出flag，F12看源码发现最高值是8192，以我的水平必然玩不出来。在注释出发现一段代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- </span><br><span class="line">    changelog:</span><br><span class="line">    - 2020/10/31 getflxg @ static/js/html_actuator.js</span><br><span class="line">  --&gt;</span><br></pre></td></tr></table></figure>
+<p>在题目地址栏后添加<code>static/js/html_actuator.js</code>作为一个payload，得到一个逻辑源码页面，往下寻找可以发现一段</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (won) &#123;</span><br><span class="line">   url = <span class="string">&quot;/getflxg?my_favorite_fruit=&quot;</span> + (<span class="string">&#x27;b&#x27;</span>+<span class="string">&#x27;a&#x27;</span>+ +<span class="string">&#x27;a&#x27;</span>+<span class="string">&#x27;a&#x27;</span>).<span class="title function_">toLowerCase</span>();</span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   url = <span class="string">&quot;/getflxg?my_favorite_fruit=&quot;</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>脑洞一下可以大概知道baxaxa是什么单词，而且是fruit种类，那必然是banana<br>将题目url后加上<code>/getflxg?my_favorite_fruit=banana</code>作为payload</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flxg&#123;8G6so5g-FLXG-26aa589d52&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="一闪而过的flag"><a href="#一闪而过的flag" class="headerlink" title="一闪而过的flag"></a>一闪而过的flag</h1><p>下下来打开这个exe文件，会弹出flag，然后程序快速退出。只需要在打开显示flag的时候使用qq截图，截取并且识别flag即可。<br><img src="http://ayanagi.fun/post-images/1606649574468.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag &#123;Are_you_eyes1ght_g00D?_can_you_dIst1nguish_1iI?&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="从零开始的记账工具人"><a href="#从零开始的记账工具人" class="headerlink" title="从零开始的记账工具人"></a>从零开始的记账工具人</h1><p>一开始使用的是excel批量替换，但是出现迷之错误，大致有3类坑，全被我踩过了。</p>
+<h2 id="1-整元没有考虑。"><a href="#1-整元没有考虑。" class="headerlink" title="1.整元没有考虑。"></a>1.整元没有考虑。</h2><h2 id="2-只有分、只有角的没有考虑。"><a href="#2-只有分、只有角的没有考虑。" class="headerlink" title="2.只有分、只有角的没有考虑。"></a>2.只有分、只有角的没有考虑。</h2><h2 id="3-替换十的时候，必须得从二十一开始替换，并且避开整十，最后才去替换十几，否则会出现很恶心的错误。"><a href="#3-替换十的时候，必须得从二十一开始替换，并且避开整十，最后才去替换十几，否则会出现很恶心的错误。" class="headerlink" title="3.替换十的时候，必须得从二十一开始替换，并且避开整十，最后才去替换十几，否则会出现很恶心的错误。"></a>3.替换十的时候，必须得从二十一开始替换，并且避开整十，最后才去替换十几，否则会出现很恶心的错误。</h2><h2 id="x-以及各种各样很烦的要注意的东西。"><a href="#x-以及各种各样很烦的要注意的东西。" class="headerlink" title="x.以及各种各样很烦的要注意的东西。"></a>x.以及各种各样很烦的要注意的东西。</h2><p>当时被这道题搞得心态都炸了，因为替换逻辑没处理好的话是根本得不出答案的，后面尝试了很多种替换方案，最后出来了，其中酸楚，唯有自己知道。当时心态炸裂之后甚至头铁的一条一条去替换，后来出现大量不耐烦的错误，必然也得不到答案，心如死灰。一起做的同僚自己写个VB脚本跑了出来，痛恨自己写代码的水平无限趋近于0吧，也是我在CTF之路继续前行的一个非常大但必须克服的阻碍。<br>主要替换的思路就是从小数点后面开始替换，从分到角，然后注意处理整数、没有元只有角分的数，以及从二十一开始替换，并且整十数和十几的数最后替换。</p>
+<h1 id="超简单的世界模拟器"><a href="#超简单的世界模拟器" class="headerlink" title="超简单的世界模拟器"></a>超简单的世界模拟器</h1><h2 id="蝴蝶效应"><a href="#蝴蝶效应" class="headerlink" title="蝴蝶效应"></a>蝴蝶效应</h2><p>一道非常有教育意义和趣味性的题，我很喜欢。<br>百度搜生命游戏，便可以得到相当多的资料。<br>在左上角放置一个“轻量级飞船”即可撞烂上面的方块得到第一个flag。</p>
+<h2 id="一石二鸟"><a href="#一石二鸟" class="headerlink" title="一石二鸟"></a>一石二鸟</h2><p>这个尝试了蛮多种组合，都不行。后来得到同僚的提示，只需要使用一个飞船和一个滑翔机的组合就可以，后来一直尝试成功了。具体矩阵已经丢失，也懒得去复现了</p>
+<h2 id="从零开始的火星文生活"><a href="#从零开始的火星文生活" class="headerlink" title="从零开始的火星文生活"></a>从零开始的火星文生活</h2><p>试了用各种编码打开，没啥思路。<br>以下是官方wp：</p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>下载附件之后如直接用 GBK 打开，那就真的是题面里说的“夹杂着日语和数字的火星文”了。恭喜掉进坑，乱码又多了一层（逃</p>
+<p>用 UTF-8 打开，看到形如“脦脪鹿楼”的文本，推断是上图中的“古文码”乱码。但是“古文码”明明是“以 GBK 方式读取 UTF-8 编码”造成的，看来“脦脪鹿楼”本来应当是 GBK下看到的结果，却又被存成了 UTF-8。所以第一步是用 GBK 重新编码文本“脦脪鹿楼…”。</p>
+<p>然后用 UTF-8 打开，看到形如“ÎÒ¹¥ÆÆÁË”的文本，推断是上图中的“拼音码”乱码。“拼音码”是“以 ISO8859-1 方式读取 GBK 编码”，而现在文本的编码是 UTF-8。所以接下应当用 ISO8859-1 重新编码文本“ÎÒ¹¥ÆÆÁË…”。</p>
+<p>然后用 GBK 打开，就能看到可读的汉字和 flag 了（原始编码确实是 GBK 呢！）。不过这里的 flag 全部是从 ASCII 字符转成的全角字符，不能直接复制使用。可以手动替换成 ASCII 字符，或者用其他简便方法变回 ASCII 字符。</p>
+<p>源代码 中也给出了一个全角-&gt;半角的函数。</p>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>那么具体用什么手段来解题呢？</p>
+<p>方法一（不写代码）<br>例如用 VSCode 的“Select Encoding”功能。</p>
+<p>步骤（开始时 UTF-8 打开题目附件）：</p>
+<p>1.Save with Encoding -&gt; GBK<br>2.Reopen with Encoding -&gt; UTF-8<br>3.Save with Encoding -&gt; ISO8859-1<br>4.Reopen with Encoding -&gt; GBK<br>（听说 Notepad++ 很方便，蹲一个其他人的 wp）</p>
+<p>方法二 （写代码）<br>见 源代码 中的 solve 函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">message</span>):</span><br><span class="line">    answer=DBC2SBC(message.encode(<span class="string">&quot;gbk&quot;</span>).decode(<span class="string">&quot;UTF-8&quot;</span>).encode(<span class="string">&quot;iso-8859-1&quot;</span>).decode(<span class="string">&#x27;gbk&#x27;</span>))</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+<h1 id="自复读的复读机"><a href="#自复读的复读机" class="headerlink" title="自复读的复读机"></a>自复读的复读机</h1><p>查了很多资料，以为输出有漏洞什么的，还考虑了eval函数、exec函数之类的，但是都不会，或者说没啥效果和思路。几天之后用百度搜“python输出自身的代码”，找到一篇知乎文章<code>https://zhuanlan.zhihu.com/p/34882073</code><br>使用第三种方法，然后构造一下让它输出的时候带一个[::-1]，即把串倒序，就能符合题目要求拿到flag，提交后发现多一个\n，在输出时加一个end&#x3D;””即可。<br>至于sha256，其实就是多一个sha256的计算，把串放进去就行了。</p>
+<h1 id="233同学的字符串工具"><a href="#233同学的字符串工具" class="headerlink" title="233同学的字符串工具"></a>233同学的字符串工具</h1><h2 id="字符串大写工具"><a href="#字符串大写工具" class="headerlink" title="字符串大写工具"></a>字符串大写工具</h2><p>代码的逻辑是输入一个不是flag的串，令其转换成大写之后被识别为FLAG。一开始又去找各种python的输入漏洞，没有收获。看过同僚的思路，知道的就是有一个字符会在转换大写的时候被识别成FL，只是没找到。查了下完整的ascii码表去试，也没啥效果，当时就蠢不知道打个表全输出出来对着找就是了。最后也是没做出来<br>以下是官方WP:<br>代码的意思是：如果我们输入一个字面上不是 “flag” 但转换为大写后会变成 “FLAG” 的字符串，就可以得到 flag。</p>
+<p>我们可以以 “unicode uppercase collision” 为关键字搜索，不难找到一个连字（ligature）</p>
+<p><code>ﬂ (0xFB02)</code><br>这个“字符”将在转换为大写时变成 FL 两个字符！因此，只需输入 ﬂag 即可得到 flag。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;badunic0debadbad&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="编码转换工具"><a href="#编码转换工具" class="headerlink" title="编码转换工具"></a>编码转换工具</h2><p>代码的意思是：如果我们输入一个字面上不是 “flag” 但从 UTF-7 转换为 UTF-8 后会变成 “flag” 的字符串，就可以得到 flag。</p>
+<p>不妨查阅 UTF-7 相关资料。可以得知：一个 Unicode 字符串，在 UTF-7 编码下，可能有多种编码，甚至纯粹的 ASCII 字符串也可以有多种编码！</p>
+<p>那么事情就简单了。我们依照 Wikipedia 等参考资料给出的 UTF-7 编码算法，可以构造出 “flag” 的另一种“写法”。比如，选择 f 下手。</p>
+<p>1.f 的 Unicode 码位是 0x66<br>2.将 0x66 写成 16 位二进制数：0000 0000 0110 0110<br>3.重新分组：000000 000110 011000<br>4.使用 base64 的编码表，将每组变成一个字符：AGY<br>那么最终 “flag” 的另一种 UTF-7 替代写法就是 +AGY-lag，输入即可得到 flag。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;please_visit_www.utf8everywhere.org&#125;</span><br></pre></td></tr></table></figure>
+<p>（是的，你应该去看这个网站！）</p>
+<h1 id="233同学的docker"><a href="#233同学的docker" class="headerlink" title="233同学的docker"></a>233同学的docker</h1><p>docker0基础学起，其实是因为看到很多人出了这题。pull完docker到ubuntu里，然后搜dockerfile把删除的文件恢复之类的关键词，找到这样一篇文章，<code>https://www.bbsmax.com/A/lk5a10b251/</code>参照着去操作即可cat出flag。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Docker_Layers!=PS_Layers_hhh&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="来自一教的图片"><a href="#来自一教的图片" class="headerlink" title="来自一教的图片"></a>来自一教的图片</h1><p>matlab对其傅里叶变换处理，报错。openCV装不上，报错，python pip相关的包，报错。心态有点烦躁不想做了<br>以下是官方wp：<br>对图像二维傅里叶变换就结束了。灵感来自于中国科学技术大学三级大学物理实验“傅里叶光学”。</p>
+<p>用 Python 的解法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2 <span class="keyword">as</span> cv</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">img = cv.imread(<span class="string">&#x27;./4f_system_middle.bmp&#x27;</span>, <span class="number">0</span>)</span><br><span class="line">f = np.fft.fft2(img)</span><br><span class="line">logf = <span class="number">20</span>*np.log(np.<span class="built_in">abs</span>(f))</span><br><span class="line">plt.imshow(logf, <span class="string">&#x27;gray&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>由于wp腾挪得比较晚，官方wp的github页面上的配图也丢失了，一些完整的步骤没有了插图等同于没有做wp。下次养成自己做完题目保存做题过程，便于自己写wp和博客，以及和官方wp的对比的习惯，以及及时腾挪wp。</p>
+<h1 id="超简陋的openGL小程序"><a href="#超简陋的openGL小程序" class="headerlink" title="超简陋的openGL小程序"></a>超简陋的openGL小程序</h1><p>不会openGL，以下是官方wp：<br><code>https://github.com/USTC-Hackergame/hackergame2020-writeups/blob/master/official/%E8%B6%85%E7%AE%80%E9%99%8B%E7%9A%84%20OpenGL%20%E5%B0%8F%E7%A8%8B%E5%BA%8F/README.md</code></p>
+<h1 id="狗狗银行"><a href="#狗狗银行" class="headerlink" title="狗狗银行"></a>狗狗银行</h1><p>非常有趣的一道题目。个人认为个中含有丰富的经济学知识，一开始意识到金钱的数额都是四舍五入，保留整数，这样就能利用这个漏洞去薅羊毛了。储蓄卡里有167元时，每日获利可得0.501元，四舍五入即是1元。按照这个思路去开卡，借钱，养卡去薅，后来思路以及操作上出现了一些失误导致满盘皆输，没跑赢利息，被资本撕裂。或许这辈子只能当个穷鬼而不是资本家了。看了wp才发现手动是非预期。<br>以下是官方wp：<br>解法<br>这道题的主要考点是利用利息四舍五入的规则将实际到手利率翻倍，次要考点是编写脚本自动执行重复性操作。</p>
+<p>利率翻倍这一步没什么好说的，简单实验一会就不难发现，当储蓄卡存有 167 狗狗币时，每日利息应当是 0.501 狗狗币，但四舍五入就是 1 狗狗币，实际上利率约等于 0.6%，超过了信用卡利率。信用卡没有这个漏洞，不会因为利息不足 0.5 狗狗币就变成 0，这是有意设计的，避免开很多张信用卡就可以实现零利息获得任意数量的钱。</p>
+<p>一个简单的（但不是最节约操作次数的）策略是：开一张信用卡，借很多钱，分开存到很多张储蓄卡中，每张卡存恰好 167 狗狗币。这样一来，这笔钱每天净赚 0.1% 利息，逐渐就能积累到 1000 狗狗币。每隔几天，应当把所有储蓄卡中获得的利息拿走，还回信用卡，因为每张储蓄卡存恰好 167 狗狗币时赚钱最快，越多越慢，当每张储蓄卡存 200 狗狗币时会恰好无法赚钱，之后会开始亏钱。附件中的解题脚本就是按照这个思路编写的，开了 200 张储蓄卡，每天都拿走利息，37 天可以获胜。<br>怎么写脚本<br>以下以最新版 Chrome 浏览器为例，其他主流浏览器一般都有类似功能。提到的浏览器界面上的文字都是英文版，使用中文版的请自行猜测我在说什么。（或者干脆别看这一段了，直接去网上搜搜怎么用 Python 写爬虫发请求应该就够了。）</p>
+<p>要想编写脚本自动操作，首先需要知道在浏览器中手工操作时会产生什么样的网络请求。如果通过脚本发送一模一样的网络请求，就能取代手工操作，产生一模一样的效果。在狗狗银行页面上按 F12 键打开“开发者工具”，在其中切换到“Network”页面，就可以看到所有浏览器发送的网络请求。去办储蓄卡，会发现每当点击“办卡”按钮时就会有一个“create”请求出现，它的 Url 是 <a target="_blank" rel="noopener" href="http://202.38.93.111:10100/api/create%E3%80%82%E5%9C%A8%E8%BF%99%E4%B8%80%E8%A1%8C%E4%B8%8A%E7%82%B9%E5%8F%B3%E9%94%AE%EF%BC%8C%E2%80%9CCopy%E2%80%9D%EF%BC%8C%E2%80%9CCopy">http://202.38.93.111:10100/api/create。在这一行上点右键，“Copy”，“Copy</a> as cURL”，就能复制出类似于这样的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">curl &#x27;http://202.38.93.111:10100/api/create&#x27; \</span><br><span class="line">  -H &#x27;Connection: keep-alive&#x27; \</span><br><span class="line">  -H &#x27;Pragma: no-cache&#x27; \</span><br><span class="line">  -H &#x27;Cache-Control: no-cache&#x27; \</span><br><span class="line">  -H &#x27;Accept: application/json, text/plain, */*&#x27; \</span><br><span class="line">  -H &#x27;DNT: 1&#x27; \</span><br><span class="line">  -H &#x27;Authorization: Bearer 1:MEUCIQDG+Pwf82nVTQC07Kkmt6YkDbYo/uEsRu8f6f3HCXGQ2AIgJFlltu51Y6lNJ1sEHMviqOnoc75k1A6Qn3xoLBxM1qw=&#x27; \</span><br><span class="line">  -H &#x27;User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36&#x27; \</span><br><span class="line">  -H &#x27;Content-Type: application/json;charset=UTF-8&#x27; \</span><br><span class="line">  -H &#x27;Origin: http://202.38.93.111:10100&#x27; \</span><br><span class="line">  -H &#x27;Referer: http://202.38.93.111:10100/&#x27; \</span><br><span class="line">  -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; \</span><br><span class="line">  --data-binary &#x27;&#123;&quot;type&quot;:&quot;debit&quot;&#125;&#x27; \</span><br><span class="line">  --compressed \</span><br><span class="line">  --insecure</span><br></pre></td></tr></table></figure>
+<p>在 Linux（需要安装 curl）命令行上运行这条命令，再刷新网页，就会发现也能办出储蓄卡。实际上，对于这道题的后端服务器来说，这个请求重要的部分只有：</p>
+<p>发送 POST 请求给 <code>http://202.38.93.111:10100/api/create</code>。<br>包含 HTTP 请求头：<code>Authorization: Bearer 1:MEUCIQDG+Pwf82nVTQC07Kkmt6YkDbYo/uEsRu8f6f3HCXGQ2AIgJFlltu51Y6lNJ1sEHMviqOnoc75k1A6Qn3xoLBxM1qw=</code>，注意其中包含着 token，这说明了你在操作哪个账号。<br>包含 HTTP 请求头：<code>Content-Type: application/json;charset=UTF-8</code>，这说明了这个请求的正文是 JSON 格式的。<br>包含请求正文：<code>&#123;&quot;type&quot;:&quot;debit&quot;&#125;</code>。<br>除了使用 curl 命令以外，还可以用各种编程语言发送这个请求，方法上网搜索很容易找到。</p>
+<p>再经过一些尝试，不难找到办信用卡的请求、吃饭的请求、以及转账的请求（有的请求的正文中有可以改变的参数，表示卡号等信息）。这样就有了完成这道题所需要的所有请求。可以使用复制粘贴加一点修改的方法在一份文档中整理好需要按顺序执行的所有请求，然后全部执行，当然还是推荐学习一下怎么写变量和循环语句。<br>wp里有一句话写得有些尖锐，但是这就是我目前的瓶颈。<br>遗憾是这导致手工进行所有操作所需要的时间也较短，在 7 天的比赛中完全可以完成，一些选手因此误以为手工操作也是这道题的一种预期解法，不仅没有借助这道题学会编写脚本发请求，反而浪费了大量时间和精力。今后出题应当避免类似情况，如果预期解需要自动化操作，就不应当让手工操作有完成的可能性。</p>
+<h1 id="其余的题感觉有些偏门了-其实就是懒-，就不挪到这边了。"><a href="#其余的题感觉有些偏门了-其实就是懒-，就不挪到这边了。" class="headerlink" title="其余的题感觉有些偏门了(其实就是懒)，就不挪到这边了。"></a>其余的题感觉有些偏门了(其实就是懒)，就不挪到这边了。</h1><p>所有题目的wp：<code>https://github.com/USTC-Hackergame/hackergame2020-writeups</code></p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "8db4b4a89548994388e9",
+        clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
+        repo: "ayanagi.github.io",
+        owner: "linyuqi9",
+        admin: ["linyuqi9"],
+        id: "3ce26ccb1378637e7faccfeaf55521f8",
+        distractionFreeMode: true,
+        title: "Hackergame 2020-misc wp",
+        body: "https://ayanagi.fun/2020/11/22/Hackergame2020/",
+        labels: ["CTF"]
+    }).render('comments');
+    </script>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+            
+            <a id="pagenext" href="/2020/11/22/0xCTF/" class="article-next" title="0xCTF-misc wp"><i class="icon-arrow-right"></i></a>
+            
+            
+            <a id="pageprev" href="/2020/11/22/UNCTF2020/" class="article-prev" title="UNCTF2020-misc wp"><i class="icon-arrow-left"></i></a>
+            
+        
+
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3f0e368eb1f22fb5a593be6193301ba9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle('normal', slideDone);
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp('normal', slideDone);
+            }, 3000);
+        }
+
+        function slideDone() {
+            if (nodes.navInner.css('display') !== 'none') {
+                nodes.navInner.css('display', '');
+            }
+        }
+
+        $(window).on('resize', function() {
+            if ($(this).width() > 960) {
+                nodes.navInner.css('display', '');
+            }
+        });
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

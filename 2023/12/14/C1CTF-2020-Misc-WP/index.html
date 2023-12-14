@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>C1CTF 2020-Misc WP | 雨霖铃</title>
+    <meta name="author" content="R4iny13lueB311" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="BehindMe一看就知道是NTFS数据流隐写，盲猜隐藏的文件就是flag.txt直接1notepad behindme.txt:flag.txtflag的痛音频文件，直接扔audacity，调高频率就能看到flag呜呜呜winhex打开，尾巴看到7z文件，复制那部分粘贴进010保存或者dd得到一个7zip，ARCHPR无法爆破，搜了一下爆破7z文件的方法，弄了个软件给我爆出来口令是1，但是是错的，之后丢进kali1rarcrack 1.7z --threads 4 --type 7z放着爆了半" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="雨霖铃" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">雨霖铃</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/front-end">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/back-end">
+                <span class="nav-text">后端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/atom.xml">
+                <span class="nav-text">订阅</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://ayanagi.fun"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BehindMe"><span class="toc-number">1.</span> <span class="toc-text">BehindMe</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#flag%E7%9A%84%E7%97%9B"><span class="toc-number">2.</span> <span class="toc-text">flag的痛</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%9C%E5%91%9C%E5%91%9C"><span class="toc-number">3.</span> <span class="toc-text">呜呜呜</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#forever-c1"><span class="toc-number">4.</span> <span class="toc-text">forever c1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%91%E5%AD%A6%E7%82%BC%E4%B8%B9"><span class="toc-number">5.</span> <span class="toc-text">科学炼丹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Base%E7%9A%84%E5%8D%83%E5%B1%82%E5%A5%97%E8%B7%AF"><span class="toc-number">6.</span> <span class="toc-text">Base的千层套路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PigIsSoCute"><span class="toc-number">7.</span> <span class="toc-text">PigIsSoCute</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            C1CTF 2020-Misc WP
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://ayanagi.fun/2023/12/14/C1CTF-2020-Misc-WP/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h1 id="BehindMe"><a href="#BehindMe" class="headerlink" title="BehindMe"></a>BehindMe</h1><p>一看就知道是NTFS数据流隐写，盲猜隐藏的文件就是flag.txt<br>直接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad behindme.txt:flag.txt</span><br></pre></td></tr></table></figure>
+
+<h1 id="flag的痛"><a href="#flag的痛" class="headerlink" title="flag的痛"></a>flag的痛</h1><p>音频文件，直接扔audacity，调高频率就能看到flag</p>
+<h1 id="呜呜呜"><a href="#呜呜呜" class="headerlink" title="呜呜呜"></a>呜呜呜</h1><p>winhex打开，尾巴看到7z文件，复制那部分粘贴进010保存或者dd得到一个7zip，ARCHPR无法爆破，搜了一下爆破7z文件的方法，弄了个软件给我爆出来口令是1，但是是错的，之后丢进kali</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rarcrack 1.7z --threads 4 --type 7z</span><br></pre></td></tr></table></figure>
+
+<p>放着爆了半天然后挂起了，心态炸了就没去做，看了hint是弱口令，但是也懒得去试，然后没出。<br>一看官方wp其实就是123456，有点遗憾，这么简单的题目都没出来</p>
+<h1 id="forever-c1"><a href="#forever-c1" class="headerlink" title="forever c1"></a>forever c1</h1><p>第一次见识，但是也不算第一次。使用curl发送请求在之前hackergame是有过例子的，只是不知道，也没做。<br>以下是官方wp：<br>指定本地客户端口号访问指定网址即可，比如使用curl</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 192.168.31.198:30000 --local-port 193</span><br></pre></td></tr></table></figure>
+
+<p>如果发现不可以，可能是因为 NAT 端口映射的原因，建议使用公网服务器。</p>
+<p>当然，你也可以使用其他方法，比如：<br><code>使用 C/C++/Java/Python 的 Socket 编程，指定本地端口</code><br><code>使用 Scapy 直接构造数据包</code><br><code>使用 IPTables 等工具映射本地端口</code></p>
+<h1 id="科学炼丹"><a href="#科学炼丹" class="headerlink" title="科学炼丹"></a>科学炼丹</h1><p>看都没看，机器学习就离谱。<br>以下是官方wp：<br>考察点：jpg文件头、深度学习框架使用&#x2F;图片相似度比较<br>首先下载下来压缩包，可以看到test和train文件夹，并且train的每个图像文件名就是该图片上的字母，test的图像名称是从0开始编号的，对文件头比较敏感的同学应该能发现0.jpg和1.jpg两张图片结合起来是jpg的文件头FFD8FF</p>
+<p>方法1<br>第一种想法就是把这个题归类成一个机器学习的任务，train中给出了图像和它们对应的标签，所以这是一个有监督的机器学习任务，大致思路如下：</p>
+<p>首先将train中的图像（大小200_50）分割成小份（4份大小50_50），放到对应标签的文件夹下<br>通过已分割的图像和标签训练出一个模型，然后识别出test中每张图片上的数字的内容<br>将识别出的结果严格按顺序排好，以16进制形式写入文件当中，就可以得到一张jpg图像<br>最后得到的jpg图像就是flag：</p>
+<p>方法2<br>如果仔细观察一下给出的图像，会发现这里面每个数字或字母对应的图像都是一样的，并且相互之间有明显差别（肉眼就能分辨出来），所以还可以用另一种方式，就是图像相似度的方式来进行识别，通过对比test中每个分割后图片和train中有标签图像的相似度，确定test中图像的标签，然后写成图像</p>
+<p>这道题可能是出题人的脑洞开的太大了，不光有机器学习的部分，还要熟悉jpg文件的这种文件头才能有完整的思路，而且时间也有点紧，最后大家没人做，可能还浪费了一些时间，出题人给大家道个歉qwq</p>
+<p>关于最终的脚本，因为是以jupyter notebook格式写的，我把它们放到了网盘上，这里只提供了第一种思路的解题方法，只要把文件放在train和test同一目录下，按顺序执行就好，中间会多出来一些临时文件夹和一个超大的模型h5文件（因为直接调了包里的模型，参数太多了），最后生成的res_flag.jpg就是结果，如果对深度学习感兴趣可以找一下MNIST手写数字识别，这个题目算是一种改编</p>
+<h1 id="Base的千层套路"><a href="#Base的千层套路" class="headerlink" title="Base的千层套路"></a>Base的千层套路</h1><p>这题和下一题都是密码学题目，但是和misc没啥区别。<br>已经有肉眼看穿题目给的所有base的能力了，没啥难度看着解就行</p>
+<h1 id="PigIsSoCute"><a href="#PigIsSoCute" class="headerlink" title="PigIsSoCute"></a>PigIsSoCute</h1><p>hint是猪圈栅栏，没难度，下载下来的txt是一个b64编码的图片，去b64转文件得到猪圈密码的图片，对着识别解密得到字符串，进行栅栏解密得到可读的明文套上<code>c1ctf&#123;&#125;</code>即可</p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "8db4b4a89548994388e9",
+        clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
+        repo: "ayanagi.github.io",
+        owner: "linyuqi9",
+        admin: ["linyuqi9"],
+        id: "885f7a6cea0894868fc7d3fb3a6b8652",
+        distractionFreeMode: true,
+        title: "C1CTF 2020-Misc WP",
+        body: "https://ayanagi.fun/2023/12/14/C1CTF-2020-Misc-WP/",
+        labels: []
+    }).render('comments');
+    </script>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+            
+            <a id="pagenext" href="/2023/12/14/CTFWshow-DJBCTF%E5%A4%A7%E5%90%89%E6%9D%AF-%E9%83%A8%E5%88%86misc-%E5%A4%8D%E7%8E%B0/" class="article-next" title="CTFWshow DJBCTF大吉杯 部分misc 复现"><i class="icon-arrow-right"></i></a>
+            
+            
+            <a id="pageprev" href="/2023/12/14/BMZCTF-misc-%E9%9A%8F%E6%89%8B%E9%83%A8%E5%88%86wp/" class="article-prev" title="BMZCTF misc 随手部分wp"><i class="icon-arrow-left"></i></a>
+            
+        
+
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3f0e368eb1f22fb5a593be6193301ba9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle('normal', slideDone);
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp('normal', slideDone);
+            }, 3000);
+        }
+
+        function slideDone() {
+            if (nodes.navInner.css('display') !== 'none') {
+                nodes.navInner.css('display', '');
+            }
+        }
+
+        $(window).on('resize', function() {
+            if ($(this).width() > 960) {
+                nodes.navInner.css('display', '');
+            }
+        });
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>BMZCTF misc 随手部分wp | 雨霖铃</title>
+    <meta name="author" content="R4iny13lueB311" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="刷的时候随手就写了，但是刷着刷着又懒得写了。于是就这样吧2018 hackergame Word 文档直接把文档binwalk了，直接看到flag.txtmemory内存镜像文件，题目的描述是：分析内存镜像,破解管理员的登录密码,flag为明文密码的MD5值使用volatility1volatility -f memory imageinfo先查看镜像的大概信息，发现suggested profile是WinXPSP2x86,WinXPSP3x86 (Instantiated with WinX" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="雨霖铃" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">雨霖铃</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/front-end">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/back-end">
+                <span class="nav-text">后端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/atom.xml">
+                <span class="nav-text">订阅</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://ayanagi.fun"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2018-hackergame-Word-%E6%96%87%E6%A1%A3"><span class="toc-number">1.</span> <span class="toc-text">2018 hackergame Word 文档</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#memory"><span class="toc-number">2.</span> <span class="toc-text">memory</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#misc-snake"><span class="toc-number">3.</span> <span class="toc-text">misc_snake</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MISC-tiga"><span class="toc-number">4.</span> <span class="toc-text">MISC_tiga</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pcap"><span class="toc-number">5.</span> <span class="toc-text">pcap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pcap-analysis"><span class="toc-number">6.</span> <span class="toc-text">pcap_analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SDNISC2020-%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-number">7.</span> <span class="toc-text">SDNISC2020_简单数据包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E5%95%A6A%E6%A2%A6"><span class="toc-number">8.</span> <span class="toc-text">多啦A梦</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%B7%E9%87%8F%E7%9A%84txt%E6%96%87%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">海量的txt文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%80%E5%8D%8F%E6%9D%AF-%E6%88%91%E7%9A%84%E5%AF%86%E7%A0%81%E5%91%A2-%E5%AF%B9%E4%BB%98%E9%AB%98%E7%89%88%E6%9C%AC%E5%8A%A0%E5%AF%86"><span class="toc-number">10.</span> <span class="toc-text">技协杯-我的密码呢(对付高版本加密)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%A5%E6%9C%AB%E5%A4%A7%E4%BD%AC%E7%9A%84LSB"><span class="toc-number">11.</span> <span class="toc-text">句末大佬的LSB</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E5%AE%A1%E8%AE%A1"><span class="toc-number">12.</span> <span class="toc-text">日志审计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A5%9E%E7%A7%98%E5%8E%8B%E7%BC%A9%E5%8C%85"><span class="toc-number">13.</span> <span class="toc-text">神秘压缩包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B5%A2%E6%88%982019"><span class="toc-number">14.</span> <span class="toc-text">赢战2019</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            BMZCTF misc 随手部分wp
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://ayanagi.fun/2021/02/23/BMZCTF/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-02-23T04:34:55.000Z" itemprop="datePublished">2021-02-23</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>刷的时候随手就写了，但是刷着刷着又懒得写了。于是就这样吧</p>
+<h1 id="2018-hackergame-Word-文档"><a href="#2018-hackergame-Word-文档" class="headerlink" title="2018 hackergame Word 文档"></a>2018 hackergame Word 文档</h1><p>直接把文档binwalk了，直接看到<code>flag.txt</code></p>
+<h1 id="memory"><a href="#memory" class="headerlink" title="memory"></a>memory</h1><p>内存镜像文件，题目的描述是：分析内存镜像,破解管理员的登录密码,flag为明文密码的MD5值</p>
+<p>使用volatility</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility -f memory imageinfo</span><br></pre></td></tr></table></figure>
+
+<p>先查看镜像的大概信息，发现<code>suggested profile</code>是<code>WinXPSP2x86,WinXPSP3x86 (Instantiated with WinXPSP2x86)</code>使用hashdump命令把内存中所有用户的hash全部dump出来</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility -f memory --profile=WinXPSP2x86 hashdump</span><br></pre></td></tr></table></figure>
+
+<p>得到三行类似于shadow一样的密码串，都复制下来保存成1.txt，使用john爆破</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">john --wordlist=/usr/share/john/password.lst --rules --format=NT 1.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>--wordlist</code>是字典模式，<code>--rules</code> 是稍微变化的规则，其实不填也行，默认就是。<code>--format</code>是预定义密码破解的类型，有很多，可以通过<code>john --list=formats</code>查看，这里使用了NT类型</p>
+<p>得到administrator的密码是<code>123456789</code>，md5加密包上flag{}</p>
+<h1 id="misc-snake"><a href="#misc-snake" class="headerlink" title="misc_snake"></a>misc_snake</h1><p>附件的解压密码使用ook解密</p>
+<p>解压后3个文件：<code>process</code>、<code>data</code>、<code>data.jpg</code></p>
+<p>全丢进winhex查看，process是明文的python代码，后缀改成py打开就能发现加密的原理</p>
+<p>对照着写一个解密脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span> (<span class="string">&#x27;snake.jpg&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> flag:</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.jpg&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> f.read():</span><br><span class="line">            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>):</span><br><span class="line">                i = (i+<span class="number">1</span>) ^ <span class="number">128</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i = (i-<span class="number">1</span>) ^<span class="number">128</span></span><br><span class="line">            i = <span class="built_in">bytes</span>([i])</span><br><span class="line">            flag.write(i)</span><br></pre></td></tr></table></figure>
+
+<p>得到snake.jpg，使用stegsolve切滤镜可以看到加密方式是serpent，google一个serpent在线解密发现需要密钥，密钥应该就从图片里找，steghide查看到有隐写一个key.txt，</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">steghide extract -sf snake.jpg</span><br></pre></td></tr></table></figure>
+
+<p>得到key:<code>VivaLaVida</code>，去<a target="_blank" rel="noopener" href="http://serpent.online-domain-tools.com/%E8%A7%A3%E5%AF%86%EF%BC%8C%E4%B8%8B%E8%BD%BD%E8%A7%A3%E5%AF%86%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%8C%E5%86%85%E5%AE%B9%E6%98%AF%E5%8F%AA%E6%9C%89w%E5%92%8Cb%E7%BB%84%E6%88%90%E7%9A%84%E6%96%87%E6%9C%AC%EF%BC%8C%E8%83%BD%E6%83%B3%E5%88%B0w%E6%98%AFwhite%EF%BC%8Cb%E6%98%AFblack%EF%BC%8C%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%EF%BC%8Cw%E4%B8%BA1%EF%BC%8Cb%E4%B8%BA0%EF%BC%8C%E8%80%8C%E4%B8%94%E6%9C%8940000%E4%B8%AA%E5%AD%97%E7%AC%A6%EF%BC%8C%E9%82%A3%E5%B0%B1%E6%98%AF200*200%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2%EF%BC%8C%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC%E7%BB%98%E5%88%B6%E5%9B%BE%E7%89%87">http://serpent.online-domain-tools.com/解密，下载解密后的文件，内容是只有w和b组成的文本，能想到w是white，b是black，批量替换，w为1，b为0，而且有40000个字符，那就是200*200的正方形，编写脚本绘制图片</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span> (<span class="string">&quot;1.txt&quot;</span>,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> d:</span><br><span class="line">	flag = Image.new(<span class="string">&#x27;L&#x27;</span>,(<span class="number">200</span>,<span class="number">200</span>))</span><br><span class="line">	plain = d.read()</span><br><span class="line">	i = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">200</span>):</span><br><span class="line">		<span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">200</span>):</span><br><span class="line">			<span class="keyword">if</span> (plain[i] == <span class="string">&#x27;0&#x27;</span>):</span><br><span class="line">				flag.putpixel([x,y],<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				flag.putpixel([x,y],<span class="number">255</span>)</span><br><span class="line">			i += <span class="number">1</span></span><br><span class="line">	flag.show()</span><br></pre></td></tr></table></figure>
+
+<p>得到一个二维码，扫码得flag</p>
+<h1 id="MISC-tiga"><a href="#MISC-tiga" class="headerlink" title="MISC_tiga"></a>MISC_tiga</h1><p>解压，一个加密的压缩包和一段文本，应该是零宽，但是原来的零宽网站解出来的text是乱码，找了个好点的零宽解密站点<a target="_blank" rel="noopener" href="https://yuanfux.github.io/zero-width-web/">https://yuanfux.github.io/zero-width-web/</a></p>
+<p>得到解压密码，解出第二个压缩包和一张图片，压缩包里有一个加密的压缩包和一个装着好些password.txt的文件夹，CRC32爆破，抄来的脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">crack_crc</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-------------Start Crack CRC-------------&#x27;</span>)</span><br><span class="line">    crc_list = [<span class="number">0x14433530</span>, <span class="number">0xaf251007</span>, <span class="number">0xd554e7b6</span>, <span class="number">0xebb3156</span>, <span class="number">0xbb474d49</span>, <span class="number">0x2cb8a39b</span>, <span class="number">0x75fe76f0</span>]</span><br><span class="line">    comment = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    chars = string.printable</span><br><span class="line">    <span class="keyword">for</span> crc_value <span class="keyword">in</span> crc_list:</span><br><span class="line">        <span class="keyword">for</span> char1 <span class="keyword">in</span> chars:</span><br><span class="line">            <span class="keyword">for</span> char2 <span class="keyword">in</span> chars:</span><br><span class="line">                <span class="keyword">for</span> char3 <span class="keyword">in</span> chars:</span><br><span class="line">                    res_char = char1 + char2 + char3</span><br><span class="line">                    char_crc = binascii.crc32(res_char.encode())</span><br><span class="line">                    calc_crc = char_crc &amp; <span class="number">0xffffffff</span></span><br><span class="line">                    <span class="keyword">if</span> calc_crc == crc_value:</span><br><span class="line">                        <span class="built_in">print</span>(<span class="string">&#x27;[+] &#123;&#125;: &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">hex</span>(crc_value),res_char))</span><br><span class="line">                        comment += res_char</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-----------CRC Crack Completed-----------&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Result: &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(comment))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    crack_crc()</span><br></pre></td></tr></table></figure>
+
+<p>密码<code>T&amp;hg%WL0^rm@c!VK$xEt~</code>，图片丢winhex在尾巴看到hint:加密压缩包的密码是10位数字，使用掩码爆破，<code>2001701725</code></p>
+<p>得到<code>youcanalso.jpg</code>和<code>flag.zip</code>，压缩包里有<code>youcanalso.jpg</code>，那么就是明文攻击了，把<code>youcanalso.jpg</code>添加成压缩包，CRC32值和压缩包里的相同，开始攻击，这里要注意一下，winrar压缩是无法明文攻击的，需要使用bandzip来压缩才可以。</p>
+<p>出来密码<code>1amT1G@</code>，得到<code>flag.txt</code>内容是504B开头的串，粘贴进010editor保存为zip，一看是word类型的文件，改后缀为docx，打开发现好几页base加密，估计是全家桶，使用basecrack的m模式全解出来</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python basecrack.py --magic</span><br></pre></td></tr></table></figure>
+
+<p>然后粘贴word的内容</p>
+<p><code>flag&#123;8fa3e8c4-0121-4f2a-a7f0-0a60032e3763&#125;</code></p>
+<h1 id="pcap"><a href="#pcap" class="headerlink" title="pcap"></a>pcap</h1><p>题目要求分析dno3.0协议的流量，wireshark打开，先筛出来，查看</p>
+<p><code>Distributed Network Protocol 3.0&gt; Application Layer&gt;RESPONSE Data OBjects&gt; Object(s): 32-Bit Counter Change Event...&gt; Point Number 0(Quality: Online), Count:102....&gt;Counter(32 bit):102</code></p>
+<p>这个102转换成字符 就是f，对应的数据包长度是91，按照数据包长度排序，按顺序查看每个数据包能找到对应位置有相应的字符，一个个找f、l、a、g….拼起来就得到了flag。</p>
+<h1 id="pcap-analysis"><a href="#pcap-analysis" class="headerlink" title="pcap_analysis"></a>pcap_analysis</h1><p>要求分析modbus流量，筛选之后右键追踪流，竖着读flag拼起来就行</p>
+<h1 id="SDNISC2020-简单数据包"><a href="#SDNISC2020-简单数据包" class="headerlink" title="SDNISC2020_简单数据包"></a>SDNISC2020_简单数据包</h1><p>一个pcapng文件，wireshark打不开，直接binwalk得到一个zip和一个txt，txt内容解b64得flag(binwalk对付流量包老非预期了)</p>
+<h1 id="多啦A梦"><a href="#多啦A梦" class="headerlink" title="多啦A梦"></a>多啦A梦</h1><p>解压得到<code>多啦A梦.jpg</code>和<code>提示.txt</code>，提示：图片是不是少了点什么？</p>
+<p>直接foremost得到一个二维码png，改宽高扫码解b64得flag</p>
+<h1 id="海量的txt文件"><a href="#海量的txt文件" class="headerlink" title="海量的txt文件"></a>海量的txt文件</h1><p>几百个txt文件，打开都是没意义的串，放在一个文件夹里，扔kali</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings * | grep flag</span><br></pre></td></tr></table></figure>
+
+<p>发现没东西，修改关键词，改成password、pass、key之类的，试到key后找到</p>
+<p><code>key&#123;fe9ff627da72364a&#125;</code></p>
+<h1 id="技协杯-我的密码呢-对付高版本加密"><a href="#技协杯-我的密码呢-对付高版本加密" class="headerlink" title="技协杯-我的密码呢(对付高版本加密)"></a>技协杯-我的密码呢(对付高版本加密)</h1><p>如果在archpr里压缩包版本不支持，在010editor中把版本改成0就行了</p>
+<h1 id="句末大佬的LSB"><a href="#句末大佬的LSB" class="headerlink" title="句末大佬的LSB"></a>句末大佬的LSB</h1><p>一张png，复现的时候题目没描述，应该是用cloacked-pixel的lsb脚本，但是没出来。查wp 密码需要社工到句末师傅的姓氏，chen</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python lsb.py extract jumo.png flag.txt chen</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>HEBTUCTF&#123;wuinoknadsflmladflnef&#125;</code></p>
+<h1 id="日志审计"><a href="#日志审计" class="headerlink" title="日志审计"></a>日志审计</h1><p>下载附件logcheck.log打开找到盲注的记录如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C1%2C1%29%29%3D102--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C2%2C1%29%29%3D108--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C3%2C1%29%29%3D97--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C4%2C1%29%29%3D103--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C5%2C1%29%29%3D123--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C6%2C1%29%29%3D109--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C7%2C1%29%29%3D97--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C8%2C1%29%29%3D121--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C9%2C1%29%29%3D105--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C10%2C1%29%29%3D121--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C11%2C1%29%29%3D97--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C12%2C1%29%29%3D104--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C13%2C1%29%29%3D101--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C14%2C1%29%29%3D105--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C15%2C1%29%29%3D49--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C16%2C1%29%29%3D57--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C17%2C1%29%29%3D54--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C18%2C1%29%29%3D53--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C19%2C1%29%29%3D97--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C20%2C1%29%29%3D101--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C21%2C1%29%29%3D55--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C22%2C1%29%29%3D53--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C23%2C1%29%29%3D54--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C24%2C1%29%29%3D57--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br><span class="line">192.168.0.1 - - [13/Oct/2018:12:38:14 +0000] &quot;GET /flag.php?user=hence%27%20AND%20ORD%28MID%28%28SELECT%20IFNULL%28CAST%28secret%20AS%20CHAR%29%2C0x20%29%20FROM%20haozi.secrets%20ORDER%20BY%20secret%20LIMIT%200%2C1%29%2C38%2C1%29%29%3D125--%20pZaF HTTP/1.1&quot; 200 327 &quot;-&quot; &quot;sqlmap/1.2#pip (http://sqlmap.org)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>提取出来保存为data.txt，脚本解码处理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> unquote</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./data.txt&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    lines = f.readlines()</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">        line = unquote(line)</span><br><span class="line">        line = line[line.find(<span class="string">&#x27;))=&#x27;</span>)+<span class="number">3</span>:line.find(<span class="string">&#x27;--&#x27;</span>)]</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="built_in">int</span>(line)),end=<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>脚本的功能是读取每一条盲注的记录，并且url解码处理，使用find方法去掉无关的字符把flag输出出来</p>
+<p><code>flag&#123;mayiyahei1965ae7569&#125;</code></p>
+<h1 id="神秘压缩包"><a href="#神秘压缩包" class="headerlink" title="神秘压缩包"></a>神秘压缩包</h1><p>解压，得到一个压缩包和一个txt，txt内容是base64转图片，得到解压密码：<code>asdfghjkl</code></p>
+<p>解压得到160张二维码图片，使用<code>微微二维码</code>批量扫描生成一个excel，提取其中内容，都是0和1，二进制转字符串得到flag</p>
+<h1 id="赢战2019"><a href="#赢战2019" class="headerlink" title="赢战2019"></a>赢战2019</h1><p>下载附件，一个jpg，丢winhex看，正常尾巴，binwalk看有些图片，foremost出一张二维码，扫出:眉头一皱，发现这张图片没这么简单，stegsolve改滤镜看到flag</p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "8db4b4a89548994388e9",
+        clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
+        repo: "ayanagi.github.io",
+        owner: "linyuqi9",
+        admin: ["linyuqi9"],
+        id: "c703bb4a09dd710078e1a8453bae6fac",
+        distractionFreeMode: true,
+        title: "BMZCTF misc 随手部分wp",
+        body: "https://ayanagi.fun/2021/02/23/BMZCTF/",
+        labels: ["CTF"]
+    }).render('comments');
+    </script>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+            
+            <a id="pagenext" href="/2021/01/25/CTFshowDJB/" class="article-next" title="CTFWshow DJBCTF大吉杯 部分misc 复现"><i class="icon-arrow-right"></i></a>
+            
+            
+            <a id="pageprev" href="/2021/02/24/ROASTMEAT/" class="article-prev" title="特效轴入门"><i class="icon-arrow-left"></i></a>
+            
+        
+
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3f0e368eb1f22fb5a593be6193301ba9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle('normal', slideDone);
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp('normal', slideDone);
+            }, 3000);
+        }
+
+        function slideDone() {
+            if (nodes.navInner.css('display') !== 'none') {
+                nodes.navInner.css('display', '');
+            }
+        }
+
+        $(window).on('resize', function() {
+            if ($(this).width() > 960) {
+                nodes.navInner.css('display', '');
+            }
+        });
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
