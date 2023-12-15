@@ -7,10 +7,10 @@
 
     
 
-    <title>特效轴入门 | 雨霖铃</title>
+    <title>0基础的Re基操 | 雨霖铃</title>
     <meta name="author" content="R4iny13lueB311" />
     <meta name="keywords" content="" />
-    <meta name="description" content="aegisub文件结构进入到aeg的目录，关注的是automation、catalog、locale和csri文件夹，config.json、hotkey.jsonautomation : 文件夹下存放一些关于自动化的插件(autoload下)，一些函数库(include下)csri : 存放字幕滤镜，例如vsfiltermodconfig.json: 基础设置hotkey.json : 热键设置文件catalog : 样式库，存放以.sty结尾的字幕样式文件字幕的样式以一条这样的语句构成1St" />
+    <meta name="description" content="… 先占坑。不包含基础&amp;#x2F;前置理论知识(算法，汇编之类的，个人喜欢先摸题目，有一定积累之后再切入到理论的理解反而会有柳暗花明与茅塞顿开之感。)学到多少写多少。以题目为例1.IDA打开SHIFT+F12查看字符串例题：BUUCTF easyre下载附件拖进IDA，SHIFT+F12呼出Strings Window可以看到flag" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -56,15 +56,15 @@
                 <span class="nav-text">首页</span>
             </a>
         
-            <a class="nav-item" href="/CTF">
+            <a class="nav-item" href="/tags/CTF">
                 <span class="nav-text">CTF</span>
             </a>
         
-            <a class="nav-item" href="/PTE">
+            <a class="nav-item" href="/tags/PTE">
                 <span class="nav-text">渗透</span>
             </a>
         
-            <a class="nav-item" href="/tech">
+            <a class="nav-item" href="/tags/tech">
                 <span class="nav-text">技术力</span>
             </a>
         
@@ -82,7 +82,7 @@
     <aside id="aside" class="aside">
     <div id="aside-mask" class="aside-mask"></div>
     <div id="aside-inner" class="aside-inner">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://www.ayanagi.fun"></form>
 
         
         
@@ -90,7 +90,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#aegisub%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">aegisub文件结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%93k%E6%8F%92%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">打k插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Karaoke"><span class="toc-number">3.</span> <span class="toc-text">Karaoke</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-IDA%E6%89%93%E5%BC%80SHIFT-F12%E6%9F%A5%E7%9C%8B%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.</span> <span class="toc-text">1.IDA打开SHIFT+F12查看字符串</span></a></li></ol>
         
     </div>
 </aside>
@@ -104,31 +104,33 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            特效轴入门
+            0基础的Re基操
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/2023/12/14/%E7%89%B9%E6%95%88%E8%BD%B4%E5%85%A5%E9%97%A8/index.html">
+            <a class="article-date" href="https://www.ayanagi.fun/2021/03/12/0%E5%9F%BA%E7%A1%80%E7%9A%84Re%E5%9F%BA%E6%93%8D/index.html">
     
     <i class="icon-calendar vm"></i>
     
-    <time class="vm" datetime="2023-12-14T03:42:48.000Z" itemprop="datePublished">2023-12-14</time>
+    <time class="vm" datetime="2021-03-12T03:42:48.000Z" itemprop="datePublished">2021-03-12</time>
 </a>
 
             
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
 
         </div>
     </header>
     
     <section class="article-body markdown-body">
         
-        <h1 id="aegisub文件结构"><a href="#aegisub文件结构" class="headerlink" title="aegisub文件结构"></a>aegisub文件结构</h1><p>进入到aeg的目录，关注的是<code>automation</code>、<code>catalog</code>、<code>locale</code>和<code>csri</code>文件夹，<code>config.json</code>、<code>hotkey.json</code><br><strong>automation</strong> : 文件夹下存放一些关于自动化的插件(<code>autoload</code>下)，一些函数库(<code>include</code>下)<br><strong>csri</strong> : 存放字幕滤镜，例如<code>vsfiltermod</code><br><strong>config.json</strong>: 基础设置<br><strong>hotkey.json</strong> : 热键设置文件<br><strong>catalog</strong> : 样式库，存放以.sty结尾的字幕样式文件<br>字幕的样式以一条这样的语句构成</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Style: Default,Arial,20,&amp;H00FFFFFFF,&amp;H00FFFFFF,&amp;H000000FF,&amp;H00000000,&amp;H00000000,0,0,0,0,100,100,0,0,1,2,2,2,10,10,10,1</span><br></pre></td></tr></table></figure>
-
-<p>一些字体字号等不赘述。其中，带<code>&amp;H</code>的是颜色标签，由两部分组成 : 1字节的透明标签和3字节的颜色代码，H代表的是16进制的表头，表示后面的数据是16进制，颜色顺序是B G R。<br>颜色标签之后的参数代表的是边距、边框、杂项等内容，在样式编辑器里有对应。</p>
-<p><strong>locale</strong> ： 语言库</p>
-<h1 id="打k插件"><a href="#打k插件" class="headerlink" title="打k插件"></a>打k插件</h1><p>自行安装，后面会用到<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Seekladoom/article/details/104235193">https://blog.csdn.net/Seekladoom/article/details/104235193</a></p>
-<h1 id="Karaoke"><a href="#Karaoke" class="headerlink" title="Karaoke"></a>Karaoke</h1><p><strong>作用</strong> ： 划分音节和时间<br><strong>规范</strong> ： 标识符 | 标点<code>&#123;\k1&#125;</code><br><strong>k标签</strong> ：<code>&#123;\k$&#125;</code><br><code>&#123;&#125;</code> : aeg标记<code>&#123;&#125;</code>内的内容为特效区，<code>$</code> : 时间划分 单位是1<strong>cs</strong> &#x3D; 10ms;<br><code>ko</code> : 与k类似，但取消了字幕的边框<br><strong>特殊音节</strong> : <code>|</code> : 注音</p>
+        <p>…</p>
+<span id="more"></span> 
+<p>先占坑。不包含基础&#x2F;前置理论知识(算法，汇编之类的，个人喜欢先摸题目，有一定积累之后再切入到理论的理解反而会有柳暗花明与茅塞顿开之感。)<br>学到多少写多少。以题目为例</p>
+<h1 id="1-IDA打开SHIFT-F12查看字符串"><a href="#1-IDA打开SHIFT-F12查看字符串" class="headerlink" title="1.IDA打开SHIFT+F12查看字符串"></a>1.IDA打开SHIFT+F12查看字符串</h1><p>例题：<strong>BUUCTF easyre</strong><br>下载附件拖进IDA，SHIFT+F12呼出Strings Window可以看到flag<br><img src="https://www.ayanagi.fun/images/1615557899074.png"></p>
 
         
     </section>
@@ -143,14 +145,14 @@
     new Gitalk({
         clientID: "8db4b4a89548994388e9",
         clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
-        repo: "ayanagi.github.io",
+        repo: "linyuqi9.github.io",
         owner: "linyuqi9",
         admin: ["linyuqi9"],
-        id: "0caeaf99d039e3decea44294957deddb",
+        id: "2da00f10fa4b2dd9d1cf1ac4e6c3ff6f",
         distractionFreeMode: true,
-        title: "特效轴入门",
-        body: "http://example.com/2023/12/14/%E7%89%B9%E6%95%88%E8%BD%B4%E5%85%A5%E9%97%A8/",
-        labels: []
+        title: "0基础的Re基操",
+        body: "https://www.ayanagi.fun/2021/03/12/0%E5%9F%BA%E7%A1%80%E7%9A%84Re%E5%9F%BA%E6%93%8D/",
+        labels: ["CTF"]
     }).render('comments');
     </script>
 </div>
@@ -162,10 +164,10 @@
 
         
             
-            <a id="pagenext" href="/2023/12/14/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83-CVE-2022-2073/" class="article-next" title="春秋云境-CVE-2022-2073"><i class="icon-arrow-right"></i></a>
+            <a id="pagenext" href="/2021/03/01/Hgame2021/" class="article-next" title="Hgame2021 misc WP+复现"><i class="icon-arrow-right"></i></a>
             
             
-            <a id="pageprev" href="/2023/12/14/%E6%9D%AD%E7%94%B50rays-2020%E6%8B%9B%E6%96%B0%E8%B5%9BMisc-%E5%A4%8D%E7%8E%B0/" class="article-prev" title="杭电0rays 2020招新赛Misc 复现"><i class="icon-arrow-left"></i></a>
+            <a id="pageprev" href="/2021/03/12/Reverse/" class="article-prev" title="0基础的Re基操"><i class="icon-arrow-left"></i></a>
             
         
 

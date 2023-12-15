@@ -10,7 +10,7 @@
     <title>2021第六届全国网络空间安全大赛 misc wp | 雨霖铃</title>
     <meta name="author" content="R4iny13lueB311" />
     <meta name="keywords" content="" />
-    <meta name="description" content="流量分析是一血，感觉还不错，有些题目有些比较抖机灵的部分吧。RGB附件code.txt，打开是图片的RGB值，稍微修改一下数据令其为R,G,B形式的格式，看了一下有28864行，分解一下，第一次试的是164*176，出来一个乱图，那么换一下xy，脚本如下1234567891011121314151617from PIL import Imagex = 176    y = 164    im = Image.new(&amp;quot;RGB&amp;quot;, (x, y))   file = open(&amp;" />
+    <meta name="description" content="…流量分析是一血，感觉还不错，有些题目有些比较抖机灵的部分吧。RGB附件code.txt，打开是图片的RGB值，稍微修改一下数据令其为R,G,B形式的格式，看了一下有28864行，分解一下，第一次试的是164*176，出来一个乱图，那么换一下xy，脚本如下1234567891011121314151617from PIL import Imagex = 176    y = 164    im = Image.new(&amp;quot;RGB&amp;quot;, (x, y))   file = open(" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -56,15 +56,15 @@
                 <span class="nav-text">首页</span>
             </a>
         
-            <a class="nav-item" href="/CTF">
+            <a class="nav-item" href="/tags/CTF">
                 <span class="nav-text">CTF</span>
             </a>
         
-            <a class="nav-item" href="/PTE">
+            <a class="nav-item" href="/tags/PTE">
                 <span class="nav-text">渗透</span>
             </a>
         
-            <a class="nav-item" href="/tech">
+            <a class="nav-item" href="/tags/tech">
                 <span class="nav-text">技术力</span>
             </a>
         
@@ -82,7 +82,7 @@
     <aside id="aside" class="aside">
     <div id="aside-mask" class="aside-mask"></div>
     <div id="aside-inner" class="aside-inner">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://www.ayanagi.fun"></form>
 
         
         
@@ -108,7 +108,7 @@
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/2021/05/06/cstc2021/index.html">
+            <a class="article-date" href="https://www.ayanagi.fun/2021/05/06/cstc2021/index.html">
     
     <i class="icon-calendar vm"></i>
     
@@ -127,7 +127,9 @@
     
     <section class="article-body markdown-body">
         
-        <p>流量分析是一血，感觉还不错，有些题目有些比较抖机灵的部分吧。</p>
+        <p>…</p>
+<span id="more"></span>
+<p>流量分析是一血，感觉还不错，有些题目有些比较抖机灵的部分吧。</p>
 <h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><p>附件<code>code.txt</code>，打开是图片的RGB值，稍微修改一下数据令其为<code>R,G,B</code>形式的格式，看了一下有28864行，分解一下，第一次试的是164*176，出来一个乱图，那么换一下xy，脚本如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">x = <span class="number">176</span>    </span><br><span class="line">y = <span class="number">164</span>    </span><br><span class="line"></span><br><span class="line">im = Image.new(<span class="string">&quot;RGB&quot;</span>, (x, y))   </span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&#x27;code.txt&#x27;</span>)    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, x):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, y):</span><br><span class="line">        line = file.readline()  </span><br><span class="line">        rgb = line.split(<span class="string">&quot;,&quot;</span>)  </span><br><span class="line">        im.putpixel((i, j), (<span class="built_in">int</span>(rgb[<span class="number">0</span>]), <span class="built_in">int</span>(rgb[<span class="number">1</span>]), <span class="built_in">int</span>(rgb[<span class="number">2</span>])))  </span><br><span class="line"></span><br><span class="line">im.show()</span><br></pre></td></tr></table></figure>
 
@@ -161,13 +163,13 @@
     new Gitalk({
         clientID: "8db4b4a89548994388e9",
         clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
-        repo: "ayanagi.github.io",
+        repo: "linyuqi9.github.io",
         owner: "linyuqi9",
         admin: ["linyuqi9"],
         id: "fd831afba39b0ac3d518f8718467596a",
         distractionFreeMode: true,
         title: "2021第六届全国网络空间安全大赛 misc wp",
-        body: "http://example.com/2021/05/06/cstc2021/",
+        body: "https://www.ayanagi.fun/2021/05/06/cstc2021/",
         labels: ["CTF"]
     }).render('comments');
     </script>
@@ -182,8 +184,6 @@
             
             <a id="pagenext" href="/2021/03/17/VNCTF2021/" class="article-next" title="V&amp;N CTF2021 misc 简要复现"><i class="icon-arrow-right"></i></a>
             
-            
-            <a id="pageprev" href="/2023/12/14/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%AA%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%99%A8/" class="article-prev" title="简单写个端口扫描器"><i class="icon-arrow-left"></i></a>
             
         
 

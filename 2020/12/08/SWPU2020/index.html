@@ -10,7 +10,7 @@
     <title>SWPUCTF 2020-Misc WP | 雨霖铃</title>
     <meta name="author" content="R4iny13lueB311" />
     <meta name="keywords" content="" />
-    <meta name="description" content="有一定难度，但不是不能做，其实misc难度还算适中吧，只是都是套娃耗子尾汁binwalk出一个mp4视频和一个压缩包。扔进vegas逐帧查看，发现一串base64解得压缩包密码sign_in得到一个txt，文件名是19_20.txt，应该是提示，但是我看不懂，后来才知道是仿射，还是见识过于短浅了。里面是一串b64以及The last layer is the single table replacement password的hint解b64，转字符串，第一次从单表替换这个概念去了解密码，无脑使" />
+    <meta name="description" content="…有一定难度，但不是不能做，其实misc难度还算适中吧，只是都是套娃耗子尾汁binwalk出一个mp4视频和一个压缩包。扔进vegas逐帧查看，发现一串base64解得压缩包密码sign_in得到一个txt，文件名是19_20.txt，应该是提示，但是我看不懂，后来才知道是仿射，还是见识过于短浅了。里面是一串b64以及The last layer is the single table replacement password的hint解b64，转字符串，第一次从单表替换这个概念去了解密码，无脑" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -56,15 +56,15 @@
                 <span class="nav-text">首页</span>
             </a>
         
-            <a class="nav-item" href="/CTF">
+            <a class="nav-item" href="/tags/CTF">
                 <span class="nav-text">CTF</span>
             </a>
         
-            <a class="nav-item" href="/PTE">
+            <a class="nav-item" href="/tags/PTE">
                 <span class="nav-text">渗透</span>
             </a>
         
-            <a class="nav-item" href="/tech">
+            <a class="nav-item" href="/tags/tech">
                 <span class="nav-text">技术力</span>
             </a>
         
@@ -82,7 +82,7 @@
     <aside id="aside" class="aside">
     <div id="aside-mask" class="aside-mask"></div>
     <div id="aside-inner" class="aside-inner">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://www.ayanagi.fun"></form>
 
         
         
@@ -108,7 +108,7 @@
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://example.com/2020/12/08/SWPU2020/index.html">
+            <a class="article-date" href="https://www.ayanagi.fun/2020/12/08/SWPU2020/index.html">
     
     <i class="icon-calendar vm"></i>
     
@@ -127,13 +127,15 @@
     
     <section class="article-body markdown-body">
         
-        <p>有一定难度，但不是不能做，其实misc难度还算适中吧，只是都是套娃</p>
+        <p>…</p>
+<span id="more"></span>
+<p>有一定难度，但不是不能做，其实misc难度还算适中吧，只是都是套娃</p>
 <h1 id="耗子尾汁"><a href="#耗子尾汁" class="headerlink" title="耗子尾汁"></a>耗子尾汁</h1><p>binwalk出一个mp4视频和一个压缩包。扔进vegas逐帧查看，发现一串base64解得压缩包密码<code>sign_in</code><br>得到一个txt，文件名是19_20.txt，应该是提示，但是我看不懂，后来才知道是仿射，还是见识过于短浅了。<br>里面是一串b64以及<code>The last layer is the single table replacement password</code>的hint<br>解b64，转字符串，第一次从单表替换这个概念去了解密码，无脑使用凯撒栅栏这些没有任何结果。去quipquip，没整出来，因为不会用。看flag的格式是带下划线的，但是也不会整。<br>就差一点就出了，真的很急很气。<br>后来询问@Hh0师傅，最后是给那串东西按照给的格式添上下划线才能解出来。</p>
 <h1 id="套娃"><a href="#套娃" class="headerlink" title="套娃"></a>套娃</h1><p>非常简单的excel，都知道excel能改成zip解压，解压出一个txt和另一个excel，看文件名知道是RC4，excel继续改文件名解压，得到一个加了密的key压缩包和又一个excel，这次这个excel解压没啥用，扔winhex看到尾部的密码，解压得到key，RC4解密</p>
 <h1 id="找找吧"><a href="#找找吧" class="headerlink" title="找找吧"></a>找找吧</h1><p>压缩包丢进winhex得到key，解压得一个mp3和一个rar，mp3扔audacity没用，winhex看是rar，改后缀解压出一个mp3和一个png，au打开mp3后面有摩斯电码，解出一串东西，就卡住了。<br>后来群里讨论说是md5，找半天md5解码，要么要钱要么失败，头都秃了。没做出来<br>后来在各方帮助下在somd5上解出<code>n1ce_try</code><br>一个gif和一个png<br>stegsolve逐帧播放，看到类似flag的内容，png很明显的改宽高，发现提示 <code>Veni,Vidi,Vici</code>搜了知道是凯撒，凯撒可以得flag。</p>
 <h1 id="来猜谜了"><a href="#来猜谜了" class="headerlink" title="来猜谜了"></a>来猜谜了</h1><p>png一张，stegsolve LSB隐写了一个压缩包，丢kali zsteg提取</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsteg extract &quot;b1,rgb,lsb,xy&quot; problem.png &gt; flag.zip</span><br></pre></td></tr></table></figure>
-<p>一个流量包一个图片，usb流量分析，tshark没提取成功，然后就做不下去了。报错如下<br><img src="http://ayanagi.fun/post-images/1607398160762.png"><br>直到刚才有师傅告诉我T需要大写。我真是傻到家了。<br>看别人的wp：<br>提取得到的是 AG DX AG DX AG DX<br>查了半天是解密 AGDFVX 密码的 phqgm 表，得到 gogogo然后就卡了，真的没碰到过有密码的图片隐写<br>搜了搜有个 steghide 和 outguess，最后是用 outguess 解出来的<br>我结合官方wp的补充：键盘脚本。<br>得到字符串 AG DX AG DX AG DX ，是一种用ADFGX编码方式加密的字符串。通过对照表可以得到明文：gogogo，为outguess的密钥。</p>
+<p>一个流量包一个图片，usb流量分析，tshark没提取成功，然后就做不下去了。报错如下<br><img src="https://www.ayanagi.fun/images/1607398160762.png"><br>直到刚才有师傅告诉我T需要大写。我真是傻到家了。<br>看别人的wp：<br>提取得到的是 AG DX AG DX AG DX<br>查了半天是解密 AGDFVX 密码的 phqgm 表，得到 gogogo然后就卡了，真的没碰到过有密码的图片隐写<br>搜了搜有个 steghide 和 outguess，最后是用 outguess 解出来的<br>我结合官方wp的补充：键盘脚本。<br>得到字符串 AG DX AG DX AG DX ，是一种用ADFGX编码方式加密的字符串。通过对照表可以得到明文：gogogo，为outguess的密钥。</p>
 
         
     </section>
@@ -148,13 +150,13 @@
     new Gitalk({
         clientID: "8db4b4a89548994388e9",
         clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
-        repo: "ayanagi.github.io",
+        repo: "linyuqi9.github.io",
         owner: "linyuqi9",
         admin: ["linyuqi9"],
         id: "5a1aec3403ea900aea8ef45dc58a6b95",
         distractionFreeMode: true,
         title: "SWPUCTF 2020-Misc WP",
-        body: "http://example.com/2020/12/08/SWPU2020/",
+        body: "https://www.ayanagi.fun/2020/12/08/SWPU2020/",
         labels: ["CTF"]
     }).render('comments');
     </script>
