@@ -10,7 +10,7 @@
     <title>简单写个端口扫描器 | 雨霖铃</title>
     <meta name="author" content="R4iny13lueB311" />
     <meta name="keywords" content="" />
-    <meta name="description" content="写在前面：初稿写了一半停电了，啥都没了，也没心情搁那铺垫了。。。总之，端口扫描器本身代码很简单，但是涉及了好多个面试重点关注的技术：python多线程，socket编程，tkinter图形化编程，正则表达式以下是会用到的库，由于是标准库，在内网环境也完全可以使用12345from tkinter import *import tkinter.messageboxfrom socket import *from threading import Thread,Lockimport sys,re需求" />
+    <meta name="description" content="…写在前面：初稿写了一半停电了，啥都没了，也没心情搁那铺垫了。。。总之，端口扫描器本身代码很简单，但是涉及了好多个面试重点关注的技术：python多线程，socket编程，tkinter图形化编程，正则表达式以下是会用到的库，由于是标准库，在内网环境也完全可以使用12345from tkinter import *import tkinter.messageboxfrom socket import *from threading import Thread,Lockimport sys,re需" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -159,7 +159,9 @@
     
     <section class="article-body markdown-body">
         
-        <p>写在前面：初稿写了一半停电了，啥都没了，也没心情搁那铺垫了。。。<br>总之，端口扫描器本身代码很简单，但是涉及了好多个面试重点关注的技术：python多线程，socket编程，tkinter图形化编程，正则表达式<br>以下是会用到的库，由于是标准库，在内网环境也完全可以使用</p>
+        <p>…</p>
+<span id="more"></span>
+<p>写在前面：初稿写了一半停电了，啥都没了，也没心情搁那铺垫了。。。<br>总之，端口扫描器本身代码很简单，但是涉及了好多个面试重点关注的技术：python多线程，socket编程，tkinter图形化编程，正则表达式<br>以下是会用到的库，由于是标准库，在内网环境也完全可以使用</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tkinter.messagebox</span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread,Lock</span><br><span class="line"><span class="keyword">import</span> sys,re</span><br></pre></td></tr></table></figure>
 <p>需求：输入ip，返回该ip一些端口的开放状态<br>那就要判断输入是否合法，IP需要的是<code>*.*.*.*</code>的形式，其中*代表数字</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Judgement_IP</span>(<span class="params">self</span>):</span><br><span class="line">    reg = <span class="string">&#x27;^\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;$&#x27;</span></span><br><span class="line">    ip = re.<span class="keyword">match</span>(reg, self.IP.get())</span><br><span class="line">    <span class="keyword">if</span> ip <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        action(ip.group())</span><br><span class="line">        Port_open_content = Label(self.init_window_name, text = Port_is_open)</span><br><span class="line">        Port_open_content.grid(row = <span class="number">4</span>, column = <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;IP格式错误&quot;</span>)</span><br><span class="line">        tkinter.messagebox.showerror(<span class="string">&#x27;错误&#x27;</span>, <span class="string">&#x27;IP格式错误&#x27;</span>)</span><br></pre></td></tr></table></figure>
