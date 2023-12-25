@@ -10,7 +10,7 @@
     <title>使用MSF需要注意的点 | 雨霖铃</title>
     <meta name="author" content="R4iny13lueB311" />
     <meta name="keywords" content="" />
-    <meta name="description" content="…111周六参加了某比赛，基本都是msf一把梭，比赛完的收获就是从要看教程复现的小白进化到了能自己直接上手操作的三脚猫。这个时候就不得不提去年中兴一面上来就问我msf免杀而我只是会输入msfconsole然后对着入门文章写命令的时候了，令人唏嘘。虽然时至今日离免杀还有一段路要走，不管怎么说，菜是原罪。保持网段一致当时攻击机(172)和靶机(192)处在不同网段，需要设置LHOST为同个网段才可以成功反弹shell。例如，将下图的docker0网口看成172段的IP，eth0为192段的ip可以看" />
+    <meta name="description" content="…周六参加了某比赛，基本都是msf一把梭，比赛完的收获就是从要看教程复现的小白进化到了能自己直接上手操作的三脚猫。这个时候就不得不提去年中兴一面上来就问我msf免杀而我只是会输入msfconsole然后对着入门文章写命令的时候了，令人唏嘘。虽然时至今日离免杀还有一段路要走，不管怎么说，菜是原罪。保持网段一致当时攻击机(172)和靶机(192)处在不同网段，需要设置LHOST为同个网段才可以成功反弹shell。例如，将下图的docker0网口看成172段的IP，eth0为192段的ip可以看到，默" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -130,10 +130,10 @@
         <p>…</p>
 <span id="more"></span>
 
-<p>111周六参加了某比赛，基本都是msf一把梭，比赛完的收获就是从要看教程复现的小白进化到了能自己直接上手操作的三脚猫。这个时候就不得不提去年中兴一面上来就问我msf免杀而我只是会输入msfconsole然后对着入门文章写命令的时候了，令人唏嘘。虽然时至今日离免杀还有一段路要走，不管怎么说，菜是原罪。</p>
+<p>周六参加了某比赛，基本都是msf一把梭，比赛完的收获就是从要看教程复现的小白进化到了能自己直接上手操作的三脚猫。这个时候就不得不提去年中兴一面上来就问我msf免杀而我只是会输入msfconsole然后对着入门文章写命令的时候了，令人唏嘘。虽然时至今日离免杀还有一段路要走，不管怎么说，菜是原罪。</p>
 <h1 id="保持网段一致"><a href="#保持网段一致" class="headerlink" title="保持网段一致"></a>保持网段一致</h1><p>当时攻击机(172)和靶机(192)处在不同网段，需要设置LHOST为同个网段才可以成功反弹shell。</p>
 <p>例如，将下图的docker0网口看成172段的IP，eth0为192段的ip</p>
-<p><img src="/images/image-20231225104316230.png" alt="image-20231225104045557"></p>
+<p><img src="/images/image-20231225104045557.png" alt="image-20231225104045557"></p>
 <p>可以看到，默认的LHOST是192段，在比赛中是172段，所以会导致无法反弹shell，需要自行set LHOST。</p>
 <p><img src="/images/image-20231225104316230.png" alt="image-20231225104316230"></p>
 <h1 id="别西八再打你那漏洞全称了"><a href="#别西八再打你那漏洞全称了" class="headerlink" title="别西八再打你那漏洞全称了"></a>别西八再打你那漏洞全称了</h1><p>比赛里有个框架叫joomla，也很简单，直接梭。先search，带关键字就行，想找啥洞直接search，看别人写的太死板了。</p>
