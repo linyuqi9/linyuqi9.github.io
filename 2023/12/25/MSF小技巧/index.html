@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>使用MSF需要注意的点 | 雨霖铃</title>
+    <meta name="author" content="R4iny13lueB311" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="…周六参加了某比赛，基本都是msf一把梭，比赛完的收获就是从要看教程复现的小白进化到了能自己直接上手操作的三脚猫。这个时候就不得不提去年中兴一面上来就问我msf免杀而我只是会输入msfconsole然后对着入门文章写命令的时候了，令人唏嘘。虽然时至今日离免杀还有一段路要走，不管怎么说，菜是原罪。保持网段一致当时攻击机(172)和靶机(192)处在不同网段，需要设置LHOST为同个网段才可以成功反弹shell。例如，将下图的docker0网口看成172段的IP，eth0为192段的ip可以看到，默" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="雨霖铃" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">雨霖铃</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/tags/CTF">
+                <span class="nav-text">CTF</span>
+            </a>
+        
+            <a class="nav-item" href="/tags/%E6%B8%97%E9%80%8F">
+                <span class="nav-text">渗透</span>
+            </a>
+        
+            <a class="nav-item" href="/tags/%E6%8A%80%E6%9C%AF%E5%8A%9B">
+                <span class="nav-text">技术力</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://www.ayanagi.fun"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E7%BD%91%E6%AE%B5%E4%B8%80%E8%87%B4"><span class="toc-number">1.</span> <span class="toc-text">保持网段一致</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%AB%E8%A5%BF%E5%85%AB%E5%86%8D%E6%89%93%E4%BD%A0%E9%82%A3%E6%BC%8F%E6%B4%9E%E5%85%A8%E7%A7%B0%E4%BA%86"><span class="toc-number">2.</span> <span class="toc-text">别西八再打你那漏洞全称了</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%81%E8%87%B4%E7%AE%80%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">极致简化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E5%B0%BE"><span class="toc-number">4.</span> <span class="toc-text">结尾</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 1200px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            使用MSF需要注意的点
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/2023/12/25/MSF%E5%B0%8F%E6%8A%80%E5%B7%A7/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2023-12-25T02:31:30.000Z" itemprop="datePublished">2023-12-25</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+<span id="more"></span>
+
+<p>周六参加了某比赛，基本都是msf一把梭，比赛完的收获就是从要看教程复现的小白进化到了能自己直接上手操作的三脚猫。这个时候就不得不提去年中兴一面上来就问我msf免杀而我只是会输入msfconsole然后对着入门文章写命令的时候了，令人唏嘘。虽然时至今日离免杀还有一段路要走，不管怎么说，菜是原罪。</p>
+<h1 id="保持网段一致"><a href="#保持网段一致" class="headerlink" title="保持网段一致"></a>保持网段一致</h1><p>当时攻击机(172)和靶机(192)处在不同网段，需要设置LHOST为同个网段才可以成功反弹shell。</p>
+<p>例如，将下图的docker0网口看成172段的IP，eth0为192段的ip</p>
+<p><img src="C:\Users\17816\OneDrive\blog\themes\concise\source\images\image-20231225104045557.png" alt="image-20231225104045557"></p>
+<p>可以看到，默认的LHOST是192段，在比赛中是172段，所以会导致无法反弹shell，需要自行set LHOST。</p>
+<p><img src="/image-20231225104316230.png" alt="image-20231225104316230"></p>
+<h1 id="别西八再打你那漏洞全称了"><a href="#别西八再打你那漏洞全称了" class="headerlink" title="别西八再打你那漏洞全称了"></a>别西八再打你那漏洞全称了</h1><p>比赛里有个框架叫joomla，也很简单，直接梭。先search，带关键字就行，想找啥洞直接search，看别人写的太死板了。</p>
+<p><img src="/image-20231225104611708.png" alt="image-20231225104611708"></p>
+<p>先扫目录，用的是pages那个洞，直接<code>use 10</code>，可以大幅简化抄moudle name的操作。</p>
+<p><img src="/image-20231225104856457.png" alt="image-20231225104856457"></p>
+<p>这不就直接到了吗，同理，payload和target也是一样的</p>
+<p><img src="/image-20231225105411190.png" alt="image-20231225105411190"></p>
+<p>设置target也是直接用id</p>
+<p>第二个洞是<code>joomla_api_improper_access_checks</code>，顺带提一句在kali上如何更新msf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install metaspolit-framework</span><br></pre></td></tr></table></figure>
+
+<h1 id="极致简化"><a href="#极致简化" class="headerlink" title="极致简化"></a>极致简化</h1><p>压行是你们开发的浪漫，那么我连一个show也要省。</p>
+<p><img src="/image-20231225105606792.png" alt="image-20231225105606792"></p>
+<p>先唾骂两句清澈又愚蠢的还在<code>show options</code>的自己。</p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>写完之后感觉找到了自己博客的定位，希望用人能听懂的话和傻瓜式的操作来讲述一些思路，每次看大牛的文章都会头晕目眩，绝大多数时候根本看不懂，尤其是成页的java源码，然后直接一个exp一个弹计算器截图扔脸上，复现都不知道咋复现。这不得大眼瞪小眼。</p>
+<p>以后遇到什么会补充。</p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "8db4b4a89548994388e9",
+        clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
+        repo: "linyuqi9.github.io",
+        owner: "linyuqi9",
+        admin: ["linyuqi9"],
+        id: "309e900c87dce6b9d98155fd8fe79985",
+        distractionFreeMode: true,
+        title: "使用MSF需要注意的点",
+        body: "https://www.ayanagi.fun/2023/12/25/MSF%E5%B0%8F%E6%8A%80%E5%B7%A7/",
+        labels: ["渗透"]
+    }).render('comments');
+    </script>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+            
+            <a id="pagenext" href="/2023/12/15/NSS%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" class="article-next" title="NSS刷题记录"><i class="icon-arrow-right"></i></a>
+            
+            
+        
+
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3f0e368eb1f22fb5a593be6193301ba9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle('normal', slideDone);
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp('normal', slideDone);
+            }, 3000);
+        }
+
+        function slideDone() {
+            if (nodes.navInner.css('display') !== 'none') {
+                nodes.navInner.css('display', '');
+            }
+        }
+
+        $(window).on('resize', function() {
+            if ($(this).width() > 960) {
+                nodes.navInner.css('display', '');
+            }
+        });
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
