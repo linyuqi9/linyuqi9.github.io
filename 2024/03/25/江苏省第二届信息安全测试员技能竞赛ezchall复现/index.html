@@ -203,7 +203,7 @@
 <p><code>loadClass-&gt;getMethod-&gt;invoke-&gt;exec</code></p>
 <p>首先最里的一层是<code>getClassLoader(getClass(constantly(1)))</code>，先调用getclass获取函数的类，然后获取它的类加载器。这里按照正常的java语言是不可以这样的，因为getclassloder不接受任何参数，是要用<code>constantly(1).getClass().getClassLoder()</code>才能用的，由于as的特性，才能得以实现。</p>
 <p>接着，继续利用该特性：<code>method(object, args)</code>来调用。</p>
-<p>往外走，来到<code>loadClass()</code>这一层，第一个object的位置是一个classloder，需要用它来加载<code>&#39;java.lang.Runtime&#39;</code>，因此有了<code>loadClass(getClassLoader(getClass(constantly(1))),&#39;java.lang.Runtime&#39;)</code></p>
+<p>往外走，来到<code>loadClass()</code>这一层，第一个object的位置是一个classloader，需要用它来加载<code>&#39;java.lang.Runtime&#39;</code>，因此有了<code>loadClass(getClassLoader(getClass(constantly(1))),&#39;java.lang.Runtime&#39;)</code></p>
 <p>而我们看一下loadclass()的原版实现就不难理解了：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ClassLoader().loadClass(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br></pre></td></tr></table></figure>
 
